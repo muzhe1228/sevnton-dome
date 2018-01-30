@@ -1,0 +1,159 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-size: 12px;
+}
+body{
+    font-size: 1em;
+}
+button,input,select{
+    outline: none;
+}
+ul>li{
+    list-style: none;
+}
+/*input————————file======================================*/
+.a-upload {
+    padding: 4px 10px;
+    height: 25px;
+    line-height: 25px;
+    position: relative;
+    cursor: pointer;
+    color: #3e6ffc;
+    background: white;
+    border: 1px solid #3e6ffc;
+    border-radius: 4px;
+    overflow: hidden;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1
+}
+
+.a-upload  input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer
+}
+
+.a-upload:hover {
+    color: white;
+    background: #44aaf6;
+    border-color: #44aaf6;
+    text-decoration: none
+}
+/*清除浮动代码*/
+.clearfloat{clear:both}
+.nums{
+    float: right;
+    width: 40px;
+    height: 24px;
+    background-color: #292e31;
+    text-align: center;
+    line-height: 24px;
+    margin-top: 10px;
+    border-radius: 24px;
+    color: white;
+}
+.Wrap_9610{
+    width: 1200px;
+    margin: 0 auto;
+}
+.Wrap_9610_title{
+    margin: 20px 0;
+    font-size: 1.5em;
+}
+#left_menu{
+    float: left;
+    background-color: #383d40;
+    width: 18%;
+    color: white;
+    font-size: 1.2em;
+}
+#left_menu>ul>li{
+    border-bottom: 1px solid rgba(0,0,0,0.8);
+    padding: 5% 10%;
+}
+#left_menu>ul>li>p{
+    cursor: pointer;
+    line-height: 3em;
+}
+#left_menu>ul>li>p:hover{
+    color: #3e6ffc;
+}
+#left_menu>ul>li>p:first-child{
+    font-size: .9em;
+    color: darkgrey;
+    cursor: pointer;
+}
+#left_menu>ul>li>p>i{
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+.active_color{
+    color: #3e6ffc;
+}
+
+#right_cont{
+    float: right;
+    width: 79%;
+    padding: 1.5%;
+    min-height: 557px;
+    background-color: white;
+}
+.wrap_9610_right_nav,.order_9610_right_nav{
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.wrap_9610_right_nav>b,.order_9610_right_nav>b{
+    color: #3e6ffc;
+    font-size: 1.1em;
+}
+
+/*------------------------------复选框样式-----------------------*/
+/* 用法 ---> <label><input type="checkbox" ng-model="checkpwd" ng-click="checkpwds()"><i>✓</i></label>*/
+label {
+    font-size:16px;
+    cursor:pointer;
+    margin: 0;
+}
+label i {
+    font-style:inherit;
+    font-weight: bolder;
+    display:inline-block;
+    width:22px;
+    height:22px;
+    text-align:center;
+    line-height:19px;
+    color:#fff;
+    vertical-align:middle;
+    margin-top:-3px;
+    border-radius: 3px;
+    background: white;
+    border:#d7d7d7 1px solid;
+}
+input[type="checkbox"]{
+    display:none;
+}
+input[type="checkbox"]:checked + i {
+    background:#44aaf6;
+    padding: 1px;
+}
+
+.comme_9610_nav{
+    border-bottom: 2px solid gainsboro;
+    margin-bottom: 20px;
+}
+
+.comme_9610_nav li{
+    float: left;
+    margin-right: 25px;
+    font-size: 18px;
+    padding: 0 10px 10px 10px;
+}

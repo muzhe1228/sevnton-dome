@@ -1,0 +1,58 @@
+<meta charset="UTF-8" data-ng-init="initPage()">
+<div class="my_Center_margin">
+    <ul class="comme_9610_nav clear-fix">
+        <li data-ng-click="ckNav('9610_all')" data-ng-class="selMenu('9610_all')" data-ui-sref="9610_orderlist">我的订单</li>
+        <li data-ng-click="ckNav('9610_all')" data-ng-class="selMenu('9610_all')" data-ui-sref="9610_batchexport">批量导入订单</li>
+        <li style="border-bottom: 2px solid #3e6ffc;margin-bottom: -2px;color: #3e6ffc"  data-ng-click="ckNav('9610_all')" data-ng-class="selMenu('9610_all')" data-ui-sref="9610_itemlist">商品信息管理</li>
+        <li data-ng-click="ckNav('9610_all')" data-ng-class="selMenu('9610_all')" data-ui-sref="9610_sendaddress">寄件地址设置</li>
+        <li data-ng-click="ckNav('9610_all')" data-ng-class="selMenu('9610_all')" data-ui-sref="9610_reciveaddress">收件地址设置</li>
+    </ul>
+    <div class="address_9610_right_title">
+        <p class="order_9610_right_nav address_9610_right_navfloat"><b>|</b>&nbsp;商品列表</p>
+        <div class="address_nav_btn">
+            <button data-ng-click="itemEdit('')"><b><i class="icon iconfont icon-jia"></i>新增商品</b></button>
+        </div>
+        <div class="clearfloat"></div>
+    </div>
+    <p style="border-top: 1px solid gainsboro;margin: 20px 0"></p>
+    <ul>
+        <li class="wrap_9610_right_title">
+            <p>商品标题</p>
+            <p>所属订单</p>
+            <!-- <p>申报英文品名</p> -->
+            <p>海关编码</p>
+            <p>商品价格(美元/件)</p>
+            <p>商品重量(千克)</p>
+            <!--  <p>原产地 </p>-->
+            <p>单位</p>
+            <p>操作</p>
+            <div class="clearfloat"></div>
+        </li>
+        <li class="wrap_9610_right_cont" data-ng-repeat="item in itemlist">
+            <p title="{{item.attrs.item_title}}">{{item.attrs.item_title}}</p>
+            <p title="{{item.attrs.item_title}}">{{item.attrs.order_no}}</p>
+            <!--  <p title="{{item.attrs.item_en_name}}">{{item.attrs.item_en_name}}</p>-->
+            <p title="{{item.attrs.item_code}}">{{item.attrs.item_code}}</p>
+            <p title="{{item.attrs.item_price}}">{{item.attrs.item_price}}</p>
+            <p title="{{item.attrs.item_weight}}">{{item.attrs.item_weight}}</p>
+            <!-- <p title="{{item.attrs.item_factory}}">{{item.attrs.item_factory}}</p> -->
+            <p title="{{item.attrs.item_unit_name}}">{{item.attrs.item_unit_name}}</p>
+            <p><span data-ng-click="itemEdit(item.attrs.id)">编辑</span>&nbsp;|&nbsp;<span
+                    data-ng-click="itemDel(item.attrs.id)">删除</span></p>
+            <div class="clearfloat"></div>
+        </li>
+        <li class="comme_9610_right_footer">
+            <p>
+                <span>共&nbsp;{{page.totalRow}}&nbsp;条记录</span>
+                <span data-ng-click="first()">首页</span>
+                <span data-ng-click="previous()">上一页</span>
+                <span>
+                <i class="icon iconfont icon-zuoyoujiantou1"></i>
+                <a style="text-decoration: underline;color: #3e6ffc">{{page.pageNumber}}</a>
+                <i class="icon iconfont icon-zuoyoujiantou2"></i></span>
+                <span data-ng-click="next()">下一页</span>
+            </p>
+            <div class="clearfloat"></div>
+        </li>
+    </ul>
+</div>

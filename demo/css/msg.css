@@ -1,0 +1,17 @@
+.msg_wrap {
+	padding: 30px;
+	min-height: 350px;
+}
+
+.msg_wrap .badge {
+	cursor: pointer;
+}
+.mes_slide,.msg_subtitle{
+	border-bottom: 1px solid #ddd;
+}
+.mes_slide p,.msg_subtitle p{
+	line-height: 35px;
+}
+.mes_layerwrap{
+	border: none;
+}

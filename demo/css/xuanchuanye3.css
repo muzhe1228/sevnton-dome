@@ -1,0 +1,119 @@
+.threeMain_wrap {
+    min-width: 1180px;
+}
+.wrap_cont {
+    background-image: url("../imgs/bg_wrap.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: auto;
+    /*border: 1px solid red;*/
+}
+
+.wrap_cont ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.threeMain_banner {
+    position: relative;
+}
+
+.threeMain_banner .banner_btn {
+    position: absolute;
+    width: 240px;
+    top: 62%;
+    left: 50%;
+    margin-left: -120px;
+}
+.seet_theme_wrap{
+    background-color: rgba(0,0,0,.1);
+}
+.seet_activity,
+.seet_guest,
+.seet_theme,
+.other_activity{
+    width: 1180px;
+    margin: 0 auto;
+    padding: 60px 0;
+}
+.seet_activity_title,
+.seet_guest_title,
+.seet_theme_title,
+.other_activity_title{
+    color: #725dec;
+}
+
+.seet_activity_title li:first-child,
+.seet_guest_title li:first-child,
+.seet_theme_title li:first-child,
+.other_activity_title li:first-child{
+    font-size: 20px;
+}
+
+.seet_activity_title li:nth-child(2),
+.seet_guest_title li:nth-child(2),
+.other_activity_title li:nth-child(2),
+.seet_theme_title li:nth-child(2) {
+    font-size: 25px;
+}
+
+.seet_activity_con li {
+    float: left;
+    width: 380px;
+    margin-left: 20px;
+}
+.other_activity_con li{
+    width: 550px;
+    float: left;
+    margin-left: 80px;
+}
+.yes_banner{
+    position: relative;
+    margin: auto;
+    height: 366px;
+    overflow: hidden;
+}
+.yes_banner1{
+    position: relative;
+    margin: auto;
+    height: 264px;
+    overflow: hidden;
+    width: 1180px;
+}
+.seet_guest_con,.seet_activity_con{
+    position: absolute;
+    left: 0;
+    top:0;
+    width: 9999px;
+}
+.seet_theme_con li,
+.seet_guest_con li{
+    width: 340px;
+    float: left;
+    margin-left: 80px;
+}
+.seet_guest_con li p{
+    margin-bottom: 0;
+    font-size: 15px;
+    line-height: 28px;
+}
+.seet_guest_con li p:nth-child(2){
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.seet_theme_con li:first-child,
+.seet_guest_con li:first-child,
+.seet_activity_con li:first-child,
+.other_activity_con li:first-child {
+    margin-left: 0;
+}
+
+.seet_activity_con li img,
+.other_activity_con li img,
+.seet_theme_con li img {
+    width: 100%;
+}
+.clearfloat {
+    clear: both
+}

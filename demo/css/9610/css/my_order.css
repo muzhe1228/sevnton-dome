@@ -1,0 +1,178 @@
+.order_9610_right_title{
+    height: 50px;
+    margin-bottom: 20px;
+}
+.order_9610_right_navfloat{
+    margin: 10px 0;
+    float: left;
+}
+.order_nav_btn{
+    float: right;
+}
+.order_nav_btn>button>i{
+    margin-right: 10px;
+}
+.chargeback_query_Builder{
+    margin-bottom: 20px;
+}
+.order_nav_btn>button:nth-child(1),
+.order_query_Builder>p:nth-child(6)>button,
+.chargeback_query_Builder>p:nth-child(4)>button,
+.footer_btn>button:nth-child(2),
+.order_nav_btn>button:nth-child(2),
+.order_query_Builder>p>button,
+.chargeback_query_Builder>p>button{
+    background-color: #f0f0f0;
+    border: 1px solid  #f0f0f0;
+    color: #333;
+    margin-right: 20px;
+}
+.order_nav_btn>button:nth-child(1):hover,
+.order_query_Builder>p:nth-child(6)>button:hover,
+.chargeback_query_Builder>p:nth-child(4)>button:hover,
+.footer_btn>button:nth-child(2):hover,
+.order_nav_btn>button:nth-child(2):hover,
+.order_query_Builder>p>button:hover,
+.chargeback_query_Builder>p>button:hover{
+    background-color: #3e6ffc;
+    border: 1px solid  #3e6ffc;
+    color: #fff;
+}
+.order_query_Builder>p,
+.chargeback_query_Builder>p{
+    float: left;
+    margin-right: 30px;
+    margin-top: 15px;
+    font-size: 1.2em;
+}
+.order_query_Builder>p:nth-child(2)>input,
+.order_query_Builder>p:nth-child(3)>input,
+.chargeback_query_Builder>p>input{
+    width: 150px;
+}
+.order_query_Builder>p:nth-child(4)>select{
+    margin-right: 20px;
+}
+.order_query_Builder>p:nth-child(4)>input{
+    width: 105px;
+    cursor: pointer;
+}
+.order_query_Builder>p:nth-child(6)>button{
+    margin-right: 0;
+}
+.order_query_Builder>p:nth-child(6)>a{
+    text-decoration: underline;
+    color: #195e94;
+}
+.order_query_Builder>p>input,
+.order_query_Builder>p>button,
+.chargeback_query_Builder>p>input,
+.chargeback_query_Builder>p>button{
+    height: 35px;
+    border-radius: 3px;
+    padding-left: 5px;
+    border: 1px solid gainsboro;
+}
+.order_query_Builder>p>select,
+.chargeback_query_Builder>p>select{
+    height: 35px;
+    border-radius: 3px;
+    padding-left: 5px;
+    border: 1px solid gainsboro;
+}
+.order_query_Builder>p>button,
+.chargeback_query_Builder>p>button{
+    padding: 0 15px;
+    margin-right: 0;
+}
+.order_query_Builder>p>select,
+.chargeback_query_Builder>p>select{
+    min-width: 80px;
+}
+.order_9610_right_subnav{
+    border-bottom: 1px solid gainsboro;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+.order_9610_right_subnav>li{
+    float: left;
+    width: 10%;
+    margin-right: 2.5%;
+    font-size: 1.2em;
+    text-align: center;
+    padding-bottom: 10px;
+    cursor: pointer;
+}
+.order_9610_right_subnav>li:hover{
+    border-bottom: 2px solid #3e6ffc;
+}
+.active_orderborder{
+    border-bottom: 2px solid #3e6ffc;
+}
+.order_9610_right_subtitle>p,
+.chargeback_9610_right_subtitle>p,
+.chargeback_9610_right_cont>p,
+.order_9610_right_cont>p{
+    float: left;
+    width: 11%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+}
+.order_9610_right_subtitle,
+.chargeback_9610_right_subtitle{
+    background-color: #999;
+    height: 50px;
+    color: white;
+    font-weight: bold;
+}
+.order_9610_right_subtitle>p:nth-child(1),
+.order_9610_right_cont>p:nth-child(1),
+.order_9610_right_cont>p:nth-child(6),
+.order_9610_right_subtitle>p:nth-child(6),
+.chargeback_9610_right_cont>p:nth-child(1),
+.chargeback_9610_right_subtitle>p:nth-child(1),
+.chargeback_9610_right_subtitle>p:nth-child(6),
+.chargeback_9610_right_cont>p:nth-child(6){
+    width: 22%;
+}
+.order_9610_right_cont,
+.chargeback_9610_right_cont{
+    border: 1px solid gainsboro;
+    border-top: none;
+}
+.order_9610_right_cont>p:nth-child(7)>span,
+.chargeback_9610_right_cont>p:nth-child(7)>span{
+    color: #046eba;
+}
+.comme_9610_right_footer{
+    background-color: #ebebeb;
+    height: 40px;
+    line-height: 40px;
+    font-size: 1.5em;
+}
+.comme_9610_right_footer>p{
+    float: right;
+    color: darkgrey;
+    cursor: pointer;
+}
+.comme_9610_right_footer>p>span{
+    margin-right: 15px;
+}
+
+
+
+
+.footer_btn>button,.order_nav_btn>button{
+    height: 35px;
+    padding: 0 20px;
+    margin-top: 10px;
+    border-radius: 3px;
+    font-size: 1.2em;
+}
+.footer_btn>button:nth-child(1){
+    background-color: white;
+    border: 1px solid  #3e6ffc;
+    color: #3e6ffc;
+    margin-right: 20px;
+}

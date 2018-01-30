@@ -1,0 +1,299 @@
+.my_Centertitle{
+    background-color: #efefef;
+    height: 80px;
+    text-align: center;
+    line-height: 80px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.my_Centertitle>div{
+    padding: 0 !important;
+}
+.my_Center_left_menu{
+    background-color: #7596ae;
+    padding: 0;
+    padding-bottom: 120px;
+}
+.head_Pic,.my_Center_left_menu ul li{
+    padding: 5px;
+}
+.head_Pic>img{
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+}
+.head_Pic>p{
+    color: white;
+    padding-top: 8px;
+    font-weight: 600;
+}
+.my_Center_menuCont{
+    margin-top: 20px;
+}
+.my_Center_menuCont>li{
+    border: none;
+    background-color: #7596ae;
+    text-align: center;
+    color: white;
+    line-height: 1.8em;
+    font-size: 1.4em;
+    font-weight: bold;
+    cursor: pointer;
+}
+.my_Center_menuCont>li:hover{
+    background-color: #91abbe;
+    border-left: 3px solid #f48b36;
+}
+.all_serviceMes{
+    padding-left: 20px !important;
+    padding-right: 0 !important;
+}
+.all_serviceMes>.tab-pane {
+    background-color: #FFF;
+    -webkit-box-shadow: gainsboro 0px 0px 15px;
+    -moz-box-shadow: gainsboro 0px 0px 15px;
+    box-shadow: gainsboro 0px 0px 15px;
+    padding: 10px 0 !important;
+    overflow: hidden;
+    min-height: 476px;
+}
+.my_Centersup{
+    text-align: right;
+}
+.my_Center_submit{
+    border: 1px solid #7596ae;
+    color: #7596ae;
+    margin-top: 20px;
+}
+.my_Center_menuCont>.active{
+    border-left: 3px solid #f48b36!important;
+    background-color: #91abbe!important;
+}
+/*-----------------------全部边距--------------------------*/
+.my_Center_margin{
+    margin: 20px 40px;
+    overflow: hidden;
+}
+/*--------------------------自主报关-------------------------------*/
+.ZDBG_nav{
+    text-align: center;
+    margin-bottom: 40px;
+    overflow: hidden;
+}
+.ZDBG_nav>li{
+    width: 24%;
+    height: 25px;
+    margin-left: 1%;
+    text-align: center;
+    background-color: #efefef;
+    float: left;
+    line-height: 25px;
+    color: #efefef;
+}
+.ZDBG_navLi{
+    border-radius: 5px;
+    color: black !important;
+    font-weight: bold;
+    background-color: #f48b36 !important;
+}
+.ZDBG_sup{
+    color: red;
+    font-weight: 100;
+    margin-left: 5px;
+}
+/*--------------------------代运营服务-------------------------------*/
+.my_operate_title{
+    font-size: 1.6em;
+    color: #7596ae;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.operate_sect{
+    margin-bottom: 15px;
+}
+.my_operate_title>p:first-child{
+    text-align: left;
+}
+.operate_title{
+    border: 1px solid gainsboro;
+    overflow: hidden;
+    height: 50px;
+    line-height: 50px;
+    background-color: #fafafa;
+    font-size: 1.4em;
+}
+.operate_title_msg>span:nth-child(2){
+    margin: 0 20px 0 10px;
+}
+.operate_goods{
+    height: 150px;
+    font-size: 1.3em;
+    border: 1px solid gainsboro;
+    border-top: none;
+}
+.operate_goods>p{
+    padding: 15px 0;
+    border-right: 1px solid gainsboro;
+    text-align: center;
+    height: 150px;
+}
+.operate_goods>p:last-child{
+    border-right: none;
+}
+.operate_goods>p:first-child{
+    text-align: left;
+    padding-left: 15px;
+}
+.operate_goods_img{
+    width: 30%;
+    height: 120px;
+}
+.operate_goods_center{
+    line-height: 120px;
+    color: #7596ae;
+}
+.operate_goods_btn{
+    width: 96%;
+    background-color: #7596ae;
+    color: white;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+.teams_contact{
+    text-decoration: underline;
+    font-weight: 600;
+    color: #7596ae;
+}
+.none6001{
+    display: none;
+    width: 100%;
+    margin-top: 5px;
+    height: 25px;
+    background-color: #7596ae;
+    border-radius: 3px;
+    color: white;
+}
+.media_layer1{
+    text-align: center;
+}
+/*--------------------------常见问题-------------------------------*/
+.com_req_cont{
+}
+.com_req_contUl{
+    margin-bottom: 20px;
+}
+.com_req_contUl>li{
+    font-size: 1.2em;
+    line-height: 2em;
+    color: darkgrey;
+}
+.com_req_contUl>li:first-child{
+    font-weight: bold;
+    font-size: 1.6em;
+    color: black;
+}
+.com_req_contUl>li>a{
+    color: darkgrey;
+    font-size: 1.2em;
+    line-height: 2em;
+}
+.com_req_btn{
+    margin-top: 20px;
+    background-color: #7596ae;
+    color: white;
+}
+/*--------------------------金融服务-------------------------------*/
+.my_Center_fincal{
+    text-align: center;
+}
+.fincal_btn{
+    margin-top: 40px;
+    background-color: #7596ae;
+    color: white;
+    width: 150px;
+}
+.fincal_btn:hover{
+    color: #f48b36;
+}
+/*----------------------------运价查询-------------------------------------*/
+.child_subtab{
+    margin-bottom: 0;
+    background-color: #ebebeb;
+    height: 50px;
+    padding: 0 30px;
+    font-size: 1.1em;
+}
+.child_subtab>li{
+    float: left;
+    margin-right: 5%;
+    padding: 2px 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-size: 1.4em;
+}
+.child_fastletter,.my_Center_form0,.my_ZDBG_form0{
+    padding: 0px;
+}
+.child_fastletter{
+    margin-bottom: 18px;
+}
+.child_fastletter>.input-group>.input-group-addon{
+    width: 30%;
+}
+.child_fastletter>.input-group>.form-control{
+    height: 40px;
+}
+.child_fastletter_submit{
+    background-color: #7596ae;
+    color: white;
+    margin-bottom: 200px;
+}
+.inquireEmal_btn{
+    border: 1px solid #7596ae;
+    color: #7596ae;
+    height: 40px;
+    width: 100px;
+    border-radius: 5px;
+    font-size: 1.5em;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+}
+.inquireEmal_btn:hover{
+    background-color: #eee;
+}
+.inquireEmal_btn1{
+    border: none;
+    line-height: 20px;
+    color: #7596ae;
+    height: 0;
+    text-decoration: underline;
+    outline: none;
+    cursor: pointer;
+}
+.inquireEmal_btn1:hover{
+    color: darkred;
+}
+/*----------------------工具-------------------------*/
+.subtool_tab,.com_req_tab,.suborder_tab{
+    border-bottom: 1px solid gainsboro;
+    margin-bottom: 18px;
+}
+.subtool_tab>li,.com_req_tab>li,.suborder_tab>li{
+    float: left;
+    margin-right: 4%;
+    padding: 8px 10px;
+    cursor: pointer;
+    font-size: 1.6em;
+}
+.hengxian{
+    border-bottom: 2px solid #f48b36;
+    color: #f48b36;
+    font-weight: bold;
+}
+.subtool_tab>li:hover,.suborder_tab>li:hover,.child_subtab>li:hover,.com_req_tab>li:hover{
+    border-bottom: 2px solid #f48b36;
+    color: #f48b36;
+    font-weight: bold;
+}

@@ -1,0 +1,326 @@
+/*------------------------------复选框样式-----------------------*/
+/* 用法 ---> <label><input type="checkbox" ng-model="checkpwd" ng-click="checkpwds()"><i>✓</i></label>*/
+label {
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0;
+}
+
+label i {
+    font-style: inherit;
+    font-weight: bolder;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 22px;
+    color: #fff;
+    vertical-align: middle;
+    margin-top: -3px;
+    border-radius: 3px;
+    background: white;
+    border: #d7d7d7 1px solid;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"]:checked + i {
+    background: #44aaf6;
+    padding: 1px;
+}
+
+/*------------------------------字体显示两行-----------------------*/
+.font_Omit {
+    width: 100%;
+    position: relative;
+    line-height: 2em;
+    overflow: hidden;
+}
+
+.font_Omit:after {
+    content: "...";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: #FFF;
+    padding-left: 0.2em;
+}
+
+/*@media (max-width: 1001px) {*/
+    /*.nav_tit li a {*/
+        /*font-size: 1em;*/
+    /*}*/
+
+    /*#nav_logo {*/
+        /*width: 120px;*/
+        /*height: 30px;*/
+    /*}*/
+/*}*/
+/*--------------------输入框的左侧------------------*/
+.left_inp{
+    text-align: right;
+}
+.left_inp>label{
+    padding-right: 10px;
+    line-height: 34px;
+}
+@media (max-width: 990px) {
+    .navright_con, .operate_title, .operate_goods {
+        font-size: 1em;
+    }
+
+    .nav_size1 {
+        font-size: 1.3em;
+        line-height: 50px;
+    }
+    .WM_bg{
+        display: none;
+    }
+}
+
+/*--------------sm 宽度----------------------*/
+@media (max-width: 760px) {
+    .left_inp {
+        text-align: left;
+    }
+
+    .login>.carousel>img,.login {
+        height: 200px;
+    }
+    .foot_Saoma>ul>li{
+        width: 100%;
+    }
+    .foot_lasli,.foot_Saoma{
+        margin-top: 20px;
+    }
+    .foot_Saoma>ul>li:nth-child(2){
+        margin-top: 10px;
+    }
+    .foot_Saoma>ul>li:last-child{
+        margin-top: 20px;
+    }
+    .foot_licont>li,.foot_licont>li>ul>li{
+        text-align: center !important;;
+    }
+    .nav_tit {
+        text-align: left !important;
+    }
+
+    .hid_btn {
+        position: absolute;
+        right: 15px;
+    }
+
+    .nav_tit li > a {
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+
+    .foot_list {
+        text-align: center;
+    }
+
+    .foot_list > p {
+        padding: 15px;
+        font-size: 2em;
+        margin-bottom: 0;
+        line-height: 0;
+    }
+
+    .foot_sublist > li {
+        font-size: 1.5em;
+    }
+
+    .foot_title {
+        margin-top: 0;
+        font-size: 2em;
+    }
+
+    .my_Center_left_menu {
+        padding: 5px;
+        padding: 0;
+    }
+
+    .my_Center_left_menu > ul > li {
+        font-size: 1em;
+        height: 3em;
+        border-radius: 3px;
+        padding: 5px;
+        line-height: 2em;
+        color: white;
+    }
+
+    .my_Center_menuCont > .active, .my_Center_menuCont > li:hover {
+        background-color: #91abbe !important;
+        color: gold !important;
+        border: 0px solid #f48b36 !important;
+    }
+
+    .all_serviceMes {
+        margin-top: 10px;
+        padding: 10px 0 !important;
+        background-color: #FFF;
+        -webkit-box-shadow: gainsboro 0px 0px 15px;
+        -moz-box-shadow: gainsboro 0px 0px 15px;
+        box-shadow: gainsboro 0px 0px 15px;
+    }
+
+    .all_serviceMes > .tab-pane {
+        padding: 0 !important;
+        background-color: transparent;
+        -webkit-box-shadow: gainsboro 0px 0px 0px;
+        -moz-box-shadow: gainsboro 0px 0px 0px;
+        box-shadow: gainsboro 0px 0px 0px;
+    }
+
+    .subtool_tab > li, .com_req_tab > li, .suborder_tab > li {
+        margin-right: 0;
+        font-size: 1.1em;
+    }
+
+    .child_subtab > li, .com_req_contUl > li, .com_req_contUl > li a {
+        font-size: 1em;
+    }
+
+    .com_req_contUl > li:first-child {
+        font-size: 1.1em;
+    }
+
+    .my_Center_margin {
+        margin: 15px;
+    }
+
+    .ZDBG_top {
+        margin-top: 15px;
+    }
+
+    .my_Centertitle {
+        height: 80px;
+        line-height: 24px;
+    }
+
+    .my_Centertitle > div {
+        font-size: 1em;
+        margin-top: 16px;
+    }
+
+    .my_Centertitle > div > i {
+        font-size: 2em;
+    }
+
+    .main_module_img {
+        width: 60px;
+        height: 60px;
+        background-size: 100% 60px;
+    }
+
+    .main_module_title {
+        font-size: 1.2em;
+    }
+
+    .main_module_size {
+        font-size: 1em;
+    }
+    .login_Btn{
+        text-align: center;
+    }
+}
+
+/*!*-----------------------------------600 宽度 特定--------------------------*!*/
+/*@media (max-width: 600px) {*/
+    /*.operate_goods_img {*/
+        /*width: 100%;*/
+        /*text-align: center;*/
+        /*height: 90px;*/
+    /*}*/
+
+    /*.operate_goods > p, .operate_title > p {*/
+        /*width: 25%;*/
+    /*}*/
+
+    /*.operate_goods > p:first-child {*/
+        /*width: 40%;*/
+        /*padding: 15px;*/
+    /*}*/
+
+    /*.operate_title > p:first-child {*/
+        /*width: 40%;*/
+    /*}*/
+
+    /*.operate_goods > p:last-child, .operate_title > p:last-child {*/
+        /*width: 35%;*/
+        /*text-align: center;*/
+    /*}*/
+
+    /*.none600 {*/
+        /*display: none;*/
+    /*}*/
+
+    /*.none6001 {*/
+        /*display: block;*/
+    /*}*/
+/*}*/
+
+/*-----------------------------------xs 宽度--------------------------*/
+@media (max-width: 380px) {
+    .media_boot1 {
+        width: 100%;
+        text-align: left;
+    }
+
+    .navbar-toggle {
+        padding: 6px;
+        margin-top: 11px;
+    }
+
+    #nav_logo {
+        width: 88px !important;
+    }
+
+    .nav_size1 {
+        font-size: 1em;
+    }
+
+    .nav_size1 {
+        line-height: 50px;
+    }
+
+    .operate_goods_btn {
+        font-size: 1em;
+    }
+}
+
+/*轮播按钮*/
+.YOU, .ZUO {
+    font-size: 40px !important;
+}
+
+.carousel-control {
+    top: 50%;
+    margin-top: -30px;
+    width: 5em;
+    height: 60px;
+    line-height: 60px;
+    background: transparent !important;
+    cursor: pointer;
+}
+
+/*代运营，，，基础服务，，，，金融服务，，公用部分*/
+.main_Content {
+    height: 500px;
+    background-color: pink;
+}
+
+.main_Content > h1 {
+    font-size: 4em;
+    font-family: 华文行楷;
+    line-height: 500px;
+    text-align: center;
+    color: gold;
+}
+
+.clearfloat {
+    clear: both
+}

@@ -1,0 +1,32 @@
+/*------------------------------------答案------------------------------------------*/
+.WM_daAnLeft1_con{
+    padding-bottom: 20px;
+}
+.textarea_con textarea{
+    min-height: 120px;
+}
+.TW_title{
+    color: #8da8c0;
+    line-height: 40px;
+    margin: 20px 0;
+}
+.inp_are:focus {
+    outline:none;
+    border: 1px solid #4cadff;
+}
+.inp_are{
+    padding: 10px;
+}
+.textarea_xianzhi{
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+}
+.TW_submit{
+    width: 100px;
+    height: 40px;
+    border: 1px solid #4cadff;
+    background-color: #4cadff;
+    color: white;
+    font-weight: bold;
+}

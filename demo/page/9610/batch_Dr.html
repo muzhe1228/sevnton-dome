@@ -1,0 +1,60 @@
+<meta charset="UTF-8" data-ng-init="initPage()">
+<div class="my_Center_margin">
+    <ul class="comme_9610_nav clear-fix">
+        <li data-ng-click="ckNav('9610_all')" data-ng-class="selMenu('9610_all')" data-ui-sref="9610_orderlist">我的订单</li>
+        <li style="border-bottom: 2px solid #3e6ffc;margin-bottom: -2px;color: #3e6ffc"  data-ng-click="ckNav('9610_all')" data-ng-class="selMenu('9610_all')" data-ui-sref="9610_batchexport">批量导入订单</li>
+        <li data-ng-click="ckNav('9610_all')" data-ng-class="selMenu('9610_all')" data-ui-sref="9610_itemlist">商品信息管理</li>
+        <li data-ng-click="ckNav('9610_all')" data-ng-class="selMenu('9610_all')" data-ui-sref="9610_sendaddress">寄件地址设置</li>
+        <li data-ng-click="ckNav('9610_all')" data-ng-class="selMenu('9610_all')" data-ui-sref="9610_reciveaddress">收件地址设置</li>
+    </ul>
+<div class="address_9610_right_title">
+    <p class="order_9610_right_nav address_9610_right_navfloat"><b>|</b>&nbsp;批量导入订单</p>
+    <div class="clearfloat"></div>
+</div>
+<p style="border-top: 1px solid gainsboro"></p>
+<form id="myform" method="post" action="" class="batch_Dr" enctype="multipart/form-data">
+    <ul>
+        <li>
+            <p>导入数据&nbsp;:</p>
+			<label data-ng-model = "exportop.fileName" id="fileNameID"></label>
+            <p>
+                <input type="file" name="file" lay-ext="xls|xlsx" lay-type="file" class="layui-upload-file">
+            </p>
+        </li>
+       <!--  <li>
+            <p>物流商&nbsp;:</p>
+            <p>
+                <select data-ng-model="exportop.supplierID">
+                    <option value="">请选择</option>
+                    <option data-ng-repeat = "logisticsSupplier in logisticsSupplierList"  value="{{logisticsSupplier.attrs.id}}">{{logisticsSupplier.attrs.supplier_name}}</option>
+                </select>
+            </p>
+        </li>
+        <li>
+            <p>物流产品&nbsp;:</p>
+            <p>
+                <select data-ng-model="exportop.productID">
+                    <option value="">请选择</option>
+                    <option data-ng-repeat = "logisticsProduct in logisticsProductList"  value="{{logisticsProduct.attrs.id}}">{{logisticsProduct.attrs.product_name}}</option>
+                </select>
+            </p>
+        </li>
+        <li>
+            <p>集货仓库&nbsp;:</p>
+            <p>
+                <select data-ng-model="exportop.inventoryID">
+                   <option value="">请选择</option>
+                   <option data-ng-repeat = "logisticsInventory in logisticsInventoryList"  value="{{logisticsInventory.attrs.id}}">{{logisticsInventory.attrs.inventory_name}}</option>
+                </select>
+            </p>
+        </li> -->
+    </ul>
+    <div class="batch_Dr_submit">
+        <input type="button" data-ng-click="orderExport()" value="提交"/>
+        <p class="batch_Dr_downlond"><span><i class="icon iconfont icon-ordinarydownload"></i>下载订单模板</span></p>
+    </div>
+</form>
+<div class="batch_Dr_wenxin_msg">
+    <p><i class="icon iconfont icon-wenxintishi"></i>&nbsp;&nbsp;温馨提示&nbsp;:&nbsp;批量导入文件只支持xls的Excel文件。</p>
+</div>
+</div>

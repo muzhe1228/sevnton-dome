@@ -1,0 +1,64 @@
+<meta charset="UTF-8" data-ng-init="initPage()">
+<div class="my_Center_margin">
+    <ul>
+        <li data-ng-click="ckNav('9610_all')" data-ng-class="selMenu('9610_all')" data-ui-sref="9610_orderlist">我的订单</li>
+        <li data-ng-click="ckNav('9610_all')" data-ng-class="selMenu('9610_all')" data-ui-sref="9610_batchexport">批量导入订单</li>
+        <li data-ng-click="ckNav('9610_all')" data-ng-class="selMenu('9610_all')" data-ui-sref="9610_itemlist">商品信息管理</li>
+        <li data-ng-click="ckNav('9610_all')" data-ng-class="selMenu('9610_all')" data-ui-sref="9610_sendaddress">寄件地址设置</li>
+        <li data-ng-click="ckNav('9610_all')" data-ng-class="selMenu('9610_all')" data-ui-sref="9610_reciveaddress">收件地址设置</li>
+    </ul>
+    <p class="wrap_9610_right_nav" data-ng-if="edit=='1'"><b>|</b>&nbsp;编辑商品信息</p>
+    <p class="wrap_9610_right_nav" data-ng-if="edit=='0'"><b>|</b>&nbsp;新增商品信息</p>
+    <form id="xiugai_SP" method="post" action="" class="pwd_alert jijianren">
+        <input type="hidden" data-ng-model="b2cItemMsg.attrs.id" placeholder=""/>
+        <ul>
+            <li>
+                <p><span class="user_sup">*</span>商品标题&nbsp;:</p>
+                <p>
+                    <input type="text" check="required" data-ng-model="b2cItemMsg.attrs.item_title"
+                           placeholder="请输入商品标题"/>
+                </p>
+            </li>
+            <li>
+                <p><span class="user_sup">*</span>申报中文名品&nbsp;:</p>
+                <p>
+                    <input type="text" check="required" data-ng-model="b2cItemMsg.attrs.item_cn_name"
+                           placeholder="请输入申报中文名品">
+                </p>
+            </li>
+            <li>
+                <p><span class="user_sup">*</span>申报英文品名&nbsp;:</p>
+                <p><input type="text" check="required" data-ng-model="b2cItemMsg.attrs.item_en_name"
+                          placeholder="请输入申报英文品名"></p>
+            </li>
+            <li>
+                <p><span class="user_sup">*</span>海关编码&nbsp;:</p>
+                <p><input type="text" check="required" data-ng-model="b2cItemMsg.attrs.item_code" placeholder="请输入海关编码">
+                    <a style="color: #44aaf6" target="_blank" href="http://www.hscode.net/IntegrateQueries/QueryYS/">海关编码查询</a>
+                </p>
+            </li>
+            <li>
+                <p>商品单价&nbsp;:</p>
+                <p><input type="text" check="double" data-ng-model="b2cItemMsg.attrs.item_price" placeholder="请输入商品单价">美元/件
+                </p>
+            </li>
+            <li>
+                <p>商品重量&nbsp;:</p>
+                <p><input type="text" check="double" data-ng-model="b2cItemMsg.attrs.item_weight" placeholder="请输入商品重量">千克
+                </p>
+            </li>
+            <li>
+                <p>原产地&nbsp;:</p>
+                <p><input type="text" data-ng-model="b2cItemMsg.attrs.item_factory" placeholder="请输入商品原产地"></p>
+            </li>
+            <li>
+                <p>单位&nbsp;:</p>
+                <p><input type="text" data-ng-model="b2cItemMsg.attrs.item_unit" placeholder="请输入商品单位"></p>
+            </li>
+        </ul>
+        <div class="jijianren_submit">
+            <input type="submit" data-ng-if="edit=='1'" data-ng-click="updateItem()" value="修改"/>
+            <input type="submit" data-ng-if="edit=='0'" data-ng-click="saveItem()" value="新增"/>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,199 @@
+<#macro header pageId="index" crlId="IndexCtl" pageNm="首页">
+<!DOCTYPE html>
+<html lang="zh-cn" data-ng-app="myApp">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Pragma" content="no-cache">
+<meta name="keywords" content="浙江出口，浙江外贸，代理出口，外贸服务，跨境贸易综合服务，通关报关，外贸B2B"/>
+<meta name="description" content="圣云通是跨境贸易供应链综合服务，为中小外贸企业提供通关、商检、物流、结汇、退税、金融、法务、代运营、在线课堂等所有跨境贸易所需的各环节服务">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>圣云通跨境贸易综合服务平台-${pageNm}</title>
+<!-- <link rel="stylesheet" href="vender/pintuer/pintuer.css">-->
+<link rel="stylesheet" href="vender/layer/skin/pintuer/style.css"> 
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/cmn.css">
+<link rel="stylesheet" href="css/${pageId}.css">
+<link type="image/x-icon" href="img/favicon.ico" rel="shortcut icon" />
+<link href="img/favicon.ico" rel="bookmark icon" />
+<script src="vender/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="css/bootstrap.min.js" charset="utf-8"></script>
+<script src="vender/pintuer/pintuer.js"></script>
+<script src="vender/angular/angular.min.js"></script>
+<script src="vender/layer/layer.js"></script>
+<script src="js/cmn.js"></script>
+<script src="js/${pageId}.js"></script>
+<script src="vender/respond/dest/respond.min.js"></script>
+<style>
+.sup {
+    color: red;
+}
+
+.btnActv {
+    background-color: rgb(1, 77, 137) !important;
+    color: white !important;
+}
+
+.personal {
+    display: none;
+}
+
+.form-group {
+    overflow: hidden;
+}
+
+.subtitle {
+    text-align: right;
+}
+</style>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?8fa4d505f74b6165c654f9c37a0621fd";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body data-ng-controller="${crlId}" data-ng-init="init()">
+ 	<div class="" style="background-color: white;border-bottom: 1px solid gainsboro">
+    <div class="container main_nav">
+        <div class="nav">
+            <div class="pull-right nav_size">
+              <span>圣云通欢迎您，&nbsp;${name}&nbsp;</span>
+                 <#if !identity??>
+                <a href="register"><span class="regsiter_btn">注册</span></a></#if>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid container-fluidHr"></div>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" id="nav_logo" href="./">
+                    <img src="img/index/logo.png" alt="圣云通-跨境贸易综合外贸服务平台">
+                </a>
+                <span class="nav_size1 pull-left">&nbsp;|&nbsp;跨境贸易综合服务平台</span>
+            </div>
+            <div class="collapse navbar-collapse navright_con" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="./">首页</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">基础服务 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="introd?sel=basic">基础服务介绍</a></li>
+                            <li><a href="javascript:void(0);" data-ng-click="usercenter('basic_apply')">在线下单</a></li>
+							<li><a href="javascript:void(0);" data-ng-click="usercenter('basic_list')">订单跟踪</a></li>
+                       		<li><a href="cartage">物流查询</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">代运营 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                             <li><a href="introd?sel=agent">代运营介绍</a></li>
+		                     <li><a href="javascript:void(0);" data-ng-click="usercenter('agent_apply')">申请服务</a></li>
+							 <li><a href="javascript:void(0);" data-ng-click="usercenter('agent_list')">状况查询</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">互动社交 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="dis">论坛</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">圣云学院 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="usercenter#/college_video">视频广场</a></li>
+							<li><a href="usercenter#/college_faq">常见问题</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="introd?sel=finance">金融服务</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+	</#macro><#macro footer>
+	<div class="doc-backtop win-backtop icon-arrow-circle-up"></div>
+	<footer>
+    <div class="container footer_cont">
+        <div class="row foot_listCont">
+            <div class="col-sm-2 col-xs-12 foot_list">
+                <p><b>工具</b></p>
+                <ul class="list-group foot_sublist">
+                	<#if tool?? && tool?size gt 0><#list tool as row>
+					<li class="list-group-item"><a href="${row.url!''}">${row.name!''}</a></li></#list></#if>
+                </ul>
+            </div>
+            <div class="col-sm-2 col-xs-12 foot_list">
+                <p><b>关于圣云通</b></p>
+                <ul class="list-group foot_sublist">
+                	<#if about?? && about?size gt 0><#list about as row>
+                    <li class="list-group-item"><a href="${row.url!''}">${row.name!''}</a></li></#list></#if>
+                </ul>
+            </div>
+            <div class="col-sm-2 col-xs-12 foot_list">
+                <p><b>帮助指南</b></p>
+                <ul class="list-group foot_sublist">
+                   	<#if help?? && help?size gt 0><#list help as row>
+					<li class="list-group-item"><a href="${row.url!''}">${row.name!''}</a></li></#list></#if>
+                </ul>
+            </div>
+            <div class="col-sm-2 col-xs-12 foot_list">
+                <p><b>微信公众号</b></p>
+                <ul class="list-group foot_sublist">
+                    <li><img src="${weixin_qr!}" width="100"></li>
+                </ul>
+            </div>
+           <div class="col-sm-2 col-xs-12 foot_list">
+                <p><b>安卓&nbsp;APP</b></p>
+                <ul class="list-group foot_sublist">
+                   <li><img src="${android_qr!}" width="100"></li>
+                </ul>
+            </div>
+             <div class="col-sm-2 col-xs-12 foot_list">
+                <p><b>苹果&nbsp;APP</b></p>
+                <ul class="list-group foot_sublist">
+                   <li><img src="${apple_qr!}" width="100"/></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <div>
+            	<p>
+	            	<a href = "https://gs.amazon.cn/?ld=ASCNAGSFooter" target="_blank">亚马逊全球开店</a>&nbsp;&nbsp;&nbsp;
+	            	<a href = "https://www.wish.com/" target="_blank">Wish</a>&nbsp;&nbsp;&nbsp;
+	            	<a href = "http://www.lazada.com.my/" target="_blank">Lazada</a>&nbsp;&nbsp;&nbsp;
+					<a href = "http://www.ebay.com/" target="_blank">Ebay</a>&nbsp;&nbsp;&nbsp;
+					<a href = "http://www.customs.gov.cn/tabid/49564/Default.aspx" target="_blank">中华人民共和国海关总署</a>&nbsp;&nbsp;&nbsp;
+					<a href = "http://www.china-hzgec.gov.cn/" target="_blank">中国（杭州）跨境电商综合试验区</a>&nbsp;&nbsp;&nbsp;
+					<a href = "http://www.800best.com/" target="_blank">百世汇通</a>&nbsp;&nbsp;&nbsp;
+					<a href = "http://gsj.zj.gov.cn/" target="_blank">浙江省工商行政管理局</a>&nbsp;&nbsp;&nbsp;
+                </p>
+	           <p><span class="col-xs-12">地址:${serviceAddr!''}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;全国服务热线: <b>${hotlineTel!''}</b></span></p>
+                <p><b style="font-size: 0.6em">浙江圣云通网络科技有限公司&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;版权所有&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;浙ICP备16031352号</b></p>
+            </div>
+        </div>
+    </div>
+</footer>
+	
+</body>
+</html>
+</#macro>

@@ -1,0 +1,127 @@
+<#include "/include/cmn.html" encoding="UTF-8"><@header pageId="usercenter" crlId="UsercenterCtl"
+    pageNm="用户中心">
+</@header>
+<meta charset="UTF-8">
+<meta name="keywords" content="外贸服务，外贸代理，进出口代理，跨境贸易服务平台，浙江出口，浙江外贸，代理出口，外贸服务，跨境贸易综合服务，通关报关，外贸B2B"/>
+ <meta name="description" content="圣云通是跨境贸易供应链综合服务平台，主要从事外贸代理、进出口代理等外贸服务.为中小外贸企业提供通关、商检、物流、金融、代运营等一站式服务.">
+ <title>圣云通-用户中心</title>
+<script src="vender/angular/angular-ui-router.min.js"></script>
+<link rel="stylesheet" href="vender/layui/css/layui.css">
+<link href="//nos.netease.com/vod163/nep.min.css" rel="stylesheet">
+<script src="vender/layui/layui.js"></script>
+<script src="vender/layui/lay/all.js"></script>
+<script src="//nos.netease.com/vod163/nep.min.js"></script>
+<script type="text/javascript" src="https://blueimp.github.io/JavaScript-MD5/js/md5.js"></script>
+<script src="vender/completer/completer.min.js"></script>
+<link rel="stylesheet" href="vender/completer/completer.min.css">
+<script src="vender/chosen/chosen.jquery.js"></script>
+<link rel="stylesheet" href="vender/chosen/chosen.css">
+<link rel="stylesheet" href="css/9610/Iconfont/demo.css">
+<link rel="stylesheet" href="css/9610/Iconfont/iconfont.css">
+<link rel="stylesheet" href="vender/layui/css/layui.css">
+<link rel="stylesheet" href="css/9610/css/comme.css">
+<link rel="stylesheet" href="css/9610/css/index.css">
+<link rel="stylesheet" href="css/9610/css/address.css">
+<link rel="stylesheet" href="css/9610/css/my_order.css">
+<link rel="stylesheet" href="css/9610/css/pwd_alert.css">
+<link rel="stylesheet" href="css/9610/css/my_chargeback.css">
+<link rel="stylesheet" href="css/9610/css/user_msg.css">
+<link rel="stylesheet" href="css/9610/css/my_balance.css">
+<script src="js/agent/apply.js" charset="utf-8"></script>
+<script src="js/agent/list.js" charset="utf-8"></script>
+<script src="js/agent/details.js" charset="utf-8"></script>
+<script src="js/basic/apply.js" charset="utf-8"></script>
+<script src="js/basic/update.js" charset="utf-8"></script>
+<script src="js/basic/list.js" charset="utf-8"></script>
+<script src="js/basic/confirm.js" charset="utf-8"></script>
+<script src="js/basic/details.js" charset="utf-8"></script>
+<script src="js/college/video.js" charset="utf-8"></script>
+<script src="js/college/upload.js" charset="utf-8"></script>
+<script src="js/college/play.js" charset="utf-8"></script>
+<script src="js/college/faq.js" charset="utf-8"></script>
+<script src="js/my/info.js" charset="utf-8"></script>
+<script src="js/my/modify.js" charset="utf-8"></script>
+<script src="js/my/edit.js" charset="utf-8"></script>
+<script src="js/my/account.js" charset="utf-8"></script>
+<script src="js/my/withdraw.js" charset="utf-8"></script>
+<script src="js/my/userInfo.js" charset="utf-8"></script>
+<script src="js/my/messageInfo.js" charset="utf-8"></script>
+<script src="js/9610/orderlist.js"></script>
+<script src="js/9610/balance.js"></script>
+<script src="js/9610/chargeback.js"></script>
+<script src="js/9610/itemlist.js"></script>
+<script src="js/9610/itemDetail.js"></script>
+<script src="js/9610/batchexport.js"></script>
+<script src="js/9610/reciveaddress.js"></script>
+<script src="js/9610/recAddressDetail.js"></script>
+<script src="js/9610/sendaddress.js"></script>
+<script src="js/9610/sendAddressDetail.js"></script>
+<script src="js/9610/jquery_form.js"></script>
+<div class="container my_Center">
+    <div class="my_center_back margin-big-top">
+        <div class="xs2 xl12 float-left my_Center_left_menu">
+            <div class="head_Pic">
+                <div class="upload_wrapIcon margin-small">
+                    <img class="upload_img1" data-ng-src="{{loginInfo.attrs.user_icon}}">
+                    <p class="btn_upload" >
+                        <input type="file" name="file" class="layui-upload-file" id="userIcon"
+                               data-lay-title="整体照">
+                    </p>
+                    <i class="icon iconfont icon-shezhi"></i>
+                </div>
+            </div>
+            <ul class="my_Center_menuCont">
+                <div ng-if="indexID == 0">
+                    <li class="xs12 xl3" data-ng-click="ckNav('my_info')" data-ui-sref="my_info"
+                        data-ng-class="selMenu('my_info')">
+                        <i class="icon iconfont icon-gerenzhongxin margin-small-right text-big"></i>
+                        个人中心
+                    </li>
+                    <li class="xs12 xl3" data-ng-click="ckNav('my_account')" data-ui-sref="my_account"
+                        data-ng-class="selMenu('my_account')">
+                        <i class="icon iconfont icon-dingdan2 margin-small-right text-big"></i>
+                        账户中心
+                    </li>
+                    <li class="xs12 xl3" data-ng-click="ckNav('my_messageInfo')" data-ui-sref="my_messageInfo"
+                        data-ng-class="selMenu('my_messageInfo')">
+                        <i class="icon iconfont icon-xinxi margin-small-right text-big"></i>
+                        信息中心
+                    </li>
+                    <li class="xs12 xl3" data-ng-click="ckNav('basic_list')" data-ui-sref="basic_list"
+                        data-ng-class="selMenu('basic_list')">
+                        <i class="icon iconfont icon-dingdan3 margin-small-right text-big"></i>
+                        订单中心
+                    </li>
+                </div>
+                <div ng-if="indexID == 1">
+                    <li class="xs12 xl3" data-ng-click="ckNav('basic_apply')" data-ui-sref="basic_apply"
+                        data-ng-class="selMenu('basic_apply')">
+                        <i class="icon iconfont icon-dingdan3 margin-small-right text-big"></i>
+                        B2B通关
+                    </li>
+                     <li class="xs12 xl3" data-ng-click="ckNav('9610_all')" data-ui-sref="9610_orderlist"
+                        data-ng-class="selMenu('9610_all')">
+                        <i class="icon iconfont icon-xinxi margin-small-right text-big"></i>
+                        B2C通关
+                    </li>
+                </div>
+            </ul>
+            <div class="clearfloat"></div>
+        </div>
+        <div class="xs10 xl12 float-right my_centerUi_view">
+            <ul class="margin-big-left my_center_right_mainnav clear-fix">
+                <li data-ng-click="ckNav('my_info')" data-ui-sref="my_info"
+                    data-ng-class="selMenu('my_info')">个人中心
+                </li>
+                <li data-ng-click="ckNav('9610_all')" data-ui-sref="9610_orderlist"
+                    data-ng-class="selMenu1('9610_orderlist')">通关平台
+                </li>
+                <li><a href="./speed">申请服务</a></li>
+                <li><a href="./content?type=9&id=48">关于我们</a></li>
+            </ul>
+            <div data-ui-view=""></div>
+        </div>
+        <div class="clearfloat"></div>
+    </div>
+</div>
+<@footer></@footer>

@@ -1,0 +1,139 @@
+<#include "/include/cmn.html" encoding="UTF-8">
+    <@header pageId="disDetail" crlId="DisDetailCtl" pageNm="外贸问题详情">
+</@header>
+<link rel="stylesheet" type="text/css" href="css/IconFont/demo.css"/>
+<link rel="stylesheet" type="text/css" href="css/IconFont/iconfont.css"/>
+<meta charset="UTF-8" data-ng-init="init()">
+<body>
+<#include "dis_head.html" encoding="UTF-8">
+    <div class="container">
+        <div class="x12 xs8 WM_daAn1_left">
+            <ul class="WM_daAn1_con1 padding1" data-ng-repeat="disQues in DisQues">
+                <li>
+                    <p class="WM_title_img">
+                    <span>
+                        <img style="width: 20px;" src="imgs/wenhao.png" alt="">
+                    </span>
+                        <img class="jiejue_zhang" data-ng-if="disQues.isSolve==1" src="imgs/jiejue.png" alt="">
+                        <b class="padding-small-left text-big">{{disQues.disTitle}}</b>
+                    </p>
+                    <p class="text-default margin-top" data-ng-bind-html="disQues.disContent"></p>
+                    <p class="text-default text-gray" style="line-height: 40px;">
+                        <span class="xl12 xs7 text-left">提问者: {{disQues.creator}}</span>
+                        <span class="xl12 xs5 text-right">{{disQues.scanCount}}&nbsp;&nbsp;浏览&nbsp;&nbsp;|&nbsp;&nbsp;{{disQues.createTime|cut:true:10}}</span>
+                    </p>
+                    <p data-ng-if="disQues.isSolve!=1">
+                        <textarea class="input radius-none box-shadow-none WM_daAn1_con1text"
+                                  data-ng-model="disReplyAn.replyContent" placeholder="我的回答..."></textarea>
+                        <!--  <span><input type="checkbox">&nbsp;匿名</span> -->
+                        <span style="color: red;">{{error}}</span>
+                        <button class="margin-top float-right add_btn" data-ng-click="saveAn()">提交回答</button>
+                    </p>
+                </li>
+                <div class="clearfloat"></div>
+            </ul>
+            <ul class="WM_daAn1_con3 padding1">
+                <li class="WM_daAn_PL text-default" style="border-top: 1px solid #f0f0f0"
+                    data-ng-repeat="disReply in DisReplyList" data-ng-if="disReply.attrs.best_answer==1">
+                    <img class="zuijia_img" src="img/bestan.png">
+                    <p class="yiyou_PL"></p>
+                    <p class="x12 xs6 text-gray">
+                        <span class="WM_daAn1_con4_left padding-small-right">{{disReply.attrs.reply_user}}</span>|
+                        <span class="WM_daAn1_con4_right padding-small-left">发布于：{{disReply.attrs.reply_time|cut:true:10}}</span>
+                    </p>
+                    <div class="x12 xs6 text-right text-gray">
+                        <div class="button-group float-right" style="line-height: 30px">
+                            <button type="button" data-ng-click="addReplyUpvote()" class="button zan_btn"><i
+                                    class="icon iconfont icon-zan"></i>&nbsp;&nbsp;{{disReply.attrs.upvote_count}}
+                            </button>
+                            <button type="button" class="button cai_btn"><i class="icon iconfont icon-cai"></i>&nbsp;&nbsp;0
+                            </button>
+                        </div>
+                        <span class="pingLun float-right margin-right" style="line-height: 30px"><i
+                                class="icon iconfont icon-pinglun"></i>&nbsp;&nbsp;评论（1）</span>
+                    </div>
+                    <div class="clearfloat"></div>
+                    <div class="HuiDa_con pingLun_kuang" style="display: none;">
+                        <p class="HuiDa_textarea">
+                            <textarea class="x9 xs10 box-shadow-none radius-none border-none padding-small"
+                                      data-ng-model="disReply.attrs.reply_content_new">
+                        </textarea>
+                            <button class="x3 xs2" data-ng-click="plSubmit()"><b>发布</b></button>
+                        <div class="clearfloat"></div>
+                        </p>
+                        <p class="x12 margin-top">
+                            <span class="WM_daAn1_con4_left padding-small-right" style="color: #2D64B3;">{{disReply.attrs.reply_user}}</span>|
+                            <span class="WM_daAn1_con4_right padding-small-left">发布于：{{disReply.attrs.reply_time|cut:true:10}}</span>
+                        <div class="clearfloat"></div>
+                        </p>
+                        <p class="margin-top">{{disReply.attrs.reply_content}} <span class="margin-left" style="color: #4cadff">回复</span></p>
+                    </div>
+                    <div class="clearfloat"></div>
+                </li>
+                <li class="margin-big-top" style="line-height: 40px;">
+                    <p class="WM_daAn1_con3_left text-big"><b>其他回答</b><span class="padding-left">共{{page.totalRow}}条</span>
+                    </p>
+                </li>
+                <li class="WM_daAn_PL text-default"
+                    data-ng-repeat="disReply in DisReplyList" data-ng-if="disReply.attrs.best_answer!=1">
+                    <p class="yiyou_PL">
+                    <span style="color: darkred;margin-right: 10px;font-size: 12px" ng-if="disReply.attrs.reply_to_name!=null">@{{disReply.attrs.reply_to_name}}</span>
+                        <span  data-ng-bind-html=" disReply.attrs.reply_content| to_trusted"></span></p>
+                    <p class="x12 xs6 text-gray">
+                        <span class="WM_daAn1_con4_left padding-small-right">{{disReply.attrs.reply_user}}</span>|
+                        <span class="WM_daAn1_con4_right padding-small-left">发布于：{{disReply.attrs.reply_time|cut:true:10}}</span>
+                    </p>
+                    <div class="x12 xs6 text-right text-gray">
+                    <div class="button-group float-right" style="line-height: 30px">
+                        <button type="button" data-ng-click="addReplyUpvote()" class="button zan_btn">
+                            <i class="icon iconfont icon-zan"></i>&nbsp;&nbsp;{{disReply.attrs.upvote_count}}
+                        </button>
+                        <button type="button" class="button cai_btn"><i class="icon iconfont icon-cai"></i>&nbsp;&nbsp;0</button>
+                    </div>
+                    <span class="pingLun float-right margin-right" style="line-height: 30px"><i
+                            class="icon iconfont icon-pinglun"></i>&nbsp;&nbsp;评论（{{$index+1}}）</span>
+                    </div>
+                    <div class="clearfloat"></div>
+                    <div class="HuiDa_con pingLun_kuang" style="display: none;">
+                        <p class="HuiDa_textarea">
+                            <textarea class="x9 xs10 box-shadow-none radius-none border-none padding-small"
+                                      data-ng-model="disReply.attrs.reply_content_new">
+                        </textarea>
+                            <button class="x3 xs2" data-ng-click="plSubmit()"><b>发布</b></button>
+                            <div class="clearfloat"></div>
+                        </p>
+                        <p class="x12 margin-top">
+                            <span class="WM_daAn1_con4_left padding-small-right" style="color: #2D64B3;">{{disReply.attrs.reply_user}}</span>|
+                            <span class="WM_daAn1_con4_right padding-small-left">发布于：{{disReply.attrs.reply_time|cut:true:10}}</span>
+                        <div class="clearfloat"></div>
+                        </p>
+                        <p class="margin-top" data-ng-bind-html="disReply.attrs.reply_content | to_trusted"></p>
+                    </div>
+                    <div class="clearfloat"></div>
+                </li>
+                <li data-ng-if="page.totalRow>10" class="margin-big-top text-center">
+                    <button class="button button-big jiazai_btn" data-ng-click="next()">加载更多</button>
+                </li>
+            </ul>
+            <div class="clearfloat"></div>
+        </div>
+        <div class="x12 xs4 WM_daAn1_right">
+            <ul class="padding2">
+                <li class="line margin-bottom">
+                    <p class="x8 WM_daAn1_right_left" style=""><b>等您来答</b></p>
+                    <p class="x4 text-right text-big padding-right WM_daAn1_right_Rig"><a
+                            href="disCategory?isSlove=false">更多>></a></p>
+                </li>
+                <li class="x12 line" data-ng-repeat="disQuesList in DisQuesList.list">
+                    <p class="WM_daAn1_right_cont">
+                        <a class="x7 text-more text-default" href="disDetail?disID={{disQuesList.attrs.disID}}&isSlove=false">{{disQuesList.attrs.disTitle}}</a>
+                        <span class="x5 text-right text-default text-gray">{{disQuesList.attrs.createTime|cut:true:10}}</span>
+                    </p>
+                </li>
+                <div class="clearfloat"></div>
+            </ul>
+        </div>
+        <div class="clearfloat"></div>
+    </div>
+</body>
+<@footer></@footer>

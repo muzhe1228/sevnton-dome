@@ -1,0 +1,67 @@
+<meta charset="UTF-8" data-ng-init="initPage()">
+<div class="my_Center_margin">
+    <ul>
+        <li data-ng-click="ckNav('9610_all')" data-ng-class="selMenu('9610_all')" data-ui-sref="9610_orderlist">我的订单</li>
+        <li data-ng-click="ckNav('9610_all')" data-ng-class="selMenu('9610_all')" data-ui-sref="9610_batchexport">批量导入订单</li>
+        <li data-ng-click="ckNav('9610_all')" data-ng-class="selMenu('9610_all')" data-ui-sref="9610_itemlist">商品信息管理</li>
+        <li data-ng-click="ckNav('9610_all')" data-ng-class="selMenu('9610_all')" data-ui-sref="9610_sendaddress">寄件地址设置</li>
+        <li data-ng-click="ckNav('9610_all')" data-ng-class="selMenu('9610_all')" data-ui-sref="9610_reciveaddress">收件地址设置</li>
+    </ul>
+    <p class="wrap_9610_right_nav" data-ng-if="edit=='1'"><b>|</b>&nbsp;编辑收货信息</p>
+    <p class="wrap_9610_right_nav" data-ng-if="edit=='0'"><b>|</b>&nbsp;新增收货信息</p>
+    <form id="jia_shoujianren" method="post" action="" class="pwd_alert jijianren">
+        <input type="hidden" data-ng-model="b2cRecAddress.attrs.id" placeholder="">
+        <ul>
+            <li>
+                <p><span class="user_sup">*</span>国家&nbsp;:</p>
+                <p>
+                    <input type="text" check="required" data-ng-model="b2cRecAddress.attrs.rec_country" placeholder="">
+                </p>
+            </li>
+            <li>
+                <p><span class="user_sup">*</span>州/省&nbsp;:</p>
+                <p>
+                    <input type="text" check="required" data-ng-model="b2cRecAddress.attrs.rec_province"
+                           placeholder="请输入州/省英文名">
+                </p>
+            </li>
+            <li>
+                <p><span class="user_sup">*</span>城市&nbsp;:</p>
+                <p><input type="text" check="required" data-ng-model="b2cRecAddress.attrs.rec_city"
+                          placeholder="请输入城市英文名"></p>
+            </li>
+            <li>
+                <p><span class="user_sup">*</span>地址&nbsp;:</p>
+                <p><input type="text" check="required" data-ng-model="b2cRecAddress.attrs.rec_road"
+                          placeholder="请输入英文详细地址"></p>
+            </li>
+            <li>
+                <p><span class="user_sup">*</span>收件人&nbsp;:</p>
+                <p><input type="text" check="required" data-ng-model="b2cRecAddress.attrs.rec_user"
+                          placeholder="请输入寄件人英文名"></p>
+            </li>
+            <li>
+                <p>公司名称&nbsp;:</p>
+                <p><input type="text" data-ng-model="b2cRecAddress.attrs.rec_company" placeholder="请输入寄件人公司名称（选填）"></p>
+            </li>
+            <li>
+                <p><span class="user_sup">*</span>邮政编码&nbsp;:</p>
+                <p><input type="text" check="required num" data-ng-model="b2cRecAddress.attrs.rec_post_code"
+                          placeholder="请输入邮政编码"></p>
+            </li>
+            <li>
+                <p><span class="user_sup">*</span>联系方式&nbsp;:</p>
+                <p><input type="text" check="required mobile" data-ng-model="b2cRecAddress.attrs.rec_phone"
+                          placeholder="请输入手机号"></p>
+            </li>
+            <li>
+                <p style="color: white">a</p>
+                <p><label><input type="checkbox" ng-model="checkpwd" ng-click="checkpwds()"><i>✓</i></label> 设为默认地址</p>
+            </li>
+        </ul>
+        <div class="jijianren_submit">
+            <input type="submit" data-ng-if="edit=='1'" data-ng-click="updateRecAddress()" value="修改"/>
+            <input type="submit" data-ng-if="edit=='0'" data-ng-click="saveRecAddress()" value="新增"/>
+        </div>
+    </form>
+</div>

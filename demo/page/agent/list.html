@@ -1,0 +1,55 @@
+<meta charset="UTF-8" data-ng-init="initPage()">
+<div class="my_Center_margin">
+	<ul class="bread bg" style="height: 40px;line-height: 40px;margin-top: 10px">
+		<li style="padding-left: 20px;">状况查询</li>
+	</ul>
+	<div class="input-group">
+		<span class="addbtn">
+			<button type="button" class="button icon-search" data-ng-click="search()"></button>
+		</span><input type="text" class="input" placeholder="请输入产品名称、平台名称等关键字" data-ng-model="srhKey" /><span class="addbtn">
+			<button type="button" class="button" data-ng-click="search()">搜索</button>
+		</span>
+	</div>
+	<P class="padding-top" data-ng-hide="searched">
+		<strong>所有代运营产品</strong>（共{{agentList.length}}件）
+	</P>
+	<P class="padding-top" data-ng-show="searched">
+		<strong>搜索结果共{{agentList.length}}件</strong>&nbsp;&nbsp;&nbsp;<a class="text-basic" href="javascript:void(0);"
+			data-ng-click="all()">返回所有产品</a>
+	</P>
+	<div style="border: solid 2px #d9e8f4; width: 100%; cursor: pointer;" class="line margin-top margin-bottom"
+		data-ng-repeat="row in agentList" data-ng-click="details(row.attrs.id)">
+		<div class="x8">
+			<div class="line">
+				<div class="xl12 xs6 text-white" style="padding: 10px 0;">
+					<div
+						style="background-color: #3290e0; padding: 5px; border-top-right-radius: 2em; border-bottom-right-radius: 2em;">
+						<strong>{{row.attrs.brand}}</strong>
+					</div>
+				</div>
+				<div class="xl12 xs6 text-right" style="padding: 15px 20px;" data-ng-show="row.attrs.start_date">起运日期&nbsp;&nbsp;&nbsp;{{row.attrs.start_date}}</div>
+			</div>
+			<div class="line">
+				<div class="xl12 xs9" style="padding: 10px 20px;">
+					<strong>{{row.attrs.product_name}}</strong>
+				</div>
+				<div class="xl12 xs3 text-dot" style="padding: 10px 20px;">{{row.attrs.state_str}}</div>
+			</div>
+			<div class="line">
+				<div class="xl12 xs6" style="padding: 10px 20px;">目标市场&nbsp;&nbsp;&nbsp;{{row.attrs.target_market}}</div>
+				<div class="xl12 xs6" style="padding: 10px 20px;">生产周期&nbsp;&nbsp;&nbsp;{{row.attrs.cycle}}</div>
+				<div class="xl12" style="padding: 10px 20px;">出厂价格&nbsp;&nbsp;&nbsp;{{row.attrs.factory_price}}&nbsp;元</div>
+			</div>
+		</div>
+		<div class="x4 list_right" style="height: 100%;">
+			<div class="line" style="height: 50%; border: solid 3px #b4f6ef; color: #4baea3;">
+				<div class="xl12 xs5 text-right">总销量</div>
+				<div class="xl12 xs7 text-left">{{row.attrs.count}}</div>
+			</div>
+			<div class="line" style="height: 50%; border: solid 3px #f6d4b4; color: #e89855;">
+				<div class="xl12 xs5 text-right">销售总额</div>
+				<div class="xl12 xs7 text-left">{{row.attrs.amount}}</div>
+			</div>
+		</div>
+	</div>
+</div>

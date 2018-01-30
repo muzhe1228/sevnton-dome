@@ -1,0 +1,52 @@
+<#include "/include/cmn.html" encoding="UTF-8"><@header pageId="speed" crlId="SpeedCtl" pageNm="快速申请服务"></@header>
+<meta charset="UTF-8">
+<div class="floatcss">
+<div class="showWin">
+	<div style="width: 70%;float: left;">
+	<div style="width: 98%;margin: 10px 0;overflow: hidden; margin-left: 20px">
+		<img style="float: left;margin-bottom: 20px;"src="img/index/logo-speed.jpg">
+		<div style="float: left;width: 68%;text-align: left;font-size: 14px;">圣云通是跨境贸易供应链综合服务平台，为中小外贸企业提供通关、商检、物流、结汇、退税、金融、法务、代运营、在线课堂等所有跨境贸易所需的各环节服务</div>
+	</div>
+	<form class="speedForm"   style="margin-left: 20px">
+		<div class="form-group">
+			<div class="field">
+				<div class="input-group">
+					<p style="font-size: 16px;color: #014d89;font-weight: bold;font-family: 微软雅黑;">圣云通跨境贸易综合服务平台（快速申请）</p>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="field">
+				<div class="input-group">
+					<span class="addon">您的称呼：</span>
+					<input type="text" class="text"
+						placeholder="请填写联系人姓名" data-validate="required:必填"
+						 data-ng-model="regauth.name" />
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="field">
+				<div class="input-group">
+					<span class="addon">联系方式：</span>
+					<input type="text" maxlength="13" class="text"
+						placeholder="输入手机号，便于联系" data-validate="required:必填,tel:请输入正确的电话或手机号码" 
+						data-ng-model="regauth.userId" />
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="field">
+				<div class="input-group text-dot" style="width: 100%;"></div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="field">
+				<button class="button" type="button" data-ng-click="register()">申请服务</button>
+			</div>
+		</div>
+	</form></div>
+	<div style="width: 30%;float: left;padding-top: 30px;"><img alt="" src="img/index/adv.jpg"></div>
+	</div>
+</div>
+<@footer></@footer>

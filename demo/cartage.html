@@ -1,0 +1,369 @@
+<#include "/include/cmn.html" encoding="UTF-8"><@header pageId="cartage" crlId="CartageCtl" pageNm="物流查询"></@header>
+<meta charset="UTF-8">
+<title>圣云通-物流查询</title>
+<script src="vender/completer/completer.min.js"></script>
+<link rel="stylesheet" href="vender/completer/completer.min.css">
+<div class="container">
+    <div class="tab cartage_wrap">
+        <div class="tab-head">
+            <ul class="tab-nav">
+                <li class="active"><a href="#tab-1">海运整柜运费查询</a></li>
+                <li><a href="#tab-2" data-ng-click="selTab()">海运拼柜运费查询</a></li>
+            </ul>
+        </div>
+        <div class="tab-body">
+            <div class="tab-panel active" id="tab-1">
+                <div class="link">
+                    <ul class="list-inline">
+                        <li class="name"><strong>货运公司</strong></li>
+                        <li class="items sublist_Seize">
+                            <ul class="list-inline">
+                                <li class="quanbu" data-ng-click="srh1.company=null"
+                                    data-ng-class="itemClass(srh1.company,null)">全部
+                                </li>
+                                <li data-ng-repeat="row in companyList"
+                                    data-ng-show="(more_company1&&$index<8)||!more_company1"
+                                    data-ng-click="srh1.company=row.attrs.name"
+                                    data-ng-class="itemClass(srh1.company,row.attrs.name)">{{row.attrs.name}}
+                                </li>
+                                <li class="shou_fang" data-ng-show="companyList.length>8"
+                                    data-ng-click="more_company1=!more_company1">{{more_company1?"更多...":"收起"}}
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="list-inline">
+                        <li class="name"><strong>起运港</strong></li>
+                        <li class="items sublist_Seize">
+                            <ul class="list-inline">
+                                <li class="quanbu selected" data-ng-click="srh1.portFrom=null"
+                                    data-ng-class="itemClass(srh1.portFrom,null)">全部
+                                </li>
+                                <li data-ng-repeat="row in portFromList"
+                                    data-ng-show="(more_portFrom1&&$index<8)||!more_portFrom1"
+                                    data-ng-click="srh1.portFrom=row.attrs.name"
+                                    data-ng-class="itemClass(srh1.portFrom,row.attrs.name)">{{row.attrs.name}}
+                                </li>
+                                <li class="shou_fang" data-ng-show="portFromList.length>8"
+                                    data-ng-click="more_portFrom1=!more_portFrom1">{{more_portFrom1?"更多...":"收起"}}
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="list-inline">
+                        <li class="name"><strong>目的港</strong></li>
+                        <li class="items sublist_Seize">
+                            <ul class="list-inline">
+                                <li class="quanbu selected" data-ng-click="srh1.portTo=null"
+                                    data-ng-class="itemClass(srh1.portTo,null)">全部
+                                </li>
+                                <li data-ng-repeat="row in portToList"
+                                    data-ng-show="(more_portTo1&&$index<8)||!more_portTo1"
+                                    data-ng-click="srh1.portTo=row.attrs.name"
+                                    data-ng-class="itemClass(srh1.portTo,row.attrs.name)">{{row.attrs.name}}
+                                </li>
+                                <li class="shou_fang" data-ng-show="portToList.length>8"
+                                    data-ng-click="more_portTo1=!more_portTo1">{{more_portTo1?"更多...":"收起"}}
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="list-inline">
+                        <li class="name"><strong>仓库编码</strong></li>
+                        <li class="items sublist_Seize">
+                            <ul class="list-inline">
+                                <li class="quanbu selected" data-ng-click="srh1.storage=null"
+                                    data-ng-class="itemClass(srh1.storage,null)">全部
+                                </li>
+                                <li data-ng-repeat="row in storage1List"
+                                    data-ng-show="(more_storage1&&$index<8)||!more_storage1"
+                                    data-ng-click="srh1.storage=row.attrs.storage_code"
+                                    data-ng-class="itemClass(srh1.storage,row.attrs.storage_code)">
+                                    {{row.attrs.storage_code}}
+                                </li>
+                                <li class="shou_fang" data-ng-show="storage1List.length>8"
+                                    data-ng-click="more_storage1=!more_storage1">{{more_storage1?"更多...":"收起"}}
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="cartage_seach">
+                        <li>
+                            <p class="seach_Inptop"><b>货运公司</b></p>
+                            <p class="padding-right">
+                                <input class="input" id="company1" data-ng-model="srh1.company"/>
+                            </p>
+                        </li>
+                        <li >
+                            <p class="seach_Inptop"><b>起运港</b></p>
+                            <p class="padding-right">
+                                <input class="input" id="portFrom1" data-ng-model="srh1.portFrom"/>
+                            </p>
+                        </li>
+                        <li >
+                            <p class="seach_Inptop"><b>目的港</b></p>
+                            <p class="padding-right">
+                                <input class="input" id="portTo1" data-ng-model="srh1.portTo"/>
+                            </p>
+                        </li>
+                        <li >
+                            <p class="seach_Inptop"><b>仓库编码</b></p>
+                            <p class="padding-right">
+                                <input class="input" id="storage1" data-ng-model="srh1.storage"/>
+                            </p>
+                        </li>
+                        <li >
+                            <p class="text-white">搜索</p>
+                            <p class="padding-right">
+                                <button class="button seach_btn" type="button"
+                                        data-ng-click="search1()">
+                                    <span class="icon-search"></span>搜索
+                                </button>
+                            </p>
+                        </li>
+                        <div class="clearfloat"></div>
+                    </ul>
+                </div>
+                <table class="table margin-top">
+                    <tr class="current">
+                        <th>货运公司</th>
+                        <th class="detail_add1">起运港</th>
+                        <th class="hidden-l hidden-s">目的港</th>
+                        <th class="hidden-l hidden-s" style="text-align: right;">20GP($)</th>
+                        <th class="hidden-l hidden-s" style="text-align: right;">40GP($)</th>
+                        <th class="hidden-l hidden-s" style="text-align: right;">40HQ($)</th>
+                        <th class="hidden-l hidden-s">目的港</th>
+                        <th class="hidden-l hidden-s">仓库编码</th>
+                        <th class="hidden-l hidden-s" style="text-align: right;">20GP($)</th>
+                        <th class="hidden-l hidden-s" style="text-align: right;">40GP($)</th>
+                        <th class="hidden-l hidden-s" style="text-align: right;">40HQ($)</th>
+                        <th class="hidden-m hidden-b detail_add" style="text-align: center">详情</th>
+                    </tr>
+                    <tr data-ng-repeat="row in page1.list">
+                        <td>{{row.attrs.company}}</td>
+                        <td class="detail_add1">{{row.attrs.port_from}}</td>
+                        <td class="hidden-l hidden-s">{{row.attrs.port_to}}</td>
+                        <td class="hidden-l hidden-s" style="text-align: right; color: #ee7d19;">{{row.attrs.price_20gp_1}}</td>
+                        <td class="hidden-l hidden-s" style="text-align: right; color: #ee7d19;">{{row.attrs.price_40gp_1}}</td>
+                        <td class="hidden-l hidden-s" style="text-align: right; color: #ee7d19;">{{row.attrs.price_40hq_1}}</td>
+                        <td class="hidden-l hidden-s">{{row.attrs.port_to}}</td>
+                        <td class="hidden-l hidden-s">{{row.attrs.storage}}</td>
+                        <td class="hidden-l hidden-s" style="text-align: right; color: #ee7d19;">{{row.attrs.price_20gp_2}}</td>
+                        <td class="hidden-l hidden-s" style="text-align: right; color: #ee7d19;">{{row.attrs.price_40gp_2}}</td>
+                        <td class="hidden-l hidden-s" style="text-align: right; color: #ee7d19;">{{row.attrs.price_40hq_2}}</td>
+                        <td class="hidden-m hidden-b text-center detail_add" data-ng-click="cageDetails(row)"><button class="button detail_addbtn">查看详情</button></td>
+                    </tr>
+                </table>
+                <div id="cartDetails" style="display: none; padding: 20px;">
+                    <ul style="line-height: 35px">
+                        <li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">货运公司</strong>{{detail.attrs.company}}</li>
+                        <li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">起运港</strong>{{detail.attrs.port_from}}</li>
+                        <li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">目的港</strong>{{detail.attrs.port_to}}</li>
+                        <li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">20GP($)</strong>{{detail.attrs.price_20gp_1}}</li>
+                        <li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">40GP($)</strong>{{detail.attrs.price_40gp_1}}</li>
+                        <li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">40HQ($)</strong>{{detail.attrs.price_40hq_1}}</li>
+                        <li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">目的港</strong>{{detail.attrs.port_to}}</li>
+                        <li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">仓库编码</strong>{{detail.attrs.storage}}</li>
+                        <li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">20GP($)</strong>{{detail.attrs.price_20gp_2}}</li>
+                        <li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">40GP($)</strong>{{detail.attrs.price_40gp_2}}</li>
+                        <li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">40HQ($)</strong>{{detail.attrs.price_40hq_2}}</li>
+                    </ul>
+                    <div class="clearfloat"></div>
+                </div>
+                <div class="panel-foot text-center">
+                    <select class="input float-left layer_select" style="width: 120px;" data-ng-model="srh1.pageSize"
+                            data-ng-change="changePageSize1()">
+                        <option value=10>每页10行</option>
+                        <option value=20>每页20行</option>
+                        <option value=50>每页50行</option>
+                        <option value=100>每页100行</option>
+                    </select>
+                    <span class="float-right layer_rigsize">共[{{page1.totalRow}}]条记录，当前[{{page1.pageNumber}}/{{page1.totalPage}}]页</span>
+                    <ul class="pagination layer_btn">
+                        <li><a target="_self" href="javascript:void(0)" data-ng-click="first1()">首页</a></li>
+                    </ul>
+                    <ul class="pagination layer_btn">
+                        <li><a target="_self" href="javascript:void(0)" data-ng-click="previous1()">上一页</a></li>
+                    </ul>
+                    <ul class="pagination layer_btn">
+                        <li><a target="_self" href="javascript:void(0)" data-ng-click="next1()">下一页</a></li>
+                    </ul>
+                    <ul class="pagination layer_btn">
+                        <li><a target="_self" href="javascript:void(0)" data-ng-click="last1()">尾页</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="tab-panel" id="tab-2">
+                <div class="link">
+                    <ul class="list-inline">
+                        <li class="name"><strong>货运公司</strong></li>
+                        <li class="items sublist_Seize">
+                            <ul class="list-inline">
+                                <li class="text-yellow" data-ng-click="srh2.company=null"
+                                    data-ng-class="itemClass(srh2.company,null)">全部
+                                </li>
+                                <li data-ng-repeat="row in companyList"
+                                    data-ng-show="(more_company2&&$index<8)||!more_company2"
+                                    data-ng-click="srh2.company=row.attrs.name"
+                                    data-ng-class="itemClass(srh2.company,row.attrs.name)">{{row.attrs.name}}
+                                </li>
+                                <li class="shou_fang" data-ng-show="companyList.length>8"
+                                    data-ng-click="more_company2=!more_company2">{{more_company2?"更多...":"收起"}}
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="list-inline">
+                        <li class="name"><strong>起运港</strong></li>
+                        <li class="items sublist_Seize">
+                            <ul class="list-inline">
+                                <li class="quanbu selected" data-ng-click="srh2.portFrom=null"
+                                    data-ng-class="itemClass(srh2.portFrom,null)">全部
+                                </li>
+                                <li data-ng-repeat="row in portFromList"
+                                    data-ng-show="(more_portFrom2&&$index<8)||!more_portFrom2"
+                                    data-ng-click="srh2.portFrom=row.attrs.name"
+                                    data-ng-class="itemClass(srh2.portFrom,row.attrs.name)">{{row.attrs.name}}
+                                </li>
+                                <li class="shou_fang" data-ng-show="portFromList.length>8"
+                                    data-ng-click="more_portFrom2=!more_portFrom2">{{more_portFrom2?"更多...":"收起"}}
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="list-inline">
+                        <li class="name"><strong>目的港</strong></li>
+                        <li class="items sublist_Seize">
+                            <ul class="list-inline">
+                                <li class="quanbu selected" data-ng-click="srh2.portTo=null"
+                                    data-ng-class="itemClass(srh2.portTo,null)">全部
+                                </li>
+                                <li data-ng-repeat="row in portToList"
+                                    data-ng-show="(more_portTo2&&$index<8)||!more_portTo2"
+                                    data-ng-click="srh2.portTo=row.attrs.name"
+                                    data-ng-class="itemClass(srh2.portTo,row.attrs.name)">{{row.attrs.name}}
+                                </li>
+                                <li class="shou_fang" data-ng-show="portToList.length>8"
+                                    data-ng-click="more_portTo2=!more_portTo2">{{more_portTo2?"更多...":"收起"}}
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="list-inline">
+                        <li class="name"><strong>仓库编码</strong></li>
+                        <li class="items sublist_Seize">
+                            <ul class="list-inline">
+                                <li class="quanbu selected" data-ng-click="srh2.storage=null"
+                                    data-ng-class="itemClass(srh2.storage,null)">全部
+                                </li>
+                                <li data-ng-repeat="row in storage2List"
+                                    data-ng-show="(more_storage2&&$index<8)||!more_storage2"
+                                    data-ng-click="srh2.storage=row.attrs.storage_code"
+                                    data-ng-class="itemClass(srh2.storage,row.attrs.storage_code)">
+                                    {{row.attrs.storage_code}}
+                                </li>
+                                <li class="shou_fang" data-ng-show="storage2List.length>8"
+                                    data-ng-click="more_storage2=!more_storage2">{{more_storage2?"更多...":"收起"}}
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="cartage_seach">
+                        <li>
+                            <p class="seach_Inptop"><b>货运公司</b></p>
+                            <p class="padding-right">
+                                <input class="input" id="company2" data-ng-model="srh2.company"/>
+                            </p>
+                        </li>
+                        <li >
+                            <p class="seach_Inptop"><b>起运港</b></p>
+                            <p class="padding-right">
+                                <input class="input" id="portFrom2" data-ng-model="srh2.portFrom"/>
+                            </p>
+                        </li>
+                        <li >
+                            <p class="seach_Inptop"><b>目的港</b></p>
+                            <p class="padding-right">
+                                <input class="input" id="portTo2" data-ng-model="srh2.portTo"/>
+                            </p>
+                        </li>
+                        <li >
+                            <p class="seach_Inptop"><b>仓库编码</b></p>
+                            <p class="padding-right">
+                                <input class="input" id="storage2" data-ng-model="srh2.storage"/>
+                            </p>
+                        </li>
+                        <li >
+                            <p class="text-white">搜索</p>
+                            <p class="padding-right">
+                                <button class="button seach_btn" type="button"
+                                        data-ng-click="search2()">
+                                    <span class="icon-search"></span>搜索
+                                </button>
+                            </p>
+                        </li>
+                        <div class="clearfloat"></div>
+                    </ul>
+                </div>
+                <table class="table margin-top">
+                    <tr class="current">
+                        <th >货运公司</th>
+                        <th class="detail_add1">起运港</th>
+                        <th class="hidden-l hidden-s">目的港</th>
+                        <th class="hidden-l hidden-s" style="text-align: right;">1CBM($)</th>
+                        <th class="hidden-l hidden-s">目的港</th>
+                        <th class="hidden-l hidden-s">仓库编码</th>
+                        <th class="hidden-l hidden-s" style="text-align: right;">1CBM($)</th>
+                        <th class="hidden-m hidden-b detail_add" style="text-align: center;">详情</th>
+                    </tr>
+                    <tr data-ng-repeat="row in page2.list">
+                        <td>{{row.attrs.company}}</td>
+                        <td class="detail_add1">{{row.attrs.port_from}}</td>
+                        <td class="hidden-l hidden-s">{{row.attrs.port_to}}</td>
+                        <td class="hidden-l hidden-s" style="text-align: right; color: #ee7d19;">{{row.attrs.price_1}}</td>
+                        <td class="hidden-l hidden-s">{{row.attrs.port_to}}</td>
+                        <td class="hidden-l hidden-s">{{row.attrs.storage}}</td>
+                        <td class="hidden-l hidden-s" style="text-align: right; color: #ee7d19;">{{row.attrs.price_2}}</td>
+                        <td class="hidden-m hidden-b text-center detail_add" data-ng-click="cageDetails1(row)"><button class="button detail_addbtn" width="50">查看详情</button></td>
+                    </tr>
+                </table>
+                <div id="cartDetails1" style="display: none; padding: 20px;">
+                    <ul style="line-height: 35px">
+                        <li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">货运公司</strong>{{detail1.attrs.company}}</li>
+                        <li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">起运港</strong>{{detail1.attrs.port_from}}</li>
+                        <li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">目的港</strong>{{detail1.attrs.port_to}}</li>
+                        <li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">1CBM($)</strong>{{detail1.attrs.price_1}}</li>
+                        <li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">目的港</strong>{{detail1.attrs.port_to}}</li>
+                        <li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">仓库编码</strong>{{detail1.attrs.storage}}</li>
+                        <li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">1CBM($)</strong>{{detail1.attrs.price_2}}</li>
+                    </ul>
+                    <div class="clearfloat"></div>
+                </div>
+                <div class="panel-foot text-center">
+                    <select class="input float-left layer_select" style="width: 120px;" data-ng-model="srh2.pageSize"
+                            data-ng-change="changePageSize2()">
+                        <option value=10>每页10行</option>
+                        <option value=20>每页20行</option>
+                        <option value=50>每页50行</option>
+                        <option value=100>每页100行</option>
+                    </select>
+                    <span class="float-right layer_rigsize">共[{{page2.totalRow}}]条记录，当前[{{page2.pageNumber}}/{{page2.totalPage}}]页</span>
+                    <ul class="pagination layer_btn">
+                        <li><a target="_self" href="javascript:void(0)" data-ng-click="first2()">首页</a></li>
+                    </ul>
+                    <ul class="pagination layer_btn">
+                        <li><a target="_self" href="javascript:void(0)" data-ng-click="previous2()">上一页</a></li>
+                    </ul>
+                    <ul class="pagination layer_btn">
+                        <li><a target="_self" href="javascript:void(0)" data-ng-click="next2()">下一页</a></li>
+                    </ul>
+                    <ul class="pagination layer_btn">
+                        <li><a target="_self" href="javascript:void(0)" data-ng-click="last2()">尾页</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<@footer></@footer>

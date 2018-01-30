@@ -1,0 +1,85 @@
+<meta charset="UTF-8" data-ng-init="initPage()">
+<div class="my_Center_margin">
+    <ul class="comme_9610_nav clear-fix">
+        <li style="border-bottom: 2px solid #3e6ffc;margin-bottom: -2px;color: #3e6ffc" data-ng-click="ckNav('9610_all')" data-ng-class="selMenu('9610_all')" data-ui-sref="9610_orderlist">我的订单</li>
+        <li data-ng-click="ckNav('9610_all')" data-ng-class="selMenu('9610_all')" data-ui-sref="9610_batchexport">批量导入订单</li>
+        <li data-ng-click="ckNav('9610_all')" data-ng-class="selMenu('9610_all')" data-ui-sref="9610_itemlist">商品信息管理</li>
+        <li data-ng-click="ckNav('9610_all')" data-ng-class="selMenu('9610_all')" data-ui-sref="9610_sendaddress">寄件地址设置</li>
+        <li data-ng-click="ckNav('9610_all')" data-ng-class="selMenu('9610_all')" data-ui-sref="9610_reciveaddress">收件地址设置</li>
+    </ul>
+<div class="order_9610_right_title">
+    <p class="order_9610_right_nav order_9610_right_navfloat"><b>|</b>&nbsp;我的订单</p>
+    <div class="order_nav_btn">
+        <button data-ng-click="ckNav('9610_batchexport')" data-ng-class="selMenu('9610_batchexport')" data-ui-sref="9610_batchexport"><i class="icon iconfont icon-daoru-copy"></i><b>批量导入订单</b></button>
+        <button><i class="icon iconfont icon-daochu"></i><b>导出订单</b></button>
+    </div>
+    <div class="clearfloat"></div>
+</div>
+<p style="border-top: 1px solid gainsboro;margin: 5px 0"></p>
+<div class="order_query_Builder">
+    <!-- <p><b>物流产品名称:</b>
+        <select data-ng-model = "order.logistics_id">
+        	<option value="">请选择</option>
+            <option data-ng-repeat = "logisticsProduct in logisticsProductList"  value="{{logisticsProduct.attrs.id}}">{{logisticsProduct.attrs.product_name}}</option>
+        </select>
+    </p> -->
+    <p><b>交易/外部订单编号:</b>
+        <input type="text" data-ng-model = "order.out_no" placeholder="交易/外部订单编号">
+    </p>
+    <p><!-- <b>追踪号:</b>
+        <input type="text" data-ng-model = "order.id" placeholder="追踪号"> -->
+    </p>
+    <p><b>起止时间:</b>
+        <input placeholder="开始日期" data-ng-model = "order.from_date" class="laydate-icon" onclick="layui.laydate({elem: this, festival: true})" id="startDate">
+        <b>&nbsp;至&nbsp;</b>
+        <input placeholder="结束日期" data-ng-model = "order.end_date" class="laydate-icon" onclick="layui.laydate({elem: this, festival: true})" id="endDate">
+    </p>
+    <p>
+    </p>
+    <p>
+        <button data-ng-click="all()"><b>查询</b></button>
+    </p>
+    <div class="clearfloat"></div>
+</div>
+<ul class="order_9610_right_subnav">
+    <li class="active_orderborder"><b>订单列表</b></li>
+    <div class="clearfloat"></div>
+</ul>
+<ul>
+    <li class="order_9610_right_subtitle">
+        <p><!-- <label><input type="checkbox"><i>✓</i></label> -->&nbsp;&nbsp;交易订单号/追踪号</p>
+        <p>寄送国家</p>
+        <p>预估重量(KG)</p>
+        <p>预估金额(美元)</p>
+        <p>订单状态</p>
+        <p>下单时间</p>
+        <p>操作</p>
+        <div class="clearfloat"></div>
+    </li>
+    <li class="order_9610_right_cont" data-ng-repeat = "order in orderlist">
+    	<p>{{order.attrs.out_no}}</p>
+        <p>{{order.attrs.rec_country_name}}</p>
+        <p>{{order.attrs.weight}}</p>
+        <p>{{order.attrs.order_total_amount}}</p>
+        <p>{{order.attrs.status}}</p>
+        <p>{{order.attrs.create_time | date:'yyyy-MM-dd HH:mm:ss'}}</p>
+        <p><span>编辑</span>&nbsp;|&nbsp;<span data-ng-click="orderDel(order.attrs.id)">删除</span></p>
+        <div class="clearfloat"></div>
+    </li>
+    <li class="comme_9610_right_footer">
+        <p>
+            <span>共&nbsp;{{page.totalRow}}&nbsp;条记录</span>
+            <span data-ng-click="first()">首页</span>
+            <span data-ng-click="previous()">上一页</span>
+            <span>
+                <i class="icon iconfont icon-zuoyoujiantou1"></i>
+                <a style="text-decoration: underline;color: #3e6ffc">{{page.pageNumber}}</a>
+                <i class="icon iconfont icon-zuoyoujiantou2"></i></span>
+            <span data-ng-click="next()">下一页</span>
+        </p>
+        <div class="clearfloat"></div>
+    </li>
+</ul>
+<div class="footer_btn">
+</div>
+</div>

@@ -1,0 +1,41 @@
+<#include "/include/cmn.html" encoding="UTF-8"><@header pageId="msg" crlId="MsgCtl" pageNm="系统消息"></@header>
+<meta charset="UTF-8">
+<div class="container msg_wrap">
+	<ul>
+		<li class="msg_subtitle bg-blue-light">
+			<p class="xs1 padding-left"><b>No.</b></p>
+			<p class="xs8"><b>消息内容</b></p>
+			<p class="text-center xs3"><b>通知时间</b></p>
+			<div class="clearfloat"></div>
+		</li>
+		<li class="text-default mes_slide" data-ng-repeat="row in page.list">
+			<p class="x1 padding-left"><b>{{$index+page.offset}}</b><span class="badge bg-sub text-little" data-ng-click="readed(row)"
+													   data-ng-show="row.attrs.readed=='0'">未读</span></p>
+			<p class="x11 xs8">{{row.attrs.content}}</p>
+			<p class="text-right padding-big-right x12 xs3">{{row.attrs.create_time}}</p>
+			<div class="clearfloat"></div>
+		</li>
+	</ul>
+	<div class="panel-foot text-center bg-blue-light mes_layerwrap">
+		<select class="input float-left layer_select" style="width: 120px;" data-ng-model="srh.pageSize" data-ng-change="changePageSize()">
+			<option value=10>每页10行</option>
+			<option value=20>每页20行</option>
+			<option value=50>每页50行</option>
+			<option value=100>每页100行</option>
+		</select>
+		<span class="float-right layer_rigsize">共[{{page.totalRow}}]条记录，当前[{{page.pageNumber}}/{{page.totalPage}}]页</span>
+		<ul class="pagination layer_btn">
+			<li><a target="_self" href="javascript:void(0)" data-ng-click="first()">首页</a></li>
+		</ul>
+		<ul class="pagination layer_btn">
+			<li><a target="_self" href="javascript:void(0)" data-ng-click="previous()">上一页</a></li>
+		</ul>
+		<ul class="pagination layer_btn">
+			<li><a target="_self" href="javascript:void(0)" data-ng-click="next()">下一页</a></li>
+		</ul>
+		<ul class="pagination layer_btn">
+			<li><a target="_self" href="javascript:void(0)" data-ng-click="last()">尾页</a></li>
+		</ul>
+	</div>
+</div>
+<@footer></@footer>

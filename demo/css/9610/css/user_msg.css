@@ -1,0 +1,24 @@
+.ID_Card{
+    overflow: hidden;
+}
+.ID_Card>span{
+    float: left;
+    width: 24.5%;
+    height: 150px;
+}
+.ID_Card>span:nth-child(1){
+    border: 1px solid gainsboro;
+}
+.ID_Card>span>input{
+    border: none;
+    width: 100%;
+    color: #3e6ffc;
+}
+#preview>img{
+    width: 100%;
+    height: 150px;
+}
+.user_sup{
+    color: red;
+    margin-right: 5px;
+}

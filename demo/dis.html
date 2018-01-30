@@ -1,0 +1,68 @@
+<#include "/include/cmn.html" encoding="UTF-8"><@header pageId="dis" crlId="DisCtl" pageNm="外贸首页"></@header>
+<meta charset="UTF-8" data-ng-init="init()">
+<body>
+<#include "dis_head.html" encoding="UTF-8">
+    <div class="container margin-top WM_wrap">
+        <div class="x12 WM_left_con padding margin-big-bottom">
+            <p class="WM_left_head x12">问题分类</p>
+            <p class="WM_left_phead x6 xs3 xm2 text-center" data-ng-repeat="category in allCategory"><a
+                    href="disCategory?categoryID={{category.attrs.categoryID}}">{{category.attrs.categoryName}}</a>
+            </p>
+            <!--<p data-ng-repeat="childCategory in category.childCategories"><a href="">{{childCategory.attrs.categoryName}}</a>-->
+            <!--</p>-->
+            <div class="clearfloat"></div>
+        </div>
+        <div class="x12 xs9 WM_content_con">
+            <ul class="WM_set">
+                <li class="WM_con_nav">
+                    <p class="WM_seta" data-ng-change="pageinit()" data-ng-click="initis(1)"
+                       ng-class="{1: 'WM_seta_act'}[isClass]">待解决问题</p>
+                    <p class="WM_seta" data-ng-change="pageinit()" data-ng-click="initis(2)"
+                       ng-class="{2: 'WM_seta_act'}[isClass]">已解决问题</p>
+                    <div class="clearfloat"></div>
+                </li>
+                <li class="WM_con_cont text-default" data-ng-repeat="disAues in DisQuesList.list">
+                    <p class="x12 xs7 text-left"><a href="disDetail?disID={{disAues.attrs.disID}}&isSlove=false"
+                                                    class="text-blue"
+                                                    target="_blank">{{disAues.attrs.disTitle}}</a>
+                    </p>
+                    <p class="x12 xs5 text-small text-right">{{disAues.attrs.scanCount}}&nbsp;&nbsp;浏览&nbsp;&nbsp;|&nbsp;&nbsp;{{disAues.attrs.createTime}}</p>
+                </li>
+                <div class="panel-foot text-center bg-white">
+                    <span class="float-right WM_pages" style="line-height: 40px">共[{{page.totalRow}}]条记录，当前[{{page.pageNumber}}/{{page.totalPage}}]页</span>
+                    <ul class="pagination layer_btn">
+                        <li><a target="_self" href="javascript:void(0)" data-ng-click="first()">首页</a></li>
+                    </ul>
+                    <ul class="pagination layer_btn">
+                        <li><a target="_self" href="javascript:void(0)" data-ng-click="previous()">上一页</a></li>
+                    </ul>
+                    <ul class="pagination layer_btn">
+                        <li><a target="_self" href="javascript:void(0)" data-ng-click="next()">下一页</a></li>
+                    </ul>
+                    <ul class="pagination layer_btn">
+                        <li><a target="_self" href="javascript:void(0)" data-ng-click="last()">尾页</a></li>
+                    </ul>
+                    <div class="clearfloat"></div>
+                </div>
+            </ul>
+        </div>
+        <div class="x12 xs3 WM_content_right padding-big-left">
+            <div style="border: 1px solid gainsboro">
+                <ul class="WM_gongGao padding-small">
+                    <li class="float-left">公告区</li>
+                    <li class="float-right"><a href="disCategory?disType=1">更多》</a></li>
+                    <div class="clearfloat"></div>
+                </ul>
+                <ul class="WM_content_cont text-default">
+                    <li data-ng-repeat="consult in consultList.list">•<a class="margin-left"
+                                                                        href="disDetail?disID={{consult.attrs.disID}}&disType=1&isSlove=true">{{consult.attrs.disTitle}}</a>
+                    </li>
+                    <div class="clearfloat"></div>
+                </ul>
+                <div class="clearfloat"></div>
+            </div>
+        </div>
+        <div class="clearfloat"></div>
+    </div>
+</body>
+<@footer></@footer>

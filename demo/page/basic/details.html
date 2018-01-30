@@ -1,0 +1,215 @@
+<meta charset="UTF-8" data-ng-init="initPage()">
+<style>
+.table-bordered th {
+	border-bottom: 2px solid #fff;
+}
+
+.table-bordered th, .table-bordered td {
+	border: solid 2px #fff;
+}
+</style>
+<div class="my_Center_margin">
+	<ul class="bread bg" style="height: 40px;line-height: 40px;margin-top: 10px">
+		<li style="padding-left: 20px;"><a target="_self" href="javascript:void(0);" data-ng-click="bread()">订单跟踪</a></li>
+		<li>订单详情</li>
+	</ul>
+	<div style="border: solid 1px #e0f3ff; background-color: #f7fbff; width: 100%; padding: 20px;">
+		<strong class="text-big text-basic">基本信息</strong> 
+		
+		<a class="button float-right margin-bottom bg-basic" style="cursor: pointer;text-decoration: none" data-ng-click="toUpdate(basicDetail.attrs.id)" data-ng-if="basicDetail.attrs.state_str=='待审核' || basicDetail.attrs.state_str=='请确认'  || basicDetail.attrs.state_str=='报关失败'  ">点击修改</a>
+		<a class="button float-right margin-bottom bg-basic" style="cursor: pointer;text-decoration: none" data-ng-click="toCopy(basicDetail.attrs.id)" >点击复制</a>
+		<hr style="color: #acceea; background-color: #acceea; height: 3px;" />
+		<ul style="line-height: 35px">
+			<li class="xl12 xs6"><strong class="text-basic xl4 text-right padding-right">出口发票号</strong>{{basicDetail.attrs.id}}</li>
+			<li class="xl12 xs6"><strong class="text-basic xl4 text-right padding-right">交货日期</strong>{{basicDetail.attrs.delivery_date}}</li>
+			<li class="xl12 xs6"><strong class="text-basic xl4 text-right padding-right">收货人</strong>{{basicDetail.attrs.consignee_name}}</li>
+			<li class="xl12 xs6"><strong class="text-basic xl4 text-right padding-right">订单状态</strong>{{basicDetail.attrs.state_str}}</li>
+			<li class="xl12"><strong class="text-basic xl4 xs2 text-right padding-right">详细地址</strong>{{basicDetail.attrs.consignee_address}}</li>
+			<li class="xl12 xs6"><strong class="text-basic xl4 text-right padding-right">联系人</strong>{{basicDetail.attrs.consignee_contacts}}</li>
+			<li class="xl12 xs6"><strong class="text-basic xl4 text-right padding-right">联系方式</strong>{{basicDetail.attrs.consignee_tel}}</li>
+			<li class="xl12 xs6"><strong class="text-basic xl4 text-right padding-right">生产厂家</strong>{{basicDetail.attrs.agent_name}}</li>
+			<li class="xl12 xs6"><strong class="text-basic xl4 text-right padding-right">工商注册号</strong>{{basicDetail.attrs.agent_code}}</li>
+			<li class="xl12 xs6"><strong class="text-basic xl4 text-right padding-right">结汇方式</strong>{{basicDetail.attrs.pay_type_str}}</li>
+			<li class="xl12 xs6"><strong class="text-basic xl4 text-right padding-right">货币类型</strong>{{basicDetail.attrs.currency}}</li>
+			<li class="xl12 xs6"><strong class="text-basic xl4 text-right padding-right">信用证号码</strong>{{basicDetail.attrs.pay_num}}</li>
+			<li class="xl12 xs6"><strong class="text-basic xl4 text-right padding-right">开证银行</strong>{{basicDetail.attrs.issuing_bank}}</li>
+			<li class="xl12 xs6"><strong class="text-basic xl4 text-right padding-right">业务联系人</strong>{{basicDetail.attrs.contacts}}</li>
+			<li class="xl12 xs6"><strong class="text-basic xl4 text-right padding-right">联系人电话</strong>{{basicDetail.attrs.contact_tel}}</li>
+			<li class="xl12 xs6"><strong class="text-basic xl4 text-right padding-right">联系人邮箱</strong>{{basicDetail.attrs.contact_emal}}</li>
+			<li class="xl12 xs6"><strong class="text-basic xl4 text-right padding-right">提前退税</strong>{{basicDetail.attrs.advance_drawback=='1'?'是':'否'}}</li>
+			<li class="xl12"><strong class="text-basic xl4 xs2 text-right padding-right">备注</strong>{{basicDetail.attrs.remarks}}</li>
+		</ul>
+		<div class="clearfloat"></div>
+	</div>
+	<div class="tab padding-large-top">
+		<div class="tab-head">
+			<ul class="tab-nav">
+				<li class="active"><a href="#tab-good">商品</a></li>
+				<li><a href="#tab-declare">报关</a></li>
+				<li><a href="#tab-state">状态</a></li>
+			</ul>
+		</div>
+		<div class="tab-body">
+			<div class="tab-panel active" id="tab-good">
+				<table class="table table-bordered table-condensed">
+					<tr class="blue">
+						<th>HS编码</th>
+						<th>品名</th>
+						<th class="hidden-l hidden-s" style="text-align: right;">成交单价({{basicDetail.attrs.currency_en}})</th>
+						<th class="hidden-l hidden-s" style="text-align: right;">成交数量</th>
+						<th class="hidden-l hidden-s" style="text-align: right;">金额</th>
+						<th class="hidden-l hidden-s" style="text-align: right;">毛重(KG)</th>
+						<th class="hidden-l hidden-s" style="text-align: right;">净重(KG)</th>
+						<th class="hidden-l hidden-s" style="text-align: right;">退税率</th>
+						<th class="hidden-m hidden-b" style="text-align: right;">详情</th>
+					</tr>
+					<tr class="current" data-ng-repeat="row in goodsList" style="cursor: pointer;line-height: 35px ">
+						<td>{{row.attrs.hs_code}}</td>
+						<td>{{row.attrs.name_cn}}</td>
+						<td class="hidden-l hidden-s" style="text-align: right;">{{row.attrs.unit_price}}</td>
+						<td class="hidden-l hidden-s" style="text-align: right;">{{row.attrs.real_count}}&nbsp;{{row.attrs.real_unit}}</td>
+						<td class="hidden-l hidden-s" style="text-align: right;">{{row.attrs.amount}}</td>
+						<td class="hidden-l hidden-s" style="text-align: right;">{{row.attrs.gross_weight}}</td>
+						<td class="hidden-l hidden-s" style="text-align: right;">{{row.attrs.net_weight}}</td>
+						<td class="hidden-l hidden-s" style="text-align: right;">{{row.attrs.drawback}}</td>
+						<td class="hidden-m hidden-b text-center" data-ng-click="goodDetails(row)"><button class="button bg-main">查看详情</button></td>
+					</tr>
+				</table>
+					<ul class="margin-top" style="line-height: 35px;background-color: #f9f3d9;">
+						<li class="xl12 text-big"><b>合计</b></li>
+						<li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">总毛重</strong>{{basicDetail.attrs.gross_weight}}&nbsp;KG</li>
+						<li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">总净重</strong>{{basicDetail.attrs.net_weight}}&nbsp;KG</li>
+						<li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">总货值</strong>{{basicDetail.attrs.price}}&nbsp;{{basicDetail.attrs.currency_en}}</li>
+						<li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">总件数</strong>{{basicDetail.attrs.real_count}}&nbsp;{{goodsList[0].attrs.real_unit}}</li>
+					</ul>
+					<div class="clearfloat"></div>
+				<div id="goodDetails" style="display: none; padding: 20px;">
+					<ul style="line-height: 35px">
+						<li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">HS编码</strong>{{goods.attrs.hs_code}}</li>
+						<li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">公司货号</strong>{{goods.attrs.company_no}}</li>
+						<li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">商品名称(中)</strong>{{goods.attrs.name_cn}}</li>
+						<li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">商品名称(英)</strong>{{goods.attrs.name_en}}</li>
+						<li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">型号</strong>{{goods.attrs.model}}</li>
+						<li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">品牌</strong>{{goods.attrs.brand}}</li>
+						<li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">成交数量</strong>{{goods.attrs.real_count}}</li>
+						<li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">成交单位</strong>{{goods.attrs.real_unit}}</li>
+						<li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">第一法定数量</strong>{{goods.attrs.first_unit}}</li>
+						<li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">第一法定单位</strong>{{goods.attrs.first_unit}}</li>
+						<li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">第二法定数量</strong>{{goods.attrs.second_count}}</li>
+						<li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">第二法定单位</strong>{{goods.attrs.second_unit}}</li>
+						<li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">成交单价</strong>{{goods.attrs.unit_price}}</li>
+						<li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">体积(立方米)</strong>{{goods.attrs.volume}}</li>
+						<li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">包装件数</strong>{{goods.attrs.packing_count}}</li>
+						<li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">包装种类</strong>{{goods.attrs.packing_type}}</li>
+						<li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">毛重</strong>{{goods.attrs.gross_weight}}</li>
+						<li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">净重</strong>{{goods.attrs.net_weight}}</li>
+						<li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">退税率</strong>{{goods.attrs.drawback}}</li>
+						<li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">唛头</strong>{{goods.attrs.mark}}</li>
+						<li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">申报要素</strong>{{goods.attrs.elements}}</li>
+						<li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">商品描述</strong>{{goods.attrs.description}}</li>
+						<li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">备注</strong>{{goods.attrs.remarks}}</li>
+					</ul>
+					<div class="clearfloat"></div>
+				</div>
+			</div>
+			<div class="tab-panel padding-big-top" id="tab-declare">
+				<ul class="baoGuan" style="line-height: 35px;border: 2px solid #abc7dd; width: 100%">
+					<li class="xl12 xs4"><strong class="text-basic xl4 xs6 text-right padding-right">出口口岸</strong>{{basicDetail.attrs.e_port}}</li>
+					<li class="xl12 xs4"><strong class="text-basic xl4 xs6 text-right padding-right">原产国</strong>{{basicDetail.attrs.origin_country}}</li>
+					<li class="xl12 xs4"><strong class="text-basic xl4 xs6 text-right padding-right">目的国</strong>{{basicDetail.attrs.destination_country}}</li>
+					<li class="xl12 xs4"><strong class="text-basic xl4 xs6 text-right padding-right">转运港</strong>{{basicDetail.attrs.t_port}}</li>
+					<li class="xl12 xs4"><strong class="text-basic xl4 xs6 text-right padding-right">目的港</strong>{{basicDetail.attrs.d_port}}</li>
+					<li class="xl12 xs4"><strong class="text-basic xl4 xs6 text-right padding-right">运输方式</strong>{{basicDetail.attrs.post_mode}}</li>
+					<li class="xl12 xs4"><strong class="text-basic xl4 xs6 text-right padding-right">装运日期</strong>{{basicDetail.attrs.shipment_date}}</li>
+					<li class="xl12 xs4"><strong class="text-basic xl4 xs6 text-right padding-right">成交方式</strong>{{basicDetail.attrs.trade_method}}</li>
+					<li class="xl12 xs4"><strong class="text-basic xl4 xs6 text-right padding-right">贸易国</strong>{{basicDetail.attrs.trading_country}}</li>
+					<li class="xl12"><strong class="text-basic xl4 xs2 text-right padding-right">境内货源地</strong>{{basicDetail.attrs.origin}}</li>
+					<li class="xl12 xs4"><strong class="text-basic xl4 xs6 text-right padding-right">保费</strong>{{basicDetail.attrs.insurance}}</li>
+					<li class="xl12 xs4"><strong class="text-basic xl4 xs6 text-right padding-right">运费</strong>{{basicDetail.attrs.fee_amount}}</li>
+					<li class="text-white hidden-l xl12 xs4">,</li>
+					<li class="xl12 xs4"><strong class="text-basic xl4 xs6 text-right padding-right">特殊关系</strong>{{basicDetail.attrs.special_relationship=='1'?'是':'否'}}</li>
+					<li class="xl12 xs4"><strong class="text-basic xl4 xs6 text-right padding-right">价格影响</strong>{{basicDetail.attrs.price_effect=='1'?'是':'否'}}</li>
+					<li class="xl12 xs4"><strong class="text-basic xl4 xs6 text-right padding-right">支付权费用</strong>{{basicDetail.attrs.royalty_fee=='1'?'是':'否'}}</li>
+					<li class="xl12"><strong class="text-basic xl4 xs2 text-right padding-right">货物存放地</strong>{{basicDetail.attrs.storage_address}}</li>
+					<li class="xl12 xs4" data-ng-show="basicDetail.attrs.logistics_documents_pdf">
+						<strong class="text-basic xl4 xs6 text-right padding-right">报关物流资料(Pdf)</strong><a target="_blank" data-ng-href="sevnton_bo/basicOrder/downloadLogisticsPdf?id={{basicDetail.attrs.id}}">下载</a>
+					</li>
+					<li class="xl12 xs4" data-ng-show="basicDetail.attrs.logistics_documents_excel">
+						<strong class="text-basic xl4 xs6 text-right padding-right">报关物流资料(Excel)</strong><a target="_blank" data-ng-href="sevnton_bo/basicOrder/downloadLogisticsExcel?id={{basicDetail.attrs.id}}">下载</a>
+					</li>
+				</ul>
+				<div class="clearfloat"></div>
+			</div>
+			<div class="tab-panel" id="tab-state">
+				<table style="width: 100%;">
+					<tr style="background-color: #fafae8;">
+						<th style="border: solid 2px #fff; padding: 10px 0;" class="text-big text-basic text-center">报关</th>
+						<td style="border: solid 2px #fff; padding: 10px;"><table style="width: 100%;">
+								<tr>
+									<th width="100" class="text-big text-basic">{{(basicDetail.attrs.state==3&&basicDetail.attrs.declare_no)||(basicDetail.attrs.state>3&&basicDetail.attrs.state!=9)?'报关完毕':'未报关'}}</th>
+									<th width="70" class="text-basic padding-right" data-ng-show="basicDetail.attrs.declare_no">报关单号</th>
+									<td width="150" class="text-sub" data-ng-show="basicDetail.attrs.declare_no">{{basicDetail.attrs.declare_no}}</td>
+									<th width="70" class="text-basic padding-right" data-ng-show="basicDetail.attrs.declare_no">快递单号</th>
+									<td width="150" class="text-sub" data-ng-show="basicDetail.attrs.declare_no">{{basicDetail.attrs.express_no}}</td>
+									<td colspan="2"></td>
+									<td class="text-right" data-ng-show="basicDetail.attrs.declare_no">下载&nbsp;&nbsp;&nbsp;
+										<a target="_blank" data-ng-href="{{basicDetail.attrs.declare_forms}}" class="text-basic">报关单</a>&nbsp;&nbsp; 
+										<a target="_blank" data-ng-href="{{basicDetail.attrs.qp_forms}}" class="text-basic">放行通知书</a>
+									</td>
+								</tr>
+								<tr>
+									<th></th>
+									<td colspan="5" class="padding-top">{{basicDetail.attrs.declare_remarks}}</td>
+								</tr>
+							</table></td>
+					</tr>
+					<tr style="background-color: #e9f6ff;">
+						<th width="100" style="border: solid 2px #fff; padding: 10px 0;" class="text-big text-basic text-center">通关</th>
+						<td style="border: solid 2px #fff; padding: 10px;"><table>
+								<tr>
+									<th width="100" class="text-big text-basic">{{basicDetail.attrs.state>=4&&basicDetail.attrs.state!=9?'已':'未'}}通关</th>
+									<td>{{basicDetail.attrs.remarks4}}</td>
+								</tr>
+							</table></td>
+					</tr>
+					<tr style="background-color: #fafae8;">
+						<th style="border: solid 2px #fff; padding: 10px 0;" class="text-big text-basic text-center">结汇</th>
+						<td style="border: solid 2px #fff; padding: 10px;"><table style="width: 100%;">
+								<tr>
+									<th width="100" class="text-big text-basic">{{basicDetail.attrs.state>=5&&basicDetail.attrs.state!=9?'已':'未'}}结汇</th>
+									<th width="70" class="text-basic padding-right">结汇金额</th>
+									<td width="150" class="text-dot"><span class="icon-cny"></span>&nbsp;{{basicDetail.attrs.exchange_amount}}</td>
+									<td colspan="4"></td>
+									<td class="text-right"><span data-ng-show="basicDetail.attrs.exchange_doc">下载&nbsp;&nbsp;&nbsp;<a
+											target="_blank" data-ng-href="{{basicDetail.attrs.exchange_doc}}" class="text-basic">开票资料</a></span></td>
+								</tr>
+								<tr>
+									<th></th>
+									<td colspan="5" class="padding-top">{{basicDetail.attrs.remarks5}}</td>
+								</tr>
+							</table></td>
+					</tr>
+					<tr style="background-color: #e9f6ff;">
+						<th style="border: solid 2px #fff; padding: 10px 0;" class="text-big text-basic text-center">退税</th>
+						<td style="border: solid 2px #fff; padding: 10px;"><table style="width: 100%;">
+								<tr>
+									<th width="100" class="text-big text-basic">{{basicDetail.attrs.state>=6&&basicDetail.attrs.state!=9?'已':'未'}}退税</th>
+									<th width="70" class="text-basic padding-right">退税金额</th>
+									<td width="150" class="text-dot"><span class="icon-cny"></span>&nbsp;{{basicDetail.attrs.refund_amount}}</td>
+									<th width="70" class="text-basic padding-right">开票金额</th>
+									<td width="150" class="text-dot"><span class="icon-cny"></span>&nbsp;{{basicDetail.attrs.invoice_amount}}</td>
+									<th width="40" class="text-basic padding-right">费用</th>
+									<td width="150" class="text-dot"><span class="icon-cny"></span>&nbsp;{{basicDetail.attrs.cost_amont}}</td>
+									<td></td>
+								</tr>
+								<tr>
+									<th></th>
+									<td colspan="5" class="padding-top">{{basicDetail.attrs.remarks6}}</td>
+								</tr>
+							</table></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,27 @@
+<#include "/include/cmn.html" encoding="UTF-8"><@header pageId="introd"
+    crlId="IntrodCtl" pageNm="服务介绍">
+</@header>
+<meta charset="UTF-8">
+<meta name="keywords" content=""/>
+<meta name="description" content="">
+<title></title>
+
+<div class="slider-wrapper theme-default main_zhubanner">
+    <div id="slider" class="nivoSlider">
+        <a data-ng-repeat="row in bannerList" target="_bank" data-ng-href="{{row.attrs.url}}"><img data-ng-src="{{row.attrs.pic}}" alt="" /></a>
+    </div>
+</div>
+<div class="introd_wrap">
+    <iframe width="100%" height="1000" data-ng-show="link" data-ng-src="{{link}}" class="content sandaMK"></iframe>
+    <div data-ng-show="!link&&content" data-ng-bind-html="content" class="content sandaMK"></div>
+</div>
+<script type="text/javascript">
+    window.onload = function () {
+        $('#slider').nivoSlider({
+            pauseTime: 5000,
+        });
+    }
+</script>
+<@footer></@footer>
+
+

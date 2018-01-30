@@ -1,0 +1,65 @@
+<meta charset="UTF-8" data-ng-init="initPage()">
+<div class="my_Center_margin">
+    <ul class="bread bg" style="height: 40px;line-height: 40px;margin-top: 10px" data-ng-show="dispList==true">
+        <li style="padding-left: 20px;">常见问题</li>
+    </ul>
+    <ul class="bread bg" style="height: 40px;line-height: 40px;margin-top: 10px" data-ng-show="dispList==false">
+        <li style="padding-left: 20px;"><a target="_self" data-ng-click="showFaqList()"
+                                           style="cursor: pointer;">常见问题</a></li>
+        <li>问题详细</li>
+    </ul>
+    <ul class=" faq_type_ul">
+        <li class="faq_type_li all active" id="">全部</li>
+        <li class="faq_type_li" data-ng-repeat="row in faqTypeList"
+            id="{{row.attrs.id}}">{{row.attrs.name}}
+        </li>
+        <div class="clearfloat"></div>
+    </ul>
+    <div class="margin-big-top">
+        <div class="faq_search line">
+            <button type="button" class="button icon-search x2"
+                    data-ng-click="search()" id="searchicon"></button>
+            <span class="x7">
+                        <input type="text" class="input" id="keyword"
+                               data-ng-model="keyword" placeholder="请输入问题关键词">
+            </span>
+            <button id="search" class="button  bg-yellow x3" type="button"
+                    data-ng-click="search()">搜 索
+            </button>
+        </div>
+        <div class="faq_list" data-ng-show="dispList==true">
+            <ul class="faq_ul">
+                <li class="faq_li" data-ng-repeat="row in page.list"
+                    id="{{row.attrs.id}}"><b>&nbsp;{{$index+1}}.&nbsp;</b>
+                    {{row.attrs.question}}
+                </li>
+            </ul>
+            <br/>
+            <div class="text-center">
+                <ul class="pagination layer_btn">
+                    <li><a target="_self" href="javascript:void(0)"
+                           data-ng-click="first()">首页</a></li>
+                </ul>
+                <ul class="pagination layer_btn">
+                    <li><a target="_self" href="javascript:void(0)"
+                           data-ng-click="previous()">上一页</a></li>
+                </ul>
+                <ul class="pagination layer_btn">
+                    <li><a target="_self" href="javascript:void(0)"
+                           data-ng-click="next()">下一页</a></li>
+                </ul>
+                <ul class="pagination layer_btn">
+                    <li><a target="_self" href="javascript:void(0)"
+                           data-ng-click="last()">尾页</a></li>
+                </ul>
+                <span class="float-right padding-top">共[{{page.totalRow}}]条记录，当前[{{page.pageNumber}}/{{page.totalPage}}]页</span>
+            </div>
+        </div>
+        <div class="faq" data-ng-show="dispList==false">
+            <div class="faq_detail">
+                <div class="faq_question">{{selectQuestion}}</div>
+                <div class="faq_answer">{{selectAnswer}}</div>
+            </div>
+        </div>
+    </div>
+</div>

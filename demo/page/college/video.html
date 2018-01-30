@@ -1,0 +1,201 @@
+<meta charset="UTF-8" data-ng-init="initPage()">
+<!--<div style="min-width: 950px;">-->
+	<!--<ul class="bread bg">-->
+		<!--<li>圣云学院</li>-->
+		<!--<li>视频广场</li>-->
+	<!--</ul>-->
+	<!--<div class="video_label_head">-->
+		<!--视频分类<span class="video_btn_upload"><button-->
+				<!--class="button  bg-yellow" type="button" data-ng-click="upload()"-->
+				<!--data-ng-show="loginUser">视频上传</button> </span>-->
+	<!--</div>-->
+	<!--<div class="video_div_label">-->
+		<!--<span class="button video_label active" id=""-->
+			<!--data-ng-click="changeLabel($event.target)"> 全部</span> <span-->
+			<!--class="button video_label" data-ng-repeat="row in labelList"-->
+			<!--id="{{row.attrs.id}}" data-ng-click="changeLabel($event.target)">-->
+			<!--{{row.attrs.name}} </span>-->
+	<!--</div>-->
+
+	<!--<div class="video_list">-->
+		<!--<div class="video_one" data-ng-repeat="row in page.list">-->
+			<!--<span class="video_title"><a href="javascript:void(0);"-->
+				<!--data-ng-click="gotoPlay(row)">{{row.attrs.title}}</a></span>-->
+			<!--<div class="video_left">-->
+
+				<!--<div class="video_size">-->
+					<!--<a href="javascript:void(0);"><img alt=""-->
+						<!--data-ng-src="{{row.attrs.poster}}" /> </a>-->
+				<!--</div>-->
+				<!--<a data-ng-show="row.attrs.payState==0 && row.attrs.charge!=0"-->
+					<!--class="p-thumb" href="javascript:void(0)"-->
+					<!--data-ng-click="gotoPay(row)"><span>付费</span></a> <a-->
+					<!--data-ng-show="(row.attrs.payState==0 && row.attrs.charge!=0) == false"-->
+					<!--class="p-thumb" href="javascript:void(0)"-->
+					<!--data-ng-click="gotoPlay(row)"></a>-->
+			<!--</div>-->
+			<!--<span class="video_footer"><span class="video_userId">{{row.attrs.userName}}</span>-->
+				<!--于{{row.attrs.create_time}}上传 <span class="video_count">-->
+					<!--&nbsp;<span style="color: #ee7d19;">{{row.attrs.count}}</span> 人已观看-->
+			<!--</span> </span>-->
+		<!--</div>-->
+	<!--</div>-->
+	<!--<br /><br /><br />-->
+	<!--<div class=" text-center ">-->
+		<!--<ul class="pagination">-->
+			<!--<li><a target="_self" href="javascript:void(0)"-->
+				<!--data-ng-click="first()">首页</a></li>-->
+		<!--</ul>-->
+		<!--<ul class="pagination">-->
+			<!--<li><a target="_self" href="javascript:void(0)"-->
+				<!--data-ng-click="previous()">上一页</a></li>-->
+		<!--</ul>-->
+		<!--<ul class="pagination">-->
+			<!--<li><a target="_self" href="javascript:void(0)"-->
+				<!--data-ng-click="next()">下一页</a></li>-->
+		<!--</ul>-->
+		<!--<ul class="pagination">-->
+			<!--<li><a target="_self" href="javascript:void(0)"-->
+				<!--data-ng-click="last()">尾页</a></li>-->
+		<!--</ul>-->
+		<!--<span class="float-right">共[{{page.totalRow}}]条记录，当前[{{page.pageNumber}}/{{page.totalPage}}]页</span>-->
+	<!--</div>-->
+<!--</div>-->
+<!--<div style="display: none;" id="uploadDlg">-->
+	<!--<div style="padding: 15px;" class="video_upload">-->
+		<!--<form method="post" class="form-x">-->
+			<!--<div class="form-group">-->
+				<!--<div class="label">-->
+					<!--<label for="label"><span style="color: red;">*</span> 视频选择</label>-->
+				<!--</div>-->
+				<!--<div class="field">-->
+					<!--<input id="fileInput" type="file" name="fileInput"-->
+						<!--enctype="multipart/form-data" maxlength="100">-->
+				<!--</div>-->
+			<!--</div>-->
+			<!--<div class="form-group">-->
+				<!--<div class="label">-->
+					<!--<label><span style="color: red;">*</span> 标签</label>-->
+				<!--</div>-->
+				<!--<div class="field">-->
+					<!--<select class="input" id="vLabel">-->
+						<!--<option data-ng-repeat="x in labelList" value="{{x.attrs.id}}">{{x.attrs.name}}</option>-->
+					<!--</select>-->
+				<!--</div>-->
+			<!--</div>-->
+			<!--<div class="form-group">-->
+				<!--<div class="label">-->
+					<!--<label><span style="color: red;">*</span> 标题</label>-->
+				<!--</div>-->
+				<!--<div class="field">-->
+					<!--<input type="text" class="input" data-ng-model="video.title"-->
+						<!--id="vTitle" size="100" placeholder="请输入视频标题" maxlength="100">-->
+				<!--</div>-->
+			<!--</div>-->
+			<!--<div class="form-group">-->
+				<!--<div class="label">-->
+					<!--<label><span style="color: red;">*</span> 观看费用（元）</label>-->
+				<!--</div>-->
+				<!--<div class="field">-->
+					<!--<input type="text" class="input" data-ng-model="video.charge"-->
+						<!--id="vCharge" size="100" placeholder="请输入观看费用" value="0"-->
+						<!--maxlength="8">-->
+				<!--</div>-->
+			<!--</div>-->
+		<!--</form>-->
+		<!--<div style="text-align: center; margin-top: 10px;">-->
+			<!--<button id="fileUploadBtn" class="button  bg-yellow" type="button"-->
+				<!--style="width: 100px; display: none;">上传</button>-->
+			<!--<button id="fileUploadBtnDisp" class="button  bg-yellow"-->
+				<!--type="button" style="width: 100px;">上传</button>-->
+		<!--</div>-->
+	<!--</div>-->
+<!--</div>-->
+
+<!--<div style="display: none;" id="payDlg">-->
+	<!--<div style="padding: 15px;" class="video_pay">-->
+		<!--<form method="post" class="form-x">-->
+			<!--<div class="form-group">-->
+				<!--<div class="label">-->
+					<!--<label>付费</label>-->
+				<!--</div>-->
+				<!--<div class="field">-->
+					<!--<input type="text" class="input" id="payVideoCharge" disabled>-->
+					<!--<input type="text" class="input" id="payVideoId"-->
+						<!--style="display: none;">-->
+				<!--</div>-->
+			<!--</div>-->
+		<!--</form>-->
+		<!--<div style="text-align: center; margin-top: 10px;">-->
+			<!--<button id="btnPay" class="button  bg-yellow btnPay" type="button"-->
+				<!--style="width: 100px;">确认付费</button>-->
+		<!--</div>-->
+	<!--</div>-->
+<!--</div>-->
+<div class="container college_wrap">
+	<p class="row college_title"><b style="color:#f48b36">|</b><b>视频分类</b></p>
+	<div class="college_cont">
+		<!-- Nav tabs -->
+		<ul class="nav nav-pills" role="tablist">
+			<li role="presentation" class="active"><a data-target="#college_all" aria-controls="college_all" role="tab" data-toggle="tab">全部</a></li>
+			<li role="presentation"><a data-target="#college_foreign" aria-controls="college_foreign" role="tab" data-toggle="tab">外贸</a></li>
+			<li role="presentation"><a data-target="#college_import" aria-controls="college_import" role="tab" data-toggle="tab">进口</a></li>
+			<li role="presentation"><a data-target="#college_free" aria-controls="college_free" role="tab" data-toggle="tab">免费</a></li>
+		</ul>
+		<!-- Tab panes -->
+		<div class="tab-content">
+			<div role="tabpanel" class="tab-pane active" id="college_all">
+				<div class="row media_mainWrap">
+					<div class="col-sm-6 col-xs-12 media_wrap">
+						<a class="col-xs-4 collsge_mideImg pull-left" href=""><img src="../imgs/1.jpg" alt=""></a>
+						<div class="col-xs-8 pull-left media_conright">
+							<p class="media_title"><b>【外贸干货】亚马逊还将大刀阔斧的开始招商开始出售</b></p>
+							<p >浙江圣运通网络科技公司</p>
+							<p>2017-04-26 16:25:42</p>
+							<p>价格免费</p>
+							<p class="outlay">免费</p>
+						</div>
+					</div>
+					<div class="col-sm-6 col-xs-12 media_wrap">
+						<a class="col-xs-4 collsge_mideImg pull-left" href=""><img src="../imgs/1.jpg" alt=""></a>
+						<div class="col-xs-8 pull-left media_conright">
+							<p class="media_title"><b>【外贸干货】亚马逊还将大刀阔斧的开始招商开始出售</b></p>
+							<p >浙江圣运通网络科技公司</p>
+							<p>2017-04-26 16:25:42</p>
+							<p>价格免费</p>
+							<p class="outlay">免费</p>
+						</div>
+					</div>
+					<div class="col-sm-6 col-xs-12 media_wrap">
+						<a class="col-xs-4 collsge_mideImg pull-left" href=""><img src="../imgs/1.jpg" alt=""></a>
+						<div class="col-xs-8 pull-left media_conright">
+							<p class="media_title"><b>【外贸干货】亚马逊还将大刀阔斧的开始招商开始出售</b></p>
+							<p >浙江圣运通网络科技公司</p>
+							<p>2017-04-26 16:25:42</p>
+							<p>价格免费</p>
+							<p class="outlay">免费</p>
+						</div>
+					</div>
+					<div class="col-sm-6 col-xs-12 media_wrap">
+						<a class="col-xs-4 collsge_mideImg pull-left" href=""><img src="../imgs/1.jpg" alt=""></a>
+						<div class="col-xs-8 pull-left media_conright">
+							<p class="media_title"><b>【外贸干货】亚马逊还将大刀阔斧的开始招商开始出售</b></p>
+							<p >浙江圣运通网络科技公司</p>
+							<p>2017-04-26 16:25:42</p>
+							<p>价格免费</p>
+							<p class="outlay">免费</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-offset-8 media_layer">
+					<button type="button" class="btn btn-default btn-sm"><i class="icon iconfont icon-zuoyoujiantou1"></i>&nbsp;</button>
+					<input type="button" class="btn btn-default btn-sm disabled" style="border: none;font-weight: bold" value="1">
+					<button type="button" class="btn btn-default btn-sm">下一页&nbsp;<i class="icon iconfont icon-zuoyoujiantou2"></i></button>
+				</div>
+			</div>
+			<div role="tabpanel" class="tab-pane" id="college_foreign">2</div>
+			<div role="tabpanel" class="tab-pane" id="college_import">3</div>
+			<div role="tabpanel" class="tab-pane" id="college_free">4</div>
+		</div>
+	</div>
+</div>

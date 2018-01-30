@@ -1,0 +1,77 @@
+.pwd_alert input,
+.batch_Dr input,
+.batch_Dr select{
+    border-radius: 3px;
+    border: 1px solid gainsboro;
+}
+.pwd_alert>ul>li,
+.batch_Dr>ul>li{
+    width: 100%;
+    overflow: hidden;
+    line-height: 38px;
+    margin-top: 20px;
+}
+.pwd_alert>ul>li>p,
+.batch_Dr>ul>li>p{
+    float: left;
+    font-size: 1.3em;
+}
+.pwd_alert>ul>li>p:first-child,
+.batch_Dr>ul>li>p:first-child{
+    width: 19%;
+    text-align: right;
+    margin-right: 1%;
+}
+.pwd_alert>ul>li>p:nth-child(2),
+.batch_Dr>ul>li>p:nth-child(2){
+    width: 80%;
+}
+.pwd_alert>ul>li>p:nth-child(2)>input,
+.batch_Dr>ul>li>p:nth-child(2)>input,
+.batch_Dr>ul>li>p:nth-child(2)>select{
+    width: 50%;
+    height: 35px;
+    padding-left: 10px;
+}
+.pwd_submit,.batch_Dr_submit,.user_msg_submit{
+    margin-left: 20%;
+    width: 80%;
+}
+.pwd_submit>input,
+.batch_Dr_submit>input,
+.user_msg_submit>input{
+    width: 50%;
+    height: 38px;
+    background-color: #3e6ffc;
+    border: 1px solid #3e6ffc;
+    margin-top: 40px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+.batch_Dr_submit>input{
+    width: 15% !important;
+}
+.batch_Dr_downlond>span{
+    text-decoration: underline;
+    color: #2780c3;
+    font-size: 1.3em;
+    line-height: 2em;
+    cursor: pointer;
+}
+.batch_Dr_downlond>span:hover{
+    color: #3e6ffc;
+}
+.batch_Dr_wenxin_msg{
+    border: 1px solid #3e6ffc;
+    margin: 40px 20px;
+    padding: 20px 0;
+}
+.batch_Dr_wenxin_msg>p{
+    margin-left: 40px;
+    font-size: 1.2em;
+}
+.batch_Dr_wenxin_msg>p>i{
+    font-size: 2.5em;
+    color: #3e6ffc;
+}

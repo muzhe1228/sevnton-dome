@@ -1,0 +1,76 @@
+<#include "/include/cmn.html" encoding="UTF-8"><@header
+    pageId="login" crlId="LoginCtl" pageNm="用户登录">
+</@header>
+<title>圣云通-用户登录</title>
+<!--<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="101410073" charset="utf-8"></script>
+ http://sevnton.com/thirdLogin/qqLogin -->
+<div class="logins container">
+    <form class="form-x xs12 xm6 xm3-left login_form">
+        <div class="form-group padding-large-bottom">
+            <div class="xs12">
+                <label class="text-basic" style="font-size: 24px!important;">账户登录</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="left_inp xs3">
+                <label for="userId"><span class="text-dot">*</span>&nbsp;用户ID</label>
+            </div>
+            <div class="fields xs6">
+                <input type="text"  id="userId" class="input" placeholder="请填写账户ID或注册邮箱"
+                       data-validate="required:必填" data-ng-model="auth.userId"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="left_inp xs3">
+                <label for="passwd"><span class="text-dot">*</span>&nbsp;登录密码</label>
+            </div>
+            <div class="fields xs6">
+                <input type="password" class="input" placeholder="请填写账户密码"
+                       data-validate="required:必填" data-ng-model="auth.passwd"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="left_inp xs3">
+            </div>
+            <div class="xs6">
+                    <a href="regained">忘记密码？</a><a href="register">没有账户，立即注册</a><a href="phone_login" style = "color:blue">手机号快捷登录</a>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="left_inp xs3">
+            </div>
+            <div class="xs6">
+                <div class="input-group text-dot" style="width: 100%;">{{error}}</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="left_inp xs3">
+            </div>
+            <div class="xs6 login_Btn">
+                <button class="button box-shadow loginsub_btn" type="button" data-ng-click="login()">登录</button>
+            </div>
+        </div>
+        <!--<a href="thirdLogin/qqLogin">登录</a>-->
+      <!--   <span id="qqLoginBtn"></span> -->
+    </form>
+    <!--<div class="clearfloat"></div>-->
+</div>
+<!-- <script type="text/javascript">
+	QC.Login({
+		btnId:"qqLoginBtn"	//插入按钮的节点id
+	});
+	//从页面收集OpenAPI必要的参数。get_user_info不需要输入参数，因此paras中没有参数
+	var paras = {btnId:"qq_login_btn"};
+	//用JS SDK调用OpenAPI
+	QC.api("get_user_info", paras).success(function(s){//成功回调，通过s.data获取OpenAPI的返回数据
+		qqLogin(s.data.nickname)
+	}).error(function(f){//指定接口访问失败的接收函数，f为失败返回Response对象
+		//失败回调
+		alert("获取用户信息失败！");
+	}).complete(function(c){//指定接口完成请求后的接收函数，c为完成请求返回Response对象
+		//完成请求回调
+		alert("获取用户信息完成！");
+	});
+</script> -->
+
+<@footer></@footer>

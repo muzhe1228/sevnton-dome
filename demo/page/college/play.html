@@ -1,0 +1,44 @@
+<meta charset="UTF-8" data-ng-init="initPage()">
+<script type="text/javascript"
+	src="https://blueimp.github.io/JavaScript-MD5/js/md5.js"></script>
+<div style="min-width: 950px;">
+	<ul class="bread bg">
+		<li>圣云学院</li>
+		<li><a target="_self" data-ui-sref="college_video" data-ng-click="goback()">视频广场</a></li>
+		<li>视频播放</li>
+	</ul>
+
+	<div class="paly_video_head">{{video.attrs.title}}</div>
+	<div class="play_video_one" oncontextmenu="return(false)">
+		<div class="divIframe">
+			<div class="play_video"></div>
+		</div>
+		<div class="play_video_footer">
+			<span class="video_footer" style="width: 99%;"><span
+				class="video_userId">{{video.attrs.userName}}</span>
+				于{{video.attrs.create_time}}上传 <span class="video_count"><span
+					style="color: #ee7d19;">{{video.attrs.count}}</span> 人已观看</span> </span>
+		</div>
+	</div>
+</div>
+
+<div style="display: none;" id="payDlg">
+	<div style="padding: 15px;" class="video_pay">
+		<form method="post" class="form-x">
+			<div class="form-group">
+				<div class="label">
+					<label>付费</label>
+				</div>
+				<div class="field">
+					<input type="text" class="input" id="payVideoCharge" disabled>
+					<input type="text" class="input" id="payVideoId"
+						style="display: none;">
+				</div>
+			</div>
+		</form>
+		<div style="text-align: center; margin-top: 10px;">
+			<button id="btnPay" class="button  bg-yellow btnPay" type="button"
+				style="width: 100px;">确认付费</button>
+		</div>
+	</div>
+</div>

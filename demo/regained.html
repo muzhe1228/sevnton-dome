@@ -1,0 +1,81 @@
+<#include "/include/cmn.html" encoding="UTF-8"><@header pageId="regained" crlId="RegainedCtl" pageNm="重置密码"></@header>
+<meta charset="UTF-8">
+<style>
+	*{margin: 0px;padding: 0px;}
+	.a-upload {
+		float: left;
+		padding: 4px 10px;
+		height: 35px;
+		line-height: 26px;
+		position: relative;
+		cursor: pointer;
+		color: white;
+		background: #00b7ee;
+		border: 1px solid #ddd;
+		border-radius: 4px;
+		overflow: hidden;
+		display: inline-block;
+		display: inline;
+		margin: 10px;
+		zoom: 1;
+		text-decoration: none;
+	}
+	.a-upload  input {
+		position: absolute;
+		font-size: 100px;
+		right: 0;
+		top: 0;
+		opacity: 0;
+		filter: alpha(opacity=0);
+		cursor: pointer
+	}
+	.a-upload:hover {
+		color: white;
+		background: #00b7ee;
+		border-color: #ccc;
+		text-decoration: none
+	}
+</style>
+<div class="container regained_wrap">
+	<!--<div style="margin :0px auto; width:990px;float: left;">-->
+		<!--<a href="javascript:;" class="a-upload">-->
+			<!--<input type="file" name="file" id="doc" multiple="multiple" onchange="javascript:setImagePreviews();" accept="image/*" />点击这里上传文件-->
+		<!--</a>-->
+		<!--<div id="dd" style=" width:990px;float: left;"></div>-->
+	<!--</div>-->
+	<!--<p><input type="file" id="upfile" multiple="multiple"></p>-->
+	<!--<p><input type="button" ng-click="up()" value="用jQuery上传"></p>-->
+	<form class="form-x xs12 xm7 xm3-left">
+		<div class="form-group">
+			<div class="">
+				<div class="input-group">
+					<span class="addon icon-user text-large"></span><input type="text" class="input input-big" placeholder="请输入登录账户ID"
+						size="60" data-validate="required:必填" data-ng-model="info.userId" />
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="">
+				<div class="input-group">
+					<span class="addon icon-envelope text-large"></span><input type="text" class="input input-big"
+						placeholder="请输入注册邮箱地址" size="60" data-validate="required:必填,email:请输入有效邮箱地址" data-ng-model="info.email" />
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="">
+				<div class="input-group text-dot" style="width: 100%;">{{error}}</div>
+				<div class="input-group text-green" style="width: 100%;">{{success}}</div>
+			</div>
+		</div>
+		<div class="form-button regained_button">
+			<button class="button bg-basic" type="button" data-ng-click="reset()">
+				<span class="icon-paper-plane-o text-large"></span>&nbsp;发送密码邮件
+			</button>
+			<button class="button border-basic margin-big-left" type="button" data-ng-click="backHome()">
+				<span class="icon-home text-large"></span>&nbsp;返回首页
+			</button>
+		</div>
+	</form>
+</div>
+<@footer></@footer>

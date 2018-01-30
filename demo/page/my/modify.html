@@ -1,0 +1,41 @@
+<meta charset="UTF-8" data-ng-init="initPage()">
+<div class="my_Center_margin box-shadow">
+<ul class="bread bg" style="height: 40px;line-height: 40px;margin-top: 10px">
+	<li style="padding-left: 20px;"><a target="_self" href="javascript:void(0);" data-ng-click="bread()">我的信息</a></li>
+	<li style="padding-left: 20px;">变更密码</li>
+</ul>
+<form class="form-x xl12">
+	<div class="form-group">
+		<div class="left_inp xs3">
+			<label for="oldPasswd"><span class="text-dot">*</span>&nbsp;旧密码</label>
+		</div>
+		<div class="fields xs5 xl12">
+			<input type="password" class="input" id="oldPasswd" size="50" placeholder="请输入旧密码" data-validate="required:必填"
+				maxlength="12" data-ng-model="info.oldPasswd" />
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="left_inp xs3">
+			<label for="passwd"><span class="text-dot">*</span>&nbsp;新密码</label>
+		</div>
+		<div class="fields xs5 xl12">
+			<input type="password" class="input" id="passwd" name="passwd" size="50" placeholder="请输入6至12位密码"
+				data-validate="required:必填,length#>=6:请输入6至12位密码" maxlength="12" data-ng-model="info.passwd" />
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="left_inp xs3">
+			<label for="repeat"><span class="text-dot">*</span>&nbsp;确认密码</label>
+		</div>
+		<div class="fields xs5 xl12">
+			<input type="password" class="input" id="repeat" size="50" placeholder="请输入确认密码"
+				data-validate="required:必填,repeat#passwd:密码输入不一致，请重新输入" maxlength="12" data-ng-model="info.repeat" />
+		</div>
+	</div>
+	<div class="form-group line">
+		<button type="submit" class="button com_req_btn xm3-move xm4 xl1-move xl10" data-ng-click="modify()">
+			变更密码
+		</button>
+	</div>
+</form>
+</div>

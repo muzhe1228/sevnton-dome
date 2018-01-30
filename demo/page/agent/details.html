@@ -1,0 +1,112 @@
+<meta charset="UTF-8" data-ng-init="initPage()">
+<div class="my_Center_margin">
+	<ul class="bread bg" style="height: 40px;line-height: 40px;margin-top: 10px">
+		<li style="padding-left: 20px;"><a target="_self" href="javascript:void(0);" data-ng-click="bread()">状况查询</a></li>
+		<li>产品详情</li>
+	</ul>
+	<div class="line">
+		<div class="x5 padding">
+			<div class="banner" data-style="border-basic">
+				<div class="carousel">
+					<div class="item" data-ng-if="agentDetail.attrs.pic1">
+						<img data-ng-src="{{agentDetail.attrs.pic1}}">
+					</div>
+					<div class="item" data-ng-if="agentDetail.attrs.pic2">
+						<img data-ng-src="{{agentDetail.attrs.pic2}}">
+					</div>
+					<div class="item" data-ng-if="agentDetail.attrs.pic3">
+						<img data-ng-src="{{agentDetail.attrs.pic3}}" data-ng-init="carouselInit()">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="x7 padding">
+			<p class="text-dot" data-ng-show="warning">{{warning}}</p>
+			<p class="text-large">{{agentDetail.attrs.brand}}</p>
+			<p class="text-big">{{agentDetail.attrs.product_name}}</p>
+			<p class="text-main">{{agentDetail.attrs.state_str}}</p>
+			<p class="text-sub">代运营起止日期&nbsp;&nbsp;&nbsp;{{agentDetail.attrs.start_date}}&nbsp;～&nbsp;{{agentDetail.attrs.end_date}}</p>
+			<button class="button border-yellow margin-top" style="border-radius: 0;" data-ng-if="agentDetail.attrs.document"
+				data-ng-click="download()">
+				<span class="icon-download"></span>&nbsp;下载知识产权、包装设计、市场调研等资料
+			</button>
+		</div>
+	</div>
+	<!--class="padding"-->
+	<div>
+		<ul style="line-height: 35px">
+			<li class="xl12 xs6"><strong class="text-basic xl4 text-right padding-right">出厂价格:</strong>{{agentDetail.attrs.factory_price}}&nbsp;元</li>
+			<li class="xl12 xs6"><strong class="text-basic xl4 text-right padding-right">目标市场:</strong>{{agentDetail.attrs.target_market}}</li>
+			<li class="xl12 xs6"><strong class="text-basic xl4 text-right padding-right">生产周期:</strong>{{agentDetail.attrs.cycle}}</li>
+			<li class="xl12 xs6"><strong class="text-basic xl4  text-right padding-right">产品材质:</strong>{{agentDetail.attrs.material}}</li>
+			<li class="xl12"><strong class="text-basic xl4 xs2 text-right padding-right">联系方式:</strong>{{agentDetail.attrs.tel}}</li>
+		</ul>
+		<div class="clearfloat"></div>
+		<!--<table style="width: 100%">-->
+			<!--<tr>-->
+				<!--<td width="43%">联系方式：&nbsp;{{agentDetail.attrs.tel}}</td>-->
+				<!--<td width="57%">出厂价格：&nbsp;{{agentDetail.attrs.factory_price}}&nbsp;元</td>-->
+			<!--</tr>-->
+			<!--<tr>-->
+				<!--<td>目标市场：&nbsp;{{agentDetail.attrs.target_market}}</td>-->
+				<!--<td>生产周期：&nbsp;{{agentDetail.attrs.cycle}}</td>-->
+			<!--</tr>-->
+			<!--<tr>-->
+				<!--<td>产品材质：&nbsp;{{agentDetail.attrs.material}}</td>-->
+			<!--</tr>-->
+		<!--</table>-->
+	</div>
+	<hr />
+	<div class="padding" data-ng-bind-html="agentDetail.attrs.survey|htmlContent"></div>
+	<div class="margin-large-bottom" style="width: 100%; height: 50px; background-color: #f2f2f2;">
+	<p class="text-big text-center text-yellow" style="line-height: 50px">
+		<strong>各平台销量情况</strong>
+	</p>
+	</div>
+	<form class="xl12">
+		<div class="form-group xs5">
+			<div class="left_inp xs5">
+				<label>销售平台：&nbsp;&nbsp;&nbsp;</label>
+			</div>
+			<div class="xs7">
+				<select class="input" id="payType" data-ng-model="srh.platform"
+					data-ng-options="platform.attrs.id as platform.attrs.name for platform in platformList"
+					data-ng-change="searchSales()">
+					<option value="">所有平台</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group xs7">
+			<div class="left_inp xs5">
+				<label>统计日期筛选：&nbsp;&nbsp;&nbsp;</label>
+			</div>
+			<div class="xs3">
+				<input type="text" class="input" placeholder="开始日期" size="8" id="srh_start" />
+			</div>
+			<div class="left_inp xs1 text-center">
+				<label>至&nbsp;</label>
+			</div>
+			<div class="xs3">
+				<input type="text" class="input" placeholder="结束日期" size="8" id="srh_end" />
+			</div>
+		</div>
+	</form>
+	<table class="table">
+		<tr class="blue">
+			<th>统计日期</th>
+			<th>平台</th>
+			<th>销售量（{{agentDetail.attrs.unit}}）</th>
+			<th>销售额（{{agentDetail.attrs.currency}}）</th>
+		</tr>
+		<tr data-ng-repeat="row in sales">
+			<td>{{row.attrs.deadline}}</td>
+			<td>{{row.attrs.platform}}</td>
+			<td>{{row.attrs.count}}</td>
+			<td>{{row.attrs.amount}}</td>
+		</tr>
+	</table>
+	<div class="margin-big-top text-right line bg-yellow-light text-blue">
+		<p class="xs6 padding">销量合计：{{agentDetail.attrs.count}}&nbsp;{{agentDetail.attrs.unit}}</p>
+		<p class="xs6 padding">金额合计：{{agentDetail.attrs.amount}}&nbsp;{{agentDetail.attrs.currency}}</p>
+	</div>
+</div>

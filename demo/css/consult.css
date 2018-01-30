@@ -1,0 +1,83 @@
+.zixun_cont h1, .zixun_cont h2, .zixun_cont h3, .zixun_cont h4, .zixun_cont h5, .zixun_cont h6, .zixun_cont p {
+    width: 100% !important;
+}
+
+.zixun_cont {
+    font-family: sans-serif !important;
+}
+
+.zixun_cont h1 {
+    font-size: 32px !important;
+}
+
+.zixun_cont h2 {
+    font-size: 24px !important;
+}
+
+.zixun_cont h3 {
+    font-size: 19px !important;
+}
+
+.zixun_cont h4 {
+    font-size: 16px !important;
+}
+
+.zixun_cont h5 {
+    font-size: 14px !important;
+}
+
+.zixun_cont h6 {
+    font-size: 12px !important;
+}
+
+.zixun_cont p {
+    margin: 10px 0 !important;
+}
+
+.XGZX_title {
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 30px 0;
+}
+
+.XGZX_details {
+    padding: 10px 0;
+    border-bottom: 1px solid #f2f2f2;
+    font-size: 1.3em;
+}
+
+.XGZX_zan {
+    color: white;
+    width: 80px;
+    border-color: #725dec;
+    background-color: #725dec !important;
+}
+
+.XGZX_zan:hover {
+    border-color: #6884fd;
+    background-color: #6884fd !important;
+    color: white !important;
+}
+
+.ZXXQ_remark {
+    font-size: 1.3em;
+    height: 30px;
+}
+
+.ZXXQ_link img {
+    width: 25px;
+    vertical-align: middle;
+}
+
+.ZXXQ_remark p {
+    display: inline-block;
+}
+
+.zan_cai {
+    margin-right: 20px;
+}
+
+.zan_cai i {
+    font-size: 1.3em;
+    padding-right: 10px;
+}

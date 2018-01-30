@@ -1,0 +1,52 @@
+.floatcss{
+	width:100vw;
+	overflow:hidden;
+	padding:30px 0;
+}
+.showWin{
+    text-align: center;
+    background-color: #fff;
+    width: 650px;
+    margin: 0 auto;
+}
+.closeWin{
+    width: 52px;
+    font-size: 49px;
+    text-align: center;
+    height: 52px;
+    background-color: #ECE4E4;
+    right: 33px;
+    top: 22px;
+    line-height: 52px;
+    border-radius: 50%;
+    position: absolute;
+}
+.showWin .button {
+	width: 68%;
+	letter-spacing: 8px;
+	border-color: #014d89;
+	background-color: #014d89;
+	color: #fff;
+	float: left;
+	border-radius: 8px;
+}
+ul{
+	list-style-type: none;
+	    text-align: left;
+}    
+
+.showWin .text {
+	width: 60%;
+	height:38px;
+	border: solid 1px #ddd;
+	float: left;
+	border-radius: 8px;
+}
+.showWin .addon {
+	background-color: #014d89;
+    border: 0px solid #ddd;
+    border-radius: 8px;
+    line-height: 1;
+    color: #fff;
+    padding: 4px 8px;
+}

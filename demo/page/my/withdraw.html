@@ -1,0 +1,48 @@
+<meta charset="UTF-8" data-ng-init="initPage()">
+<div class="my_Center_margin">
+		<ul class="bread bg" style="height: 40px;line-height: 40px;margin-top: 10px">
+			<li style="padding-left: 20px;"><a target="_self" href="javascript:void(0);" data-ng-click="bread()">我的账户</a></li>
+			<li>申请提现</li>
+		</ul>
+	<form class="form-x xl12">
+		<div class="form-group">
+			<div class="left_inp xs3">
+				<label for="amount"><span class="text-dot">*</span>&nbsp;提现金额（元）</label>
+			</div>
+			<div class="fields xs5 xl11">
+				<input type="text" class="input" id="amount" size="25" data-ng-model="info.amount" placeholder="提现金额必须是正整数且大于0"
+					data-validate="required:必填,plusinteger:请输入正整数" maxlength="10" />
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="left_inp xs3">
+				<label for="bank"><span class="text-dot">*</span>&nbsp;开户银行</label>
+			</div>
+			<div class="fields xs5 xl11">
+				<input type="text" class="input" id="bank" size="25" placeholder="请输入打款账户的开户银行名称" data-validate="required:必填"
+					maxlength="20" data-ng-model="info.bank" />
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="left_inp xs3">
+				<label for="account"><span class="text-dot">*</span>&nbsp;打款账户号</label>
+			</div>
+			<div class="fields xs5 xl11">
+				<input type="text" class="input" id="account" size="50" placeholder="请输入打款账户的账户号" data-validate="required:必填"
+					maxlength="50" data-ng-model="info.account" />
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="left_inp xs3">
+				<label for="holder"><span class="text-dot">*</span>&nbsp;开户人姓名</label>
+			</div>
+			<div class="fields xs5 xl11">
+				<input type="text" class="input" id="holder" size="25" placeholder="请输入打款账户的开户人姓名" data-validate="required:必填"
+					maxlength="20" data-ng-model="info.holder" />
+			</div>
+		</div>
+		<div class="form-button padding-big-top">
+			<button class="button box-shadow" type="button" data-ng-click="apply()">提交申请</button>
+		</div>
+	</form>
+</div>

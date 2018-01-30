@@ -1,0 +1,644 @@
+<meta charset="UTF-8" data-ng-init="initPage()">
+<div class="my_Center_margin box-shadow">
+    <ul class="bread bg" style="height: 40px;line-height: 40px;margin-top: 10px">
+        <li style="padding-left: 20px;"><a target="_self" href="javascript:void(0);" data-ng-click="bread()">订单跟踪</a>
+        </li>
+        <li>订单确认</li>
+    </ul>
+    <div class="step1" data-ng-show="step==1">
+        <div class="step box-shadow margin-large">
+            <div class="step-bar active" style="width: 25%;">
+                <span class="step-point">1</span><span class="step-text">基础信息</span>
+            </div>
+            <div class="step-bar" style="width: 25%;">
+                <span class="step-point">2</span><span class="step-text">商品信息</span>
+            </div>
+            <div class="step-bar" style="width: 25%;">
+                <span class="step-point">3</span><span class="step-text">物流报关信息</span>
+            </div>
+            <div class="step-bar" style="width: 25%;">
+                <span class="step-point">4</span><span class="step-text">订舱信息</span>
+            </div>
+        </div>
+        <form class="form-x xl12">
+            <div class="form-group  xs12 xm6">
+                <div class="left_inp xs3 xm6">
+                    <label for="id">订单编号</label>
+                </div>
+                <div class="xs6 xl12">
+                    <input type="text" class="input" id="id" data-ng-model="info.attrs.id" readonly/>
+                </div>
+            </div>
+            <div class="form-group xs12 xm6">
+                <div class="left_inp xs3 xm6">
+                    <label for="deliveryDate">交货日期</label>
+                </div>
+                <div class="xs6 xl12">
+                    <input type="text" class="input" id="deliveryDate" data-ng-model="info.attrs.delivery_date"
+                           readonly/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="left_inp xs3">
+                    <label for="consigneeName">收货人（企业名称）</label>
+                </div>
+                <div class="xs6 xl12">
+                    <input type="text" class="input" id="consigneeName" data-ng-model="info.attrs.consignee_name"
+                           readonly/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="left_inp xs3">
+                    <label for="consigneeAddress">收货地址</label>
+                </div>
+                <div class="xl12 xs9">
+                    <input type="text" class="input" id="consigneeAddress" data-ng-model="info.attrs.consignee_address"
+                           readonly/>
+                </div>
+            </div>
+            <div class="form-group xs12 xm6">
+                <div class="left_inp xs3 xm6">
+                    <label for="consigneeContacts">联系人(买方)</label>
+                </div>
+                <div class="xs6 xl12">
+                    <input type="text" class="input" id="consigneeContacts"
+                           data-ng-model="info.attrs.consignee_contacts" readonly/>
+                </div>
+            </div>
+            <div class="form-group xs12 xm6">
+                <div class="left_inp xs3 xm6">
+                    <label for="consigneeTel">联系电话(买方)</label>
+                </div>
+                <div class="xs6 xl12">
+                    <input type="text" class="input" id="consigneeTel" data-ng-model="info.attrs.consignee_tel"
+                           readonly/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="left_inp xs3">
+                    <label for="agentName">生产厂家</label>
+                </div>
+                <div class="xs6 xl12">
+                    <input type="text" class="input" id="agentName" data-ng-model="info.attrs.agent_name" readonly/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="left_inp xs3">
+                    <label for="agentCode">工商注册号</label>
+                </div>
+                <div class="xs6 xl12">
+                    <input type="text" class="input" id="agentCode" data-ng-model="info.attrs.agent_code" readonly/>
+                </div>
+            </div>
+            <div class="form-group xs12 xm6">
+                <div class="left_inp xs3 xm6">
+                    <label for="payType">结汇方式</label>
+                </div>
+                <div class="xs6 xl12">
+                    <input type="text" class="input" id="payType" data-ng-model="info.attrs.pay_type_str" readonly/>
+                </div>
+            </div>
+            <div class="form-group xs12 xm6">
+                <div class="left_inp xs3 xm6">
+                    <label for="currency">货币类型</label>
+                </div>
+                <div class="xs6 xl12">
+                    <input type="text" class="input" id="currency" data-ng-model="info.attrs.currency" readonly/>
+                </div>
+            </div>
+            <div data-ng-if="info.attrs.pay_type=='6'">
+                <div class="form-group">
+                    <div class="left_inp xs3">
+                        <label for="payNum">信用证号码</label>
+                    </div>
+                    <div class="xs6 xl12">
+                        <input type="text" class="input" id="payNum" data-ng-model="info.attrs.pay_num" readonly/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="left_inp xs3">
+                        <label for="issuingBank">开证银行</label>
+                    </div>
+                    <div class="xs6 xl12">
+                        <input type="text" class="input" id="issuingBank" data-ng-model="info.attrs.issuing_bank"
+                               readonly/>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group xs12 xm6">
+                <div class="left_inp xs3 xm6">
+                    <label for="contacts"><span class="text-dot">*</span>&nbsp;业务联系人</label>
+                </div>
+                <div class="xs6 xl12">
+                    <input type="text" class="input" id="contacts" data-ng-model="info.attrs.contacts"
+                           readonly/>
+                </div>
+            </div>
+            <div class="form-group xs12 xm6">
+                <div class="left_inp xs3 xm6">
+                    <label for="contact_tel"><span class="text-dot">*</span>&nbsp;联系人电话</label>
+                </div>
+                <div class="xs6 xl12">
+                    <input type="text" class="input" id="contact_tel" data-ng-model="info.attrs.contact_tel"
+                           readonly/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="left_inp xs3">
+                    <label for="contact_emal"><span class="text-dot">*</span>&nbsp;联系人邮箱</label>
+                </div>
+                <div class="xs6 xl12">
+                    <input type="text" class="input" id="contact_emal" data-ng-model="info.attrs.contact_emal"
+                           readonly/>
+                </div>
+            </div>
+            <div class="form-button padding-big-top formbtn_all">
+                <button class="button box-shadow" type="button" data-ng-click="next2()">下一步</button>
+            </div>
+        </form>
+    </div>
+    <div class="step2" data-ng-show="step==2">
+        <div class="step box-shadow margin-large">
+            <div class="step-bar complete" style="width: 25%;">
+                <span class="step-point icon-check"></span><span class="step-text">基础信息</span>
+            </div>
+            <div class="step-bar active" style="width: 25%;">
+                <span class="step-point">2</span><span class="step-text">商品信息</span>
+            </div>
+            <div class="step-bar" style="width: 25%;">
+                <span class="step-point">3</span><span class="step-text">物流报关信息</span>
+            </div>
+            <div class="step-bar" style="width: 25%;">
+                <span class="step-point">4</span><span class="step-text">订舱信息</span>
+            </div>
+        </div>
+        <div class="tab padding-top">
+            <div class="tab-head">
+                <ul class="tab-nav">
+                    <li data-ng-repeat="good in goods" data-ng-class="activeClass($first)"><a
+                            href="#tab-good{{$index}}">商品{{$index+1}}</a></li>
+                </ul>
+            </div>
+            <div class="tab-body">
+                <div data-ng-repeat="row in goods" class="tab-panel" data-ng-class="activeClass($first)"
+                     id="tab-good{{$index}}"
+                     data-ng-repeat-finish="tabFinish()">
+                    <form class="form-x">
+                        <div class="form-group">
+                            <div class="left_inp xs3">
+                                <label for="hsCode">HS编码</label>
+                            </div>
+                            <div class="xs6 xl12">
+                                <input type="text" class="input" id="hsCode" data-ng-model="row.attrs.hs_code"
+                                       readonly/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="left_inp xs3">
+                                <label for="companyNo">公司货号</label>
+                            </div>
+                            <div class="xs6 xl12">
+                                <input type="text" class="input" id="companyNo" data-ng-model="row.attrs.company_no"
+                                       readonly/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="left_inp xs3">
+                                <label for="nameCn">商品名称（中文）</label>
+                            </div>
+                            <div class="xs6 xl12">
+                                <input type="text" class="input" id="nameCn" data-ng-model="row.attrs.name_cn"
+                                       readonly/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="left_inp xs3">
+                                <label for="nameEn">商品名称（英文）</label>
+                            </div>
+                            <div class="xs6 xl12">
+                                <input type="text" class="input" id="nameEn" data-ng-model="row.attrs.name_en"
+                                       readonly/>
+                            </div>
+                        </div>
+                        <div class="form-group xs12 xm6">
+                            <div class="left_inp xs3 xm6">
+                                <label for="model">型号</label>
+                            </div>
+                            <div class="xs6 xl12">
+                                <input type="text" class="input" id="model" data-ng-model="row.attrs.model" readonly/>
+                            </div>
+                        </div>
+                        <div class="form-group xs12 xm6">
+                            <div class="left_inp  xs3 xm6">
+                                <label for="realCount">成交数量</label>
+                            </div>
+                            <div class="xs6 xl12">
+                                <input type="text" class="input" id="realCount" data-ng-model="row.attrs.real_count"
+                                       readonly/>
+                            </div>
+                        </div>
+                        <div class="form-group xs12 xm6">
+                            <div class="left_inp  xs3 xm6">
+                                <label for="brand">品牌</label>
+                            </div>
+                            <div class="xs6 xl12">
+                                <input type="text" class="input" id="brand" data-ng-model="row.attrs.brand" readonly/>
+                            </div>
+                        </div>
+                        <div class="form-group xs12 xm6">
+                            <div class="left_inp  xs3 xm6">
+                                <label for="realUnit">成交单位</label>
+                            </div>
+                            <div class="xs6 xl12">
+                                <input type="text" class="input" id="realUnit" data-ng-model="row.attrs.real_unit"
+                                       readonly/>
+                            </div>
+                        </div>
+                        <div class="form-group xs12 xm6">
+                            <div class="left_inp  xs3 xm6">
+                                <label for="unitPrice">成交单价</label>
+                            </div>
+                            <div class="xs6 xl12">
+                                <input type="text" class="input" id="unitPrice" data-ng-model="row.attrs.unit_price"
+                                       readonly/>
+                            </div>
+                        </div>
+                        <div class="form-group xs12 xm6">
+                            <div class="left_inp  xs3 xm6">
+                                <label for="packingCount">包装件数</label>
+                            </div>
+                            <div class="xs6 xl12">
+                                <input type="text" class="input" id="packingCount"
+                                       data-ng-model="row.attrs.packing_count" readonly/>
+                            </div>
+                        </div>
+                        <div class="form-group xs12 xm6">
+                            <div class="left_inp  xs3 xm6">
+                                <label for="firstCount">第一法定数量</label>
+                            </div>
+                            <div class="xs6 xl12">
+                                <input type="text" class="input" id="firstCount"
+                                       data-ng-model="row.attrs.first_count" readonly/>
+                            </div>
+                        </div>
+                        <div class="form-group xs12 xm6">
+                            <div class="left_inp  xs3 xm6">
+                                <label for="firstUnit">第一法定单位</label>
+                            </div>
+                            <div class="xs6 xl12 xs12 xm6">
+                                <input type="text" class="input" id="firstUnit" data-ng-model="row.attrs.first_unit"
+                                       readonly/>
+                            </div>
+                        </div>
+                        <div class="form-group xs12 xm6">
+                            <div class="left_inp  xs3 xm6">
+                                <label for="secondCount">第二法定数量</label>
+                            </div>
+                            <div class="xs6 xl12">
+                                <input type="text" class="input" id="secondCount"
+                                       data-ng-model="row.attrs.second_count" readonly/>
+                            </div>
+                        </div>
+                        <div class="form-group xs12 xm6">
+                            <div class="left_inp  xs3 xm6">
+                                <label for="secondUnit">第二法定单位</label>
+                            </div>
+                            <div class="xs6 xl12 xs12 xm6">
+                                <input type="text" class="input" id="secondUnit"
+                                       data-ng-model="row.attrs.second_unit" readonly/>
+                            </div>
+                        </div>
+                        <div class="form-group xs12 xm6">
+                            <div class="left_inp xs3 xm6">
+                                <label for="packingType">包装种类</label>
+                            </div>
+                            <div class="xs6 xl12">
+                                <input type="text" class="input" id="packingType"
+                                       data-ng-model="row.attrs.packing_type" readonly/>
+                            </div>
+                        </div>
+                        <div class="form-group xs12 xm6">
+                            <div class="left_inp xs3 xm6">
+                                <label for="volume">体积（立方米）</label>
+                            </div>
+                            <div class="xs6 xl12">
+                                <input type="text" class="input" id="volume" data-ng-model="row.attrs.volume"
+                                       readonly/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="left_inp xs3">
+                                <label for="netWeight">重量(净重/毛重 KG)</label>
+                            </div>
+                            <div class="xs4 xl12">
+                                <input type="text" class="input" id="netWeight" data-ng-model="row.attrs.net_weight"
+                                       readonly/>
+                            </div>
+                            <div class="text-center xs1">
+                                <label for="grossWeight">/</label>
+                            </div>
+                            <div class="xs4 xl12">
+                                <input type="text" class="input" id="grossWeight"
+                                       data-ng-model="row.attrs.gross_weight" readonly/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="left_inp xs3">
+                                <label for="mark">唛头</label>
+                            </div>
+                            <div class="xs6 xl12">
+                                <input type="text" class="input" id="mark" data-ng-model="row.attrs.mark" readonly/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="left_inp xs3">
+                                <label for="elements">申报要素</label>
+                            </div>
+                            <div class="xs6 xl12">
+                                <input type="text" class="input" id="elements" data-ng-model="row.attrs.elements"
+                                       readonly/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="left_inp xs3">
+                                <label for="description">商品描述</label>
+                            </div>
+                            <div class="xs6 xl12">
+                                <input type="text" class="input" id="description"
+                                       data-ng-model="row.attrs.description" readonly/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="left_inp xs3">
+                                <label for="remarks">备注</label>
+                            </div>
+                            <div class="xs6 xl12">
+                                    <textarea class="input" height="80" id="remarks"
+                                              data-ng-model="row.attrs.remarks" readonly></textarea>
+                            </div>
+                        </div>
+                        <div class="form-button padding-big-top formbtn_all">
+                            <button class="button box-shadow" type="button" data-ng-click="prev1()">上一步</button>
+                            <button class="button box-shadow" type="button" data-ng-click="next3()">下一步</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="step3" data-ng-show="step==3">
+        <div class="step box-shadow margin-large">
+            <div class="step-bar complete" style="width: 25%;">
+                <span class="step-point icon-check"></span><span class="step-text">基础信息</span>
+            </div>
+            <div class="step-bar complete" style="width: 25%;">
+                <span class="step-point icon-check"></span><span class="step-text">商品信息</span>
+            </div>
+            <div class="step-bar active" style="width: 25%;">
+                <span class="step-point">3</span><span class="step-text">物流报关信息</span>
+            </div>
+            <div class="step-bar" style="width: 25%;">
+                <span class="step-point">4</span><span class="step-text">订舱信息</span>
+            </div>
+        </div>
+        <div class="padding-large">
+            <form class="form-x xl12">
+                <div class="form-group xs12 xm6">
+                    <div class="left_inp xs3 xm6">
+                        <label for="logisticsCompany">物流公司</label>
+                    </div>
+                    <div class="xs6 xl12">
+                        <input type="text" class="input" id="logisticsCompany"
+                               data-ng-model="info.attrs.logistics_company" readonly/>
+                    </div>
+                </div>
+                <div class="form-group xs12 xm6">
+                    <div class="left_inp xs3 xm6">
+                        <label for="ePort">出口口岸</label>
+                    </div>
+                    <div class="xs6 xl12">
+                        <input type="text" class="input" id="ePort" data-ng-model="info.attrs.e_port"
+                               readonly/>
+                    </div>
+                </div>
+                <div class="form-group xs12 xm6">
+                    <div class="left_inp xs3 xm6">
+                        <label for="originCountry">原产国</label>
+                    </div>
+                    <div class="xs6 xl12">
+                        <input type="text" class="input" id="originCountry"
+                               data-ng-model="info.attrs.origin_country" readonly/>
+                    </div>
+                </div>
+                <div class="form-group xs12 xm6">
+                    <div class="left_inp xs3 xm6">
+                        <label for="destinationCountry">目的国</label>
+                    </div>
+                    <div class="xs6 xl12">
+                        <input type="text" class="input" id="destinationCountry"
+                               data-ng-model="info.attrs.destination_country" readonly/>
+                    </div>
+                </div>
+                <div class="form-group xs12 xm6">
+                    <div class="left_inp xs3 xm6">
+                        <label for="tPort">转运港</label>
+                    </div>
+                    <div class="xs6 xl12">
+                        <input type="text" class="input" id="tPort" data-ng-model="info.attrs.t_port"
+                               readonly/>
+                    </div>
+                </div>
+                <div class="form-group xs12 xm6">
+                    <div class="left_inp xs3 xm6">
+                        <label for="dPort">目的港</label>
+                    </div>
+                    <div class="xs6 xl12">
+                        <input type="text" class="input" id="dPort" data-ng-model="info.attrs.d_port"
+                               readonly/>
+                    </div>
+                </div>
+                <div class="form-group xs12 xm6">
+                    <div class="left_inp xs3 xm6">
+                        <label for="postMode">运输方式</label>
+                    </div>
+                    <div class="xs6 xl12">
+                        <input type="text" class="input" id="postMode" data-ng-model="info.attrs.post_mode"
+                               readonly/>
+                    </div>
+                </div>
+                <div class="form-group xs12 xm6">
+                    <div class="left_inp xs3 xm6">
+                        <label for="shipmentDate">装运日期</label>
+                    </div>
+                    <div class="xs6 xl12">
+                        <input type="text" class="input" id="shipmentDate"
+                               data-ng-model="info.attrs.shipment_date" readonly/>
+                    </div>
+                </div>
+                <div class="form-group xs12 xm6">
+                    <div class="left_inp xs3 xm6">
+                        <label for="tradeMethod">成交方式</label>
+                    </div>
+                    <div class="xs6 xl12">
+                        <input type="text" class="input" id="tradeMethod"
+                               data-ng-model="info.attrs.trade_method" readonly/>
+                    </div>
+                </div>
+                <div class="form-group xs12 xm6">
+                    <div class="left_inp xs3 xm6">
+                        <label for="tradingCountry">贸易国（地区）</label>
+                    </div>
+                    <div class="xs6 xl12">
+                        <input type="text" class="input" id="tradingCountry"
+                               data-ng-model="info.attrs.trading_country" readonly/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="left_inp xs3">
+                        <label for="origin">境内货源地</label>
+                    </div>
+                    <div class="xl12 xs9">
+                        <input type="text" class="input" id="origin" data-ng-model="info.attrs.origin" readonly/>
+                    </div>
+                </div>
+                <div data-ng-if="info.attrs.trade_method!='3'">
+                    <div class="form-group xs12 xm6">
+                        <div class="left_inp xs3 xm6">
+                            <label for="insurance">保费</label>
+                        </div>
+                        <div class="xs6 xl12">
+                            <input type="text" class="input" id="insurance" data-ng-model="info.attrs.insurance"
+                                   readonly/>
+                        </div>
+                    </div>
+                    <div class="form-group xs12 xm6">
+                        <div class="left_inp xs3 xm6">
+                            <label for="feeAmount">运费</label>
+                        </div>
+                        <div class="xs6 xl12">
+                            <input type="text" class="input" id="feeAmount"
+                                   data-ng-model="info.attrs.fee_amount" readonly/>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group xs12 xm6">
+                    <div class="left_inp xs3 xm6">
+                        <label for="specialRelationship">特殊关系确认</label>
+                    </div>
+                    <div class="xs6 xl12">
+                        <div class="button-group radio border-basic">
+                            <label class="button"
+                                   data-ng-class="activeClass(info.attrs.special_relationship=='0')"><input
+                                    name="pintuer" value="0" type="radio"><span
+                                    class="icon icon-times"></span>&nbsp;否 </label><label
+                                class="button"
+                                data-ng-class="activeClass(info.attrs.special_relationship=='1')"><input
+                                name="pintuer"
+                                value="1" type="radio"><span class="icon icon-check"></span>&nbsp;是 </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group xs12 xm6">
+                    <div class="left_inp xs3 xm6">
+                        <label for="priceEffect">价格影响确认</label>
+                    </div>
+                    <div class="xs6 xl12">
+                        <div class="button-group radio border-basic">
+                            <label class="button" data-ng-class="activeClass(info.attrs.price_effect=='0')"><input
+                                    name="pintuer"
+                                    value="0" type="radio"><span class="icon icon-times"></span>&nbsp;否
+                            </label><label class="button"
+                                           data-ng-class="activeClass(info.attrs.price_effect=='1')"><input
+                                name="pintuer" value="1" type="radio"><span
+                                class="icon icon-check"></span>&nbsp;是 </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="left_inp xs3">
+                        <label for="royaltyFee">支付权费用确认</label>
+                    </div>
+                    <div class="xs9 xl12">
+                        <div class="button-group radio border-basic">
+                            <label class="button"
+                                   data-ng-class="activeClass(info.attrs.royalty_fee=='0')"><input
+                                    name="pintuer"
+                                    value="0" type="radio"><span class="icon icon-times"></span>&nbsp;否
+                            </label><label class="button"
+                                           data-ng-class="activeClass(info.attrs.royalty_fee=='1')"><input
+                                name="pintuer" value="1" type="radio"><span
+                                class="icon icon-check"></span>&nbsp;是 </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="left_inp xs3">
+                        <label for="storageAddress">货物存放地址</label>
+                    </div>
+                    <div class="xl9">
+                        <input type="text" class="input" id="storageAddress" data-ng-model="info.attrs.storage_address"
+                               readonly/>
+                    </div>
+                </div>
+                <div class="form-button padding-big-top formbtn_all">
+                    <button class="button box-shadow" type="button" data-ng-click="prev2()">上一步</button>
+                    <button class="button box-shadow" type="button" data-ng-click="next4()">下一步</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="step4" data-ng-show="step==4">
+        <div class="step box-shadow margin-large">
+            <div class="step-bar complete" style="width: 25%;">
+                <span class="step-point icon-check"></span><span class="step-text">基础信息</span>
+            </div>
+            <div class="step-bar complete" style="width: 25%;">
+                <span class="step-point icon-check"></span><span class="step-text">商品信息</span>
+            </div>
+            <div class="step-bar complete" style="width: 25%;">
+                <span class="step-point icon-check"></span><span class="step-text">物流报关信息</span>
+            </div>
+            <div class="step-bar active" style="width: 25%;">
+                <span class="step-point">4</span><span class="step-text">订舱信息</span>
+            </div>
+        </div>
+        <div class="padding-large">
+            <form class="form-x xl12">
+                <div class="form-group">
+                    <div class="left_inp xs3">
+                        <label for="advanceDrawback">是否需要提前退税</label>
+                    </div>
+                    <div class="xs9 xl12">
+                        <div class="button-group radio border-basic">
+                            <label class="button" data-ng-class="activeClass(info.attrs.advance_drawback=='0')"><input
+                                    name="pintuer"
+                                    value="0" type="radio"><span class="icon icon-times"></span>&nbsp;否 </label><label
+                                class="button"
+                                data-ng-class="activeClass(info.attrs.advance_drawback=='1')"><input name="pintuer"
+                                                                                                     value="1"
+                                                                                                     type="radio"><span
+                                class="icon icon-check"></span>&nbsp;是 </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="left_inp xs3">
+                        <label for="remarks">备注</label>
+                    </div>
+                    <div class="xs6 xl12">
+                        <textarea class="input" height="80" id="remarks" data-ng-model="info.attrs.remarks"
+                                  readonly></textarea>
+                    </div>
+                </div>
+                <div class="form-button padding-big-top formbtn_all">
+                    <button class="button box-shadow" type="button" data-ng-click="prev3()">上一步</button>
+                    <button class="button box-shadow" type="button" data-ng-click="confirmed()">已确认</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="clearfloat"></div>
+</div>

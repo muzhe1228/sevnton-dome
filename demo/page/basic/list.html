@@ -1,0 +1,55 @@
+<meta charset="UTF-8" data-ng-init="initPage()">
+<div class="my_Center_margin">
+	<ul class="bread bg" style="height: 40px;line-height: 40px;margin-top: 10px">
+		<li style="padding-left: 20px;">订单中心</li>
+	</ul>
+	<div class="input-group">
+		<span class="addbtn">
+			<button type="button" class="button icon-search" data-ng-click="search()"></button>
+		</span><input type="text" class="input" placeholder="请输入单号、客户名等关键字" data-ng-model="srhKey" /><span class="addbtn">
+			<button type="button" class="button" data-ng-click="search()">搜索</button>
+		</span>
+	</div>
+	<P class="padding-top" data-ng-hide="searched">
+		<!--  <strong>所有基础服务订单</strong>（共{{basicList.list.length}}件）-->
+	</P>
+	<P class="padding-top" data-ng-show="searched">
+		<strong>搜索结果共{{basicList.length}}件</strong>&nbsp;&nbsp;&nbsp;<a class="text-basic" href="javascript:void(0);"
+			data-ng-click="all()">返回所有产品</a>
+	</P>
+	<!--style="border: solid 2px #d9e8f4; width: 100%; cursor: pointer;"-->
+	<div  style="height: 100px;border: solid 2px #d9e8f4" class="line margin-top margin-bottom"
+		data-ng-repeat="row in basicList.list" data-ng-click="details(row.attrs.id,row.attrs.state)">
+		<div class="list_time x2 text-center" style="border-right: solid 2px #d9e8f4; height: 100px;">
+			<div class="">{{row.attrs.year}}<br class="w show-l"><strong class="text-basic">/{{row.attrs.md}}</strong></div>
+		</div>
+		<div class="x6 list_cont text-center" style="height: 100px;">
+			<p><b>单号:&nbsp;</b><br class="w show-l">{{row.attrs.id}}</p>
+			<p><b>客户:&nbsp;</b><br class="w show-l">{{row.attrs.consignee_name}}</p>
+		</div>
+		<div class="x4 list_status" style="border: solid 3px #b4f6ef; height: 98px;">
+			<div class="text-center text-green">
+				<strong>{{row.attrs.state_str}}</strong>
+			</div>
+			<div class="padding-small-top text-center">
+				<strong>{{row.attrs.e_port}}</strong>&nbsp;<img class="hidden-l" src="img/uc/arrow.png" width="60" style="vertical-align: baseline;"><span class="hidden-s hidden-m hidden-b text-green">--></span>&nbsp;<strong>{{row.attrs.destination_country}}</strong>
+			</div>
+		</div>
+	</div>
+	 <div class="panel-foot text-center bg-white">
+            <span class="float-right WM_pages" style="line-height: 40px">共[{{page.totalRow}}]条记录，当前[{{page.pageNumber}}/{{page.totalPage}}]页</span>
+            <ul class="pagination layer_btn">
+                <li><a target="_self" href="javascript:void(0)" data-ng-click="first()">首页</a></li>
+            </ul>
+            <ul class="pagination layer_btn">
+                <li><a target="_self" href="javascript:void(0)" data-ng-click="previous()">上一页</a></li>
+            </ul>
+            <ul class="pagination layer_btn">
+                <li><a target="_self" href="javascript:void(0)" data-ng-click="next()">下一页</a></li>
+            </ul>
+            <ul class="pagination layer_btn">
+                <li><a target="_self" href="javascript:void(0)" data-ng-click="last()">尾页</a></li>
+            </ul>
+            <div class="clearfloat"></div>
+        </div>
+</div>

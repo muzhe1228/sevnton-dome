@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>接口测试</title>
+<style type="text/css">
+table input {
+	width: 100%;
+}
+</style>
+<script src="/sevnton/vender/jquery/dist/jquery.min.js"></script>
+<script src="/sevnton/vender/jquery/dist/jquery.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#button1").click(function() {
+			$.ajax({
+				type : "get",
+				url : $("#url").val(),
+				dataType : "json",
+				data : $("#param1").val(),
+				success : function(json) {
+					$("#show").html(JSON.stringify(json));
+				}
+			});
+		});
+
+		$("#button2").click(function() {
+			$.ajax({
+				type : "post",
+				url : $("#url").val(),
+				dataType : "json",
+				data : $("#param1").val(),
+				success : function(json) {
+					$("#show").html(JSON.stringify(json));
+				}
+			});
+		});
+	});
+</script>
+</head>
+<body>
+	<form id="form1" name="form1" method="post">
+		<table>
+			<tr>
+				<td width="80">接口地址：</td>
+				<td width="450"><input type="text" id="url" value="http://192.168.1.121/sevnton/mobile/agent/getList" /></td>
+			</tr>
+			<tr>
+				<td>param：</td>
+				<td><input type="text" id="param1" value="userId=TEST&deviceId=DEVICE_TEST" /></td>
+			</tr>
+		</table>
+		<input type="button" value="get测试" id="button1" /> <input type="button" value="post测试" id="button2" />
+		<div id="show" style="width: 80%"></div>
+	</form>
+
+</body>
+</html>

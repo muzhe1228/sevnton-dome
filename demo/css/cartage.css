@@ -1,0 +1,63 @@
+.cartage_wrap {
+	padding: 30px;
+	width: 100%;
+	min-height: 350px;
+	display: inline-block;
+	text-align: left;
+}
+.cartage_seach{
+	width: 100%;
+}
+.cartage_seach li{
+	width: 20%;
+	float: left;
+}
+.detail_add{
+	min-width: 100px;
+}
+.detail_add1{
+	min-width: 60px;
+}
+.detail_add>button{
+	font-size: 1em;
+}
+.detail_addbtn,.seach_btn{
+	color: #4682B4;
+	border: 1px solid #4682B4;
+}
+.seach_Inptop,.shou_fang,.quanbu{
+	color: #4682B4;
+}
+.link {
+	padding: 10px 0 0 0;
+}
+
+.link ul {
+	padding: 0;
+}
+
+.link ul li {
+	vertical-align: top;
+	padding: 5px 10px;
+}
+
+.link ul .name {
+	width: 80px;
+}
+
+.link ul li.items ul li {
+	cursor: pointer;
+}
+
+.link ul li.items ul li.selected {
+	background-color: gainsboro;
+}
+
+.tab .tab-nav .active a {
+	color: #FFFFFF;
+	background-color: #4682B4;
+}
+
+table td {
+	vertical-align: top;
+}

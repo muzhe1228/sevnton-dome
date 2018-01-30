@@ -1,0 +1,101 @@
+<meta charset="UTF-8" data-ng-init="initPage()">
+<div class="my_Center_margin">
+	<ul class="bread bg" style="height: 40px;line-height: 40px;margin-top: 10px">
+		<li style="padding-left: 20px;">申请服务</li>
+	</ul>
+	<blockquote class="border-yellow" style="padding: 20px; margin-bottom: 20px;">
+		<strong>说明：</strong>
+		<p>您的申请提交后，我们的工作人员会尽快处理您的订单，如有必要我们会联系您，并协助完成本次订单。</p>
+	</blockquote>
+	<form class="form-x xl12">
+		<div class="form-group">
+			<div class="left_inp xs2">
+				<label for="name"><span class="text-dot">*</span>&nbsp;产品名称</label>
+			</div>
+			<div class="fields xs5">
+				<input type="text" class="input" id="name" size="60" data-validate="required:必填" maxlength="50"
+					data-ng-model="info.name" />
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="left_inp xs2">
+				<label for="brand" style="width: 200px;">产品品牌</label>
+			</div>
+			<div class="fields xs5">
+				<input type="text" class="input" id="brand" size="60" maxlength="50" data-ng-model="info.brand" />
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="left_inp xs2">
+				<label for="maker">生产厂家</label>
+			</div>
+			<div class="fields xs5">
+				<input type="text" class="input" id="maker" size="60" data-ng-model="info.maker" disabled />
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="left_inp xs2">
+				<label for="tel"><span class="text-dot">*</span>&nbsp;联系电话</label>
+			</div>
+			<div class="fields xs5">
+				<input type="text" class="input" id="tel" size="30" data-validate="required:必填,tel:请输入正确的电话或手机号码" maxlength="30"
+					data-ng-model="info.tel" />
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="left_inp xs2">
+				<label for="price"><span class="text-dot">*</span>&nbsp;出厂价格（元）</label>
+			</div>
+			<div class="fields xs5">
+				<input type="text" class="input" id="price" size="20" data-validate="required:必填,decimal:请输入数字，且整数位最大只能八位，小数位只能两位"
+					maxlength="10" data-ng-model="info.price" />
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="left_inp xl4 xs2">
+				<label for="market">目标市场</label>
+			</div>
+			<div class="xl8 xs5">
+				<div class="button-group radio border-basic">
+					<label class="button" data-ng-repeat="row in marketList" data-ng-repeat-finish="renderFinish()"
+						data-ng-class="seldRadio($first)"><input value="{{row.attrs.id}}" type="radio" data-ng-model="info.market"><span
+						class="icon icon-check"></span>&nbsp;{{row.attrs.name}} </label>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="left_inp xl4 xs2">
+				<label for="stock">是否有现货</label>
+			</div>
+			<div class="xl8 xs5">
+				<div class="button-group radio border-basic">
+					<label class="button active"><input value="1" checked="checked" type="radio" data-ng-model="info.stock"><span
+						class="icon icon-check"></span>&nbsp;有 </label><label class="button"><input value="0" type="radio"
+						data-ng-model="info.stock"><span class="icon icon-check"></span>&nbsp;无 </label>
+				</div>
+			</div>
+		</div>
+		<div class="form-group" data-ng-if="info.stock=='0'" data-ng-init="dataValidate()">
+			<div class="left_inp xs2">
+				<label for="cycle"><span class="text-dot">*</span>&nbsp;生产周期（天）</label>
+			</div>
+			<div class="fields xs5">
+				<input type="text" class="input" id="cycle" size="20" data-validate="required:必填,plusinteger:请输入正整数" maxlength="8"
+					data-ng-model="info.cycle" />
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="left_inp xs2">
+				<label for="material"><span class="text-dot">*</span>&nbsp;产品材质</label>
+			</div>
+			<div class="fields xs5">
+				<input type="text" class="input" id="material" size="100" data-validate="required:必填" maxlength="100"
+					data-ng-model="info.material" />
+			</div>
+		</div>
+		<div class="form-button padding-big-top formbtn_all">
+			<button class="button box-shadow" type="button" data-ng-click="submit()">提交</button>
+		</div>
+	</form>
+	<div class="clearfloat"></div>
+</div>

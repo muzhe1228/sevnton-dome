@@ -1,0 +1,40 @@
+<#include "/include/cmn.html" encoding="UTF-8"><@header pageId="disAdd" crlId="DisAddCtl" pageNm="提问"></@header>
+<meta charset="UTF-8" data-ng-init="init()">
+<body>
+<#include "dis_head.html" encoding="UTF-8">
+    <div class="container">
+        <p class="text-large TW_title"><i class="icon iconfont icon-xinshoubangzhu margin-right"
+                                                         style="color: #4cadff;font-size: 30px"></i>提问</p>
+        <div class="line">
+            <div class="xs7" style="position: relative;">
+                <p class="text-default textarea_xianzhi text-gray">{{count}}/50</p>
+                <textarea class="input radius-none box-shadow-none inp_are"
+                          data-ng-model="disQues.disTitle"
+                          maxlength="50"
+                          placeholder="标题：写下你的问题" ng-change="tolCount()"></textarea>
+            </div>
+        </div>
+        <div class="line margin-big-top">
+            <div class="xs7 textarea_con">
+                <textarea class="input radius-none box-shadow-none inp_are" data-ng-model="disQues.disContent"
+                placeholder="详细说明你的问题，以便获得更好答案"></textarea>
+            </div>
+        </div>
+        <div class="line margin-big-top">
+            <div class="xs2">
+                <label style="color: #8da8c0;">问题分类：</label>
+                <select class="padding-small" data-ng-model="disQues.categoryID">
+                    <option value="">请选择分类</option>
+                    <option data-ng-repeat="category in allCategory" value="{{category.attrs.categoryID}}">
+                        {{category.attrs.categoryName}}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="x12 text-red padding-top text-big cuowu_msg">{{error}}</div>
+        <div class="x12 padding-top">
+            <button type="submit" class="TW_submit button" data-ng-click="save()">提交</button>
+        </div>
+        <div class="clearfloat"></div>
+    </div>
+<@footer></@footer>

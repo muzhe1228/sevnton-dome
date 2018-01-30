@@ -1,0 +1,74 @@
+.college_wrap{
+    height: auto;
+}
+.college_title{
+    font-size: 1.3em;
+    margin: 1em 0;
+}
+.college_title>b{
+    margin-right: 5px;
+}
+.college_cont{
+    padding: 5px 15px;
+    background: #FFF;
+    -webkit-box-shadow: gainsboro 0px 0px 15px;
+    -moz-box-shadow: gainsboro 0px 0px 15px;
+    box-shadow: gainsboro 0px 0px 15px;
+    border-radius: 3px;
+}
+.college_cont>.nav-pills{
+    border-bottom: 1px solid gainsboro;
+    padding-bottom: 5px;
+    cursor: pointer;
+}
+.college_cont>.nav-pills a{
+    color: black;
+}
+.college_cont>.nav-pills a:hover{
+    color: #f48b36;
+}
+.college_cont>.nav-pills>li.active>a{
+    color: #f48b36 ;
+    background-color: #FFF;
+}
+.collsge_mideImg{
+    padding: 0;
+}
+.collsge_mideImg>img{
+    width: 100%;
+    height: 120px;
+}
+.media_mainWrap{
+    padding: 0 15px;
+}
+.media_wrap{
+    padding: 10px 5px;
+    border-bottom: 1px solid gainsboro;
+}
+.media_conright{
+    line-height: 2em;
+}
+.media_conright>p{
+    text-overflow:ellipsis;
+    overflow:hidden;
+    white-space:nowrap;
+}
+.outlay{
+    width: 60px;
+    height: 2em;
+    line-height: 2em;
+    background-color: #d5edff;
+    color: #275e90;
+    text-align: center;
+    border-radius: 1em;
+}
+.media_layer{
+    margin:25px 0;
+    text-align: right;
+}
+.media_layer>.btn{
+    height: 30px;
+}
+.media_layer>.btn>i{
+    line-height: 20px;
+}

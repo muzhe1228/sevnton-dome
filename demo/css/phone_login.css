@@ -1,0 +1,29 @@
+.logins {
+    padding: 50px 10px;
+    background: url(../img/register/decorate.jpg);
+    background-repeat: no-repeat;
+    background-position: top 10px right;
+    margin: auto;
+}
+
+.loginsub_btn {
+    width: 200px;
+    border-color: #014d89;
+    background-color: #014d89;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.loginsub_btn:hover {
+    background-color: #033155;
+}
+
+.logins .form-x .form-button .button:hover, .form-x .form-button .button:focus, .form-x .form-button .button.bg:hover, .form-x .form-button .button.bg:focus {
+    background-color: #014066;
+}
+
+input[type=checkbox] {
+    height: 15px;
+    width: 15px;
+    vertical-align: text-top;
+}

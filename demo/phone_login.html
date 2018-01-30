@@ -1,0 +1,46 @@
+<#include "/include/cmn.html" encoding="UTF-8"><@header
+    pageId="phone_login" crlId="phoneLoginCtl" pageNm="用户快捷登录">
+</@header>
+<div class="logins container">
+    <form class="form-x xs12 xm6 xm3-left login_form">
+        <div class="form-group padding-large-bottom">
+            <div class="xs12">
+                <label class="text-basic" style="font-size: 24px!important;">快捷登录</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="left_inp xs3">
+                <label for="userId"><span class="text-dot">*</span>&nbsp;手机号码</label>
+            </div>
+            <div class="fields xs6">
+                <input type="text"  id="phone_number" class="input" placeholder="请填写手机号"
+                       data-validate="required:必填" data-ng-model="auth.phone_number"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="left_inp xs3">
+                <label for="passwd"><span class="text-dot">*</span>&nbsp;手机验证码</label>
+            </div>
+            <div class="fields xs6">
+                <input type="text" class="input" placeholder="请填写验证码"
+                       data-validate="required:必填" data-ng-model="auth.verif_code"/>
+                        <input type="button" id="sendVerifCode" data-ng-click = "sendVerifCode()" value="发送验证码"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="left_inp xs3">
+            </div>
+            <div class="xs6">
+                <div class="input-group text-dot" style="width: 100%;">{{error}}</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="left_inp xs3">
+            </div>
+            <div class="xs6 login_Btn">
+                <button class="button box-shadow loginsub_btn" type="button" data-ng-click="login()">登录</button>
+            </div>
+        </div>
+    </form>
+</div>
+<@footer></@footer>

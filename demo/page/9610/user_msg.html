@@ -1,0 +1,88 @@
+<div class="my_Center_margin">
+    <ul>
+        <li data-ng-click="ckNav('9610_all')" data-ng-class="selMenu('9610_all')" data-ui-sref="9610_orderlist">我的订单</li>
+        <li data-ng-click="ckNav('9610_all')" data-ng-class="selMenu('9610_all')" data-ui-sref="9610_batchexport">批量导入订单</li>
+        <li data-ng-click="ckNav('9610_all')" data-ng-class="selMenu('9610_all')" data-ui-sref="9610_itemlist">商品信息管理</li>
+        <li data-ng-click="ckNav('9610_all')" data-ng-class="selMenu('9610_all')" data-ui-sref="9610_sendaddress">寄件地址设置</li>
+        <li data-ng-click="ckNav('9610_all')" data-ng-class="selMenu('9610_all')" data-ui-sref="9610_reciveaddress">收件地址设置</li>
+    </ul>
+    <div class="address_9610_right_title">
+        <p class="order_9610_right_nav address_9610_right_navfloat"><b>|</b>&nbsp;用户信息</p>
+        <div class="clearfloat"></div>
+    </div>
+    <p style="border-top: 1px solid gainsboro"></p>
+    <form id="myform" method="post" action="" class="batch_Dr">
+        <ul>
+            <li>
+                <p>导入数据&nbsp;:</p>
+                <p>个人用户</p>
+            </li>
+            <li>
+                <p><span class="user_sup">*</span>物流商&nbsp;:</p>
+                <p>
+                    <input type="text" value="周磊">
+                </p>
+            </li>
+            <li>
+                <p><span class="user_sup">*</span>物流产品&nbsp;:</p>
+                <p>
+                    <input type="text" value="411421199812107218">
+                </p>
+            </li>
+            <li>
+                <p><span class="user_sup">*</span>集货仓库&nbsp;:</p>
+                <p>17620800222(已验证)&nbsp;<a href="">修改</a></p>
+            </li>
+            <li>
+                <p><span class="user_sup">*</span>邮箱&nbsp;:</p>
+                <p><input type="text" value="sevnton.@163.com" disabled="disabled"></p>
+            </li>
+            <li>
+                <p><span class="user_sup">*</span>上传身份证照片&nbsp;:</p>
+                <p class="ID_Card">
+                    <span id="preview"></span>
+                    <span>
+                    &nbsp;&nbsp;<input type="file" name="file" lay-title="上传身份证照" class="layui-upload-file">
+                </span>
+                    <span style="width: 100%;height: 30px;">支持jpg,jepg,bmp,png格式图片，打小不超过1M</span>
+                </p>
+            </li>
+        </ul>
+        <div class="user_msg_submit">
+            <input type="submit" value="确定"/>
+        </div>
+    </form>
+    <script type="text/javascript">
+        function preview1(file) {
+            var img = new Image(), url = img.src = URL.createObjectURL(file)
+            var $img = $(img)
+            img.onload = function () {
+                URL.revokeObjectURL(url)
+                $('#preview').empty().append($img)
+            }
+        }
+        function preview2(file) {
+            var reader = new FileReader()
+            reader.onload = function (e) {
+                var $img = $('<img>').attr("src", e.target.result)
+                $('#preview').empty().append($img)
+            }
+            reader.readAsDataURL(file)
+        }
+
+        $(function () {
+            $('[type=file]').change(function (e) {
+                var file = e.target.files[0]
+                preview1(file)
+            })
+        })
+        layui.use('upload', function () {
+            layui.upload({
+                url: '' //上传接口
+                , success: function (res) { //上传成功后的回调
+                    console.log(res)
+                }
+            });
+        });
+    </script>
+</div>

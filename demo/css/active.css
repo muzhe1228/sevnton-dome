@@ -1,0 +1,15 @@
+.rgister_success {
+	min-height: 506px;
+	padding: 50px 10px;
+}
+
+.rgister_success .button {
+	border-color: #014d89;
+	background-color: #014d89;
+	color: #fff;
+	border-radius: 0;
+}
+
+.rgister_success .button:hover, .rgister_success .button:focus, .rgister_success .button.bg:hover, .rgister_success .button.bg:focus {
+	background-color: #014066;
+}

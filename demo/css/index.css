@@ -1,0 +1,346 @@
+.floatcss {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999
+}
+
+.showWin {
+    text-align: center;
+    background-color: #fff;
+    width: 650px;
+    height: 380px;
+    border: 1px solid gray;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -190px 0 0 -325px;
+}
+
+.closeWin {
+    width: 52px;
+    font-size: 49px;
+    text-align: center;
+    height: 52px;
+    background-color: #ECE4E4;
+    right: 33px;
+    top: 22px;
+    line-height: 52px;
+    border-radius: 50%;
+    position: absolute;
+}
+
+
+.showWin .text {
+    width: 60%;
+    height: 38px;
+    border: solid 1px #ddd;
+    float: left;
+}
+
+.showWin .addon {
+    background-color: #014d89;
+    border: 0px solid #ddd;
+    border-radius: 8px;
+    line-height: 1;
+    color: #fff;
+    padding: 4px 8px;
+}
+
+.login .login-div {
+    margin-right: 20%;
+    margin-top: -350px;
+    width: 400px;
+    height: 300px;
+    padding: 30px;
+    z-index: 99;
+}
+
+.login .login-div p {
+    font-size: x-large;
+    color: black;
+    letter-spacing: 8px;
+}
+
+.login .button {
+    width: 100%;
+    letter-spacing: 8px;
+    border-color: #014d89;
+    background-color: #014d89;
+    color: #fff;
+}
+
+.login .button:hover, .login .button:focus, .login .button.bg:hover, .login .button.bg:focus {
+    background-color: #014066;
+}
+.agent {
+    width: 100%;
+    height: 741px;
+    background: url(../img/index/agent.jpg);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-color: #f9f9f9;
+}
+
+.agent .button {
+    margin-top: 150px;
+    margin-left: 47px;
+    width: 160px;
+    letter-spacing: 4px;
+    border-color: #f1a245;
+    background-color: #f1a245;
+    color: #fff;
+}
+
+.agent .button:hover, .agent .button:focus, .agent .button.bg:hover, .agent .button.bg:focus {
+    background-color: #f09030;
+}
+
+.agent .cover {
+    position: relative;
+    left: 50%;
+    top: 93px;
+    margin-left: -469px;
+    width: 254px;
+    height: 230px;
+}
+
+.agent .introd {
+    margin-top: -44px;
+    width: 100%;
+    height: 741px;
+    cursor: help;
+}
+
+.basic {
+    width: 100%;
+    height: 691px;
+    background: url(../img/index/basic.jpg);
+    background-repeat: no-repeat;
+    background-position: top center;
+}
+
+.basic .button {
+    margin-top: 150px;
+    margin-left: 47px;
+    width: 160px;
+    letter-spacing: 4px;
+    border-color: #f1a245;
+    background-color: #f1a245;
+    color: #fff;
+}
+
+.basic .button:hover, .basic .button:focus, .basic .button.bg:hover, .basic .button.bg:focus {
+    background-color: #f09030;
+}
+
+.basic .cover {
+    position: relative;
+    left: 50%;
+    top: 93px;
+    margin-left: -469px;
+    width: 254px;
+    height: 230px;
+}
+
+.basic .introd {
+    margin-top: -44px;
+    width: 100%;
+    height: 691px;
+    cursor: help;
+}
+
+.finance {
+    width: 100%;
+    height: 621px;
+    background: url(../img/index/finance.jpg);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-color: #f9f9f9;
+}
+
+.finance .button {
+    margin-top: 150px;
+    margin-left: 47px;
+    width: 160px;
+    letter-spacing: 4px;
+    border-color: #f1a245;
+    background-color: #f1a245;
+    color: #fff;
+}
+
+.finance .button:hover, .finance .button:focus, .finance .button.bg:hover, .finance .button.bg:focus {
+    background-color: #f09030;
+}
+
+.finance .cover {
+    position: relative;
+    left: 50%;
+    top: 93px;
+    margin-left: -469px;
+    width: 254px;
+    height: 230px;
+}
+
+.finance .introd {
+    margin-top: -44px;
+    width: 100%;
+    height: 621px;
+    cursor: help;
+}
+
+.college {
+    padding: 50px 0 0 0;
+    font-size: small;
+}
+
+.college span {
+    font-size: x-small;
+    color: #b3b3b3;
+}
+
+.consult {
+    padding: 50px 0 0 0;
+    font-size: small;
+}
+
+.mq>section {
+    display: inline-block;
+    width: 48%;
+    margin-bottom: 20px;
+}
+.wrap_mq>a>img{
+    display: block;
+    margin: auto;
+}
+.mq>section>.content {
+    line-height: 30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    text-align: center;
+}
+
+.achiev {
+    padding: 50px 0 0 0;
+    font-size: small;
+    background-color: #e6f1fe;
+}
+.dl-inline dt {
+    width: 5%;
+    display: inline-block;
+    float: left;
+    text-align: right;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.dl-inline dd {
+    width: 95%;
+    display: inline-block;
+    float: left;
+    padding: 0 0 0 5px;
+}
+
+.achiev .x6 {
+    padding: 30px 20px 100px 0;
+}
+
+.achiev .x6 p {
+    margin-bottom: 30px;
+    font-size: large;
+}
+
+.p-thumb {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 50;
+    left: 0;
+    top: 0;
+    text-decoration: none;
+    background: rgba(12, 200, 200, 0);
+    color: #FFF;
+    background-image: url(../img/uc/play.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.p-thumb:hover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 50;
+    left: 0;
+    top: 0;
+    text-decoration: none;
+    background: rgba(12, 200, 200, 0.5);
+    color: #FFF;
+    background-image: url(../img/uc/play.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.popo .popo-body.left {
+    margin: 0;
+    max-width: 100%;
+}
+
+.time-line {
+    width: 50px;
+    background: url(../img/index/time_line.jpg);
+    vertical-align: top;
+}
+
+.time-line div {
+    padding: 5px 0;
+    background: url(../img/index/time.jpg);
+}
+
+.time-line strong {
+    color: #e9ad43;
+}
+
+.popo-td {
+    padding: 10px 0 10px 10px;
+}
+
+.popo .popo-white {
+    border: solid 1px #fff;
+    background-color: #fff;
+    color: #222;
+}
+
+.popo .popo-body.left:after {
+    border-color: transparent #fff;
+}
+
+.praise {
+    padding: 10px 20px;
+    background-color: #fff;
+}
+
+.praise .media {
+    border-bottom: solid 1px #d2e6fe;
+}
+
+p {
+    margin-bottom: 5px;
+}
+.mq{
+    height: 380px;
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding-left: 30px;
+}
+.mq>section{
+    width: 49%;
+}

@@ -1,0 +1,33 @@
+<#include "/include/cmn.html" encoding="UTF-8"><@header pageId="active" crlId="ActiveCtl" pageNm="激活账户"></@header>
+<meta charset="UTF-8">
+<div class="container rgister_success text-center">
+	<#if email??>
+	<p class="text-large text-yellow margin-big-bottom">
+		<strong>恭喜您注册成功！</strong>
+	</p>
+	<p class="margin-big-bottom">
+		<strong>验证邮件已发送至您的邮箱&nbsp;<span id="email">${email}</span></strong>
+	</p>
+	<button class="button box-shadow" type="button" data-ng-click="active()">
+		立即激活注册账户&nbsp;&nbsp;&nbsp;<span class="icon-envelope"></span>
+	</button>
+	<#else>
+	<p class="text-large text-yellow margin-big-bottom">
+		<strong>${msg}</strong>
+	</p>
+	<button class="button box-shadow" type="button" data-ng-click="backHome()">
+		返回首页&nbsp;&nbsp;&nbsp;<span class="icon-home"></span>
+	</button>
+	</#if>
+	<p class="padding-large-top">激活账号之后，您可以：</p>
+	<ul>
+		<li>可以享受代运营服务。</li>
+		<li>可以下载联合出口合同。<#if msg=="恭喜您账户激活成功！">（请下载<a target="_blank" class="text-basic"
+			href="downloadExportContract?id=${id}&code=${code}">《联合出口合同》</a>）</#if>
+		</li>
+		<li>在收到您签署的联合出口合同后，将会为您开通基础服务权限。</li>
+		<li>可以在线付费或免费观看视频教学。</li>
+		<li>可以上传您的教学视频，并设置收费金额。</li>
+	</ul>
+</div>
+<@footer></@footer>

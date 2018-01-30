@@ -1,0 +1,209 @@
+<#include "/include/cmn.html" encoding="UTF-8"><@header pageId="register" crlId="RegisterCtl" pageNm="注册账户"></@header>
+<meta charset="UTF-8">
+<title>圣云通-注册账户</title>
+<div class="container register_Wrap">
+    <div class="line-big">
+        <form class="form-x xs12 xm7 xm3-left">
+            <div class="form-group padding-large-bottom">
+                <div class="xs12">
+                    <label class="text-large text-basic xs12"><b>账户注册</b></label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="left_inp xs3 ">
+                    <label for="userId"><b><span class="text-dot">*</span>&nbsp;用户ID</b></label>
+                </div>
+                <div class="fields xs9 xm7">
+                    <input type="text" class="input" id="userId" size="50" placeholder="英文字母开头的字母、下划线、数字"
+                           data-validate="required:必填,username:请输入4位英文字母开头的字母、下划线、数字" maxlength="20"
+                           data-ng-model="info.userId"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="left_inp xs3 ">
+                    <label for="passwd"><span class="text-dot">*</span>&nbsp;登录密码</label>
+                </div>
+                <div class="fields xs9 xm7">
+                    <input type="password" class="input" id="passwd" name="passwd" size="50" placeholder="请输入6至12位密码"
+                           data-validate="required:必填,length#>=6:请输入6至12位密码" maxlength="12"
+                           data-ng-model="info.passwd"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="left_inp xs3 ">
+                    <label for="repeat"><span class="text-dot">*</span>&nbsp;确认密码</label>
+                </div>
+                <div class="fields xs9 xm7">
+                    <input type="password" class="input" id="repeat" size="50" placeholder="请输入确认密码"
+                           data-validate="required:必填,repeat#passwd:密码输入不一致，请重新输入" maxlength="12"
+                           data-ng-model="info.repeat"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="left_inp xs3 ">
+                    <label for="email">&nbsp;电子邮箱</label>
+                </div>
+                <div class="fields xs9 xm7">
+                    <input type="text" class="input" id="email" size="50" placeholder="请输入有效邮箱，激活邮件将发送到输入邮箱" maxlength="100" data-ng-model="info.email"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="left_inp xs3 ">
+                    <label for="identity">用户类型</label>
+                </div>
+                <div class="fields xs9 xm7">
+                    <div class="button-group radio border-basic">
+                        <label class="button active"><input value="1" checked="checked" type="radio"
+                                                            data-ng-model="info.identity"><span
+                                class="icon icon-check"></span>&nbsp;企业 </label><label class="button"><input value="0"
+                                                                                                             type="radio"
+                                                                                                             data-ng-model="info.identity"><span
+                            class="icon icon-check"></span>&nbsp;个人 </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="left_inp xs3 "></div>
+                <div class="xs9 text-yellow">注：个人用户目前不能享受代运营及基础服务，请慎重选择用户类型。</div>
+            </div>
+            <div class="form-group" data-ng-if="info.identity=='1'">
+                <div class="left_inp xs3 ">
+                    <label for="name"><span class="text-dot">*</span>&nbsp;企业名</label>
+                </div>
+                <div class="fields xs9 xm7">
+                    <input type="text" class="input" id="name" size="50" placeholder="请输入出口产品的生产厂家名"
+                           data-validate="required:必填"
+                           maxlength="30" data-ng-model="info.name"/>
+                </div>
+            </div>
+            <div class="form-group" data-ng-if="info.identity=='1'">
+                <div class="left_inp xs3 ">
+                    <label for="legal"><span class="text-dot">*</span>&nbsp;法人姓名</label>
+                </div>
+                <div class="fields xs9 xm7">
+                    <input type="text" class="input" id="legal" size="50" placeholder="请输入营业执照上的法人代表"
+                           data-validate="required:必填"
+                           maxlength="10" data-ng-model="info.legal"/>
+                </div>
+            </div>
+            <div class="form-group" data-ng-if="info.identity=='1'">
+                <div class="left_inp xs3 ">
+                    <label for="identif">法人身份证号</label>
+                </div>
+                <div class="fields xs9 xm7">
+                    <input type="text" class="input" id="identif" size="50" placeholder="请输入有效身份证号"
+                           data-validate="identity:请输入有效身份证号"
+                           maxlength="18" data-ng-model="info.identif"/>
+                </div>
+            </div>
+        </form>
+        <form class="form-x xs12 xm7 xm3-left">
+            <div class="form-group" data-ng-if="info.identity=='1'">
+                <div class="left_inp xs3 ">
+                    <label for="license"><span class="text-dot">*</span>&nbsp;营业执照</label>
+                </div>
+                <div class="fields xs9 xm7">
+                    <input type="file" name="file" class="layui-upload-file">
+                </div>
+            </div>
+            <div class="form-group" data-ng-if="info.identity=='1'" data-ng-show="info.license">
+                <div class="left_inp xs3 "></div>
+                <div class="fields xs9 xm7">
+                    <img class="img-responsive" data-ng-src="{{info.license}}" width="300">
+                </div>
+            </div>
+        </form>
+        <form class="form-x xs12 xm7 xm3-left">
+            <div class="form-group" data-ng-if="info.identity=='1'">
+                <div class="left_inp xs3 ">
+                    <label for="oCode">组织机构码</label>
+                </div>
+                <div class="fields xs9 xm7">
+                    <input type="text" class="input" id="oCode" size="50" placeholder="选填" maxlength="18"
+                           data-ng-model="info.oCode"/>
+                </div>
+            </div>
+            <div class="form-group" data-ng-if="info.identity=='1'">
+                <div class="left_inp xs3 ">
+                    <label for="rCode"><span class="text-dot">*</span>&nbsp;工商注册码</label>
+                </div>
+                <div class="fields xs9 xm7">
+                    <input type="text" class="input" id="rCode" size="50" placeholder="" data-validate="required:必填"
+                           maxlength="18"
+                           data-ng-model="info.rCode"/>
+                </div>
+            </div>
+            <div class="form-group" data-ng-if="info.identity=='1'">
+                <div class="left_inp xs3 ">
+                    <label for="tel"><span class="text-dot">*</span>&nbsp;联系方式</label>
+                </div>
+                <div class="fields xs9 xm7">
+                    <input type="text" class="input" id="tel" size="50"
+                           placeholder="请输入正确的电话或手机号码(13000000000/0571-2500000)"
+                           data-validate="required:必填,tel:请输入正确的电话或手机号码" maxlength="30" data-ng-model="info.tel"/>
+                </div>
+            </div>
+            <div class="form-group" data-ng-if="info.identity=='1'" data-ng-init="chgIdentity()">
+                <div class="left_inp xs3 ">
+                    <label for="address"><span class="text-dot">*</span>&nbsp;企业地址</label>
+                </div>
+                <div class="fields xs9 xm7">
+                    <input type="text" class="input" id="address" size="100" placeholder="请输入真实的企业详细地址具体到街道门牌号"
+                           data-validate="required:必填" maxlength="100" data-ng-model="info.address"/>
+                </div>
+            </div>
+            <div class="form-group" data-ng-if="info.identity!='1'">
+                <div class="left_inp xs3 ">
+                    <label for="name"><span class="text-dot">*</span>&nbsp;个人姓名</label>
+                </div>
+                <div class="fields xs9 xm7">
+                    <input type="text" class="input" id="name" size="50" placeholder="请输入个人真实姓名"
+                           data-validate="required:必填"
+                           maxlength="30" data-ng-model="info.name"/>
+                </div>
+            </div>
+            <div class="form-group" data-ng-if="info.identity!='1'">
+                <div class="left_inp xs3 ">
+                    <label for="identif">身份证号</label>
+                </div>
+                <div class="fields xs9 xm7">
+                    <input type="text" class="input" id="identif" size="50" placeholder="请输入有效身份证号" maxlength="18"
+                           data-ng-model="info.identif"/>
+                </div>
+            </div>
+            <div class="form-group" data-ng-if="info.identity!='1'">
+                <div class="left_inp xs3 ">
+                    <label for="tel"><span class="text-dot">*</span>联系方式</label>
+                </div>
+                <div class="fields xs9 xm7">
+                    <input type="text" class="input" id="tel" size="50" placeholder="请输入正确的电话或手机号码"
+                           data-validate="required:必填,tel:请输入正确的电话或手机号码"
+                           maxlength="30" data-ng-model="info.tel"/>
+                </div>
+            </div>
+            <div class="form-group" data-ng-if="info.identity!='1'" data-ng-init="chgIdentity()">
+                <div class="left_inp xs3 ">
+                    <label for="address">个人住址</label>
+                </div>
+                <div class="fields xs9 xm7">
+                    <input type="text" class="input" id="address" size="100" placeholder="请输入真实的个人住址" maxlength="100"
+                           data-ng-model="info.address"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="left_inp xs3"></div>
+                <div class="fields xs9 xm7">
+                    <label><input type="checkbox" data-ng-model="info.readed"><i>✓</i></label>&nbsp;我已阅读并同意
+                    <a href="javascript:void(0);" class="text-basic" data-ng-click="read()">《注册协议》</a>
+                </div>
+            </div>
+            <div class="form-button padding-big-top">
+                <button class="button box-shadow" type="button" data-ng-click="register()"
+                        data-ng-disabled="!info.readed">
+                    立即注册
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+<@footer></@footer>

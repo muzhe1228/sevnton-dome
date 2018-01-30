@@ -1,0 +1,80 @@
+html {
+    font-size: 12px;
+    font-family: 微软雅黑;
+}
+body {
+    font-size: 1em!important;
+    /*background-color: #fafafa;*/
+    /*padding-top: 76px;*/
+}
+.body1{
+    background-color: #FFF;
+}
+/*------------------------头部------------------*/
+.navHt{
+    min-height: 40px;
+}
+.regsiter_btn>a{
+    color: goldenrod;
+    cursor: pointer;
+    display: inline-block;
+}
+.nav_size {
+    line-height: 2em;
+    text-align: right;
+    padding-right: 15px;
+}
+.nav_size>a{
+    display: inline-block;
+}
+.container-fluidHr {
+    border-bottom: 1px solid gainsboro;
+    height: 0;
+}
+.fixed_con{
+    border-bottom: 1px solid gainsboro;
+    border-top: 1px solid gainsboro;
+    background-color: white;
+    z-index: 99999
+}
+.navbar {
+    border: none;
+    background: white;
+    padding: 0;
+    margin: 0;
+}
+#nav_logo {
+    width: 220px;
+    height: 50px;
+    padding: 0;
+    vertical-align: middle;
+}
+.nav_tit{
+    text-align: right !important;
+}
+.nav_tit>li>a {
+    padding: 5px 10px!important;
+    font-size: 1.2em;
+    line-height: 40px;
+}
+.nav_size1 {
+    font-size: 1.6em;
+    display: inline-block;
+    line-height: 50px;
+    font-family: 华文行楷;
+    color: darkgrey;
+    margin: 0;
+}
+.navright_con {
+    font-size: 1.2em;
+}
+
+
+.foot_Saoma>ul{
+    overflow: hidden;
+}
+.foot_Saoma>ul>li{
+    width: 33%;
+    float: left;
+    text-align: center;
+}

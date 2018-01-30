@@ -1,0 +1,37 @@
+<div class="my_Center_margin">
+    <ul>
+        <li data-ng-click="ckNav('9610_all')" data-ng-class="selMenu('9610_all')" data-ui-sref="9610_orderlist">我的订单</li>
+        <li data-ng-click="ckNav('9610_all')" data-ng-class="selMenu('9610_all')" data-ui-sref="9610_batchexport">批量导入订单</li>
+        <li data-ng-click="ckNav('9610_all')" data-ng-class="selMenu('9610_all')" data-ui-sref="9610_itemlist">商品信息管理</li>
+        <li data-ng-click="ckNav('9610_all')" data-ng-class="selMenu('9610_all')" data-ui-sref="9610_sendaddress">寄件地址设置</li>
+        <li data-ng-click="ckNav('9610_all')" data-ng-class="selMenu('9610_all')" data-ui-sref="9610_reciveaddress">收件地址设置</li>
+    </ul>
+    <div class="address_9610_right_title">
+        <p class="order_9610_right_nav address_9610_right_navfloat"><b>|</b>&nbsp;密码修改</p>
+        <div class="clearfloat"></div>
+    </div>
+    <p style="border-top: 1px solid gainsboro"></p>
+    <form id="myform" method="post" action="" class="pwd_alert">
+        <ul>
+            <li>
+                <p>原始密码&nbsp;:</p>
+                <p><input type="password" check="required"></p>
+            </li>
+            <li>
+                <p>新密码&nbsp;:</p>
+                <p><input type="password" check="required pwd1"></p>
+                <p></p>
+            </li>
+            <li>
+                <p>确认新密码&nbsp;:</p>
+                <p><input type="password" check="required pwd2"></p>
+            </li>
+        </ul>
+        <p class="pwd_submit">
+            <input type="submit" value="提交"/>
+        </p>
+    </form>
+    <script type="text/javascript" charset="utf-8">
+        $("#myform").checkForm();
+    </script>
+</div>

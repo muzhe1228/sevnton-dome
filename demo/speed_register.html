@@ -1,0 +1,212 @@
+<#include "/include/cmn.html" encoding="UTF-8"><@header pageId="speed_register" crlId="SpeedRegisterCtl" pageNm="手机注册"></@header>
+<head>
+    <meta charset="UTF-8">
+	 <link rel="stylesheet" href="vender/layui/css/layui.css">
+	<script src="vender/layui/layui.js"></script>
+	<script src="vender/layui/lay/all.js"></script>
+    <title>手机注册</title>
+    <style>
+        .sup {
+            color: red;
+        }
+
+        .btnActv {
+            background-color: rgb(1, 77, 137) !important;
+            color: white !important;
+        }
+
+        .personal {
+            display: none;
+        }
+
+        .form-group {
+            overflow: hidden;
+        }
+
+        .subtitle {
+            text-align: right;
+        }
+    </style>
+</head>
+<!----------------------内容-------------------------------->
+<div class="container">
+    <div class="row" style="border: 1px solid red">
+        <!-- form: -->
+        <div class="col-md-7 col-sm-9 col-xs-12 col-sm-offset-2">
+            <div class="page-header">
+                <h2 style="color: rgb(1, 77, 137)">账户注册</h2>
+            </div>
+
+            <form>
+                <div class="form-group">
+                    <label class="col-md-3 col-sm-2 control-label subtitle"><span class="sup">*</span>&nbsp;用户ID</label>
+                    <div class="col-md-7 col-sm-9 col-xs-12">
+                        <!--<input type="text" class="form-control" name="firstName" placeholder="英文字母开头的字母、下划线、数字"-->
+                        <!--required data-bv-notempty-message="The first name is required"/>-->
+                        <input type="text" class="form-control" id="userId" size="50" placeholder="英文字母开头的字母、下划线、数字"
+                               data-validate="required:必填,username:请输入4位英文字母开头的字母、下划线、数字" maxlength="20"
+                               data-ng-model="info.userId"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-sm-2 control-label subtitle"><span class="sup">*</span>&nbsp;登录密码</label>
+                    <div class="col-md-7 col-sm-9 col-xs-12">
+                        <input type="password" class="form-control" id="passwd" name="passwd" size="50"
+                               placeholder="请输入6至12位密码"
+                               data-validate="required:必填,length#>=6:请输入6至12位密码" maxlength="12"
+                               data-ng-model="info.passwd"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-sm-2 control-label subtitle"><span class="sup">*</span>&nbsp;确认密码</label>
+                    <div class="col-md-7 col-sm-9 col-xs-12">
+                        <input type="password" class="form-control" id="repeat" size="50" placeholder="请输入确认密码"
+                               data-validate="required:必填,repeat#passwd:密码输入不一致，请重新输入" maxlength="12"
+                               data-ng-model="info.repeat"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-sm-2 control-label subtitle"> <span class="sup">*</span>&nbsp;电子邮箱</label>
+                    <div class="col-md-7 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" id="email" size="50"
+                               placeholder="请输入有效邮箱，激活邮件将发送到输入邮箱"
+                               data-validate="required:必填,email:请输入有效邮箱地址" maxlength="100"
+                               data-ng-model="info.email"/>
+                    </div>
+                </div>
+            </form>
+            <div class="form-group">
+                <label for="identity" class="col-md-3 col-sm-2 control-label subtitle"> <span
+                        class="sup">*</span>&nbsp;用户类型</label>
+                <div class="col-xs-12 col-md-7 col-sm-9 col-xs-12 btn-group" data-toggle="buttons">
+                    <label class="btn btn-primary active">
+                        <input type="radio" name="options" value="1" id="option1" autocomplete="off" checked
+                               data-ng-model="info.identity"> 企业
+                    </label>
+                    <label class="btn btn-primary">
+                        <input type="radio" name="options" id="option2" value="0" autocomplete="off"
+                               data-ng-model="info.identity"> 个人
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-3 col-sm-2 control-label subtitle"></div>
+                <div class="col-md-7 col-sm-9 col-xs-12 btn-group" style="color: rgb(255, 102, 0);">
+                    注：个人用户目前不能享受代运营及基础服务，请慎重选择用户类型。
+                </div>
+            </div>
+            <div class="form-group" data-ng-if="info.identity=='1'">
+                <label class="col-md-3 col-sm-2 control-label subtitle"><span class="sup">*</span>&nbsp;企业名</label>
+                <div class="col-md-7 col-sm-9 col-xs-12">
+                    <input type="text" class="form-control" name="firstName" placeholder="请输入出口产品的生产厂家名"
+                           required data-bv-notempty-message="The first name is required"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 col-sm-2 control-label subtitle"><span class="sup">*</span>&nbsp;法人姓名</label>
+                <div class="col-md-7 col-sm-9 col-xs-12">
+                    <input type="text" class="form-control" id="legal" size="50" placeholder="请输入营业执照上的法人代表"
+                           data-validate="required:必填"
+                           maxlength="10" data-ng-model="info.legal"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 col-sm-2 control-label subtitle"><span class="sup">*</span>&nbsp;法人身份证号</label>
+                <div class="col-md-7 col-sm-9 col-xs-12">
+                    <input type="text" class="form-control" id="identif" size="50" placeholder="请输入有效身份证号"
+                           data-validate="identity:请输入有效身份证号"
+                           maxlength="18" data-ng-model="info.identif"/>
+                </div>
+            </div>
+            </form>
+            <form>
+                <div class="form-group" data-ng-if="info.identity=='1'">
+                    <label class="col-md-3 col-sm-2 control-label subtitle" for="license"><span class="text-dot">*</span>&nbsp;营业执照</label>
+                    <div class="col-md-7 col-sm-9 col-xs-12">
+                        <input type="file" name="file" class="layui-upload-file">
+                    </div>
+                </div>
+                <div class="form-group" data-ng-if="info.identity=='1'" data-ng-show="info.license">
+                    <div class="label"></div>
+                    <div class="field">
+                        <img class="img-responsive" data-ng-src="{{info.license}}" width="300">
+                    </div>
+                </div>
+            </form>
+            <form>
+                <div class="form-group">
+                    <label class="col-md-3 col-sm-2 control-label subtitle">组织机构码</label>
+                    <div class="col-md-7 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" id="oCode" size="50" placeholder="选填" maxlength="18"
+                               data-ng-model="info.oCode"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-sm-2 control-label subtitle"><span class="sup">*</span>&nbsp;工商注册码</label>
+                    <div class="col-md-7 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" id="rCode" size="50" placeholder=""
+                               data-validate="required:必填" maxlength="18"
+                               data-ng-model="info.rCode"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-sm-2 control-label subtitle"><span class="sup">*</span>&nbsp;联系方式</label>
+                    <div class="col-md-7 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" name="officePhone" placeholder="请输入正确的电话或手机号码"
+                               data-bv-digits
+                               data-bv-digits-message="The office phone number is not valid"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-sm-2 control-label subtitle"><span class="sup">*</span>&nbsp;企业地址</label>
+                    <div class="col-md-7 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" name="officePhone" placeholder="请输入企业详细地址具体到街道门牌号"
+                               data-bv-digits
+                               data-bv-digits-message="The office phone number is not valid"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-sm-2 control-label subtitle"><span class="sup">*</span>&nbsp;个人姓名</label>
+                    <div class="col-md-7 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" id="name" size="50" placeholder="请输入个人真实姓名"
+                               data-validate="required:必填"
+                               maxlength="30" data-ng-model="info.name"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-sm-2 control-label subtitle"><span class="sup">*</span>&nbsp;身份证号</label>
+                    <div class="col-md-7 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" id="identif" size="50" placeholder="请输入有效身份证号"
+                               maxlength="18" data-ng-model="info.identif"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-sm-2 control-label subtitle"><span class="sup">*</span>&nbsp;联系方式</label>
+                    <div class="col-md-7 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" id="tel" size="50" placeholder="请输入正确的电话或手机号码"
+                               data-validate="required:必填,tel:请输入正确的电话或手机号码"
+                               maxlength="30" data-ng-model="info.tel"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-sm-2 control-label subtitle">个人住址</label>
+                    <div class="col-md-7 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" id="address" size="100" placeholder="请输入真实的个人住址"
+                               maxlength="100"
+                               data-ng-model="info.address"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-md-7 col-sm-9 col-xs-12">
+                        <input type="checkbox" data-ng-model="info.readed">&nbsp;我已阅读并同意
+                        <a href="javascript:void(0);" class="text-basic" data-ng-click="read()">《注册协议》</a>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-md col-xs-6 col-xs-offset-3">立即注册</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<@footer></@footer>

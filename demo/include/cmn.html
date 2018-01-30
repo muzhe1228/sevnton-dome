@@ -1,0 +1,233 @@
+
+<#macro header pageId="index" crlId="IndexCtl" pageNm="外贸服务_外贸代理_进出口代理_跨境贸易综合服务平台">
+    <!DOCTYPE html>
+    <html lang="zh-cn" data-ng-app="myApp">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="renderer" content="webkit">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+        <meta http-equiv="Expires" content="0">
+        <link rel="stylesheet" href="vender/pintuer/pintuer.css">
+        <link rel="stylesheet" href="vender/layui/css/layui.css">
+        <link rel="stylesheet" href="vender/layer/skin/pintuer/style.css">
+      <!--   <link rel="stylesheet" href="vender/qqFace/css/reset.css"> -->
+        <link rel="stylesheet" href="vender/fenxiang/css/share.css" type="text/css" />
+        <link href="vender/IconFont/demo.css" rel="stylesheet">
+        <link href="vender/IconFont/iconfont.css" rel="stylesheet">
+        <link rel="stylesheet" href="vender/nivo-slider/default/default.css">
+        <link rel="stylesheet" href="vender/nivo-slider/nivo-slider.css">
+        <link rel="stylesheet" href="css/cmn.css">
+        <link rel="stylesheet" href="css/gaiban/header.css">
+        <link rel="stylesheet" href="css/${pageId}.css">
+        <link rel="stylesheet" href="gaiban/index.css">
+        <link rel="stylesheet" href="gaiban/my_Center.css">
+        <link rel="stylesheet" href="gaiban/sevnCollege.css">
+        <link rel="stylesheet" href="css/gaiban/commn.css">
+        <link type="image/x-icon" href="img/favicon.ico" rel="shortcut icon"/>
+        <link href="img/favicon.ico" rel="bookmark icon"/>
+        <script src="vender/jquery/dist/jquery.min1.js"></script>
+        <script src="vender/qqFace/js/jquery.qqFace.js"></script>
+        <script src="vender/fenxiang/js/share.js" type="text/javascript"></script>
+        <script type="text/javascript" src="vender/nivo-slider/jquery.nivo.slider.js"></script>
+        <script type="text/javascript" src="js/9610/laydate/laydate.js" charset="utf-8"></script>
+        <script src="vender/layui/layui.js"></script>
+        <script src="vender/layui/lay/all.js"></script>
+        <script src="vender/pintuer/pintuer.js"></script>
+        <script src="vender/angular/angular.min.js"></script>
+        <script src="vender/layer/layer.js"></script>
+        <script src="js/cmn.js"></script>
+        <script src="js/${pageId}.js"></script>
+        <script src="vender/respond/dest/respond.min.js"></script>
+        <style>
+            .apartner {
+                padding-left: 20px;
+                color: #fff;
+            }
+        </style>
+        <meta name="baidu-site-verification" content="2LSmeMJZln" />
+    </head>
+    <body data-ng-controller="${crlId}" data-ng-init="init()">
+    <ul class="list-inline">
+        <div class="container main_nav">
+            <div class="nav">
+                <div class="nav_size">
+                    圣云通欢迎你,&nbsp;&nbsp;${name}&nbsp;&nbsp;
+                    <span class="regsiter_btn">
+                    <#if ! identity??>
+                    	<a href="register">注册</a>
+                     </#if>
+                    </span>
+                    <ul class="float-right">
+                        <li>
+                            <div class="button-group">
+                            </div>
+                        </li>
+                        <#if identity??>
+                            <li style="padding: 0 20px;"><a class="text-sub" href="msg"><span
+                                    class="icon-bell-o text-big"></span>
+                                <#if
+                                        msgCount?? && msgCount gt 0><span class="badge bg-dot">${msgCount}</span></#if>
+                            </a></li>
+                        </#if>
+                        <#if identity??>
+                            <li><a class="text-yellow" href="logout"><span class="icon-sign-out text-big"></span>注销</a>
+                            </li>
+                        </#if>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </ul>
+    <div class="layout doc-header fixed fixed_con">
+        <div class="container doc-naver">
+            <button class="button icon-navicon margin-top hid_btn" data-target="#doc-header-pintuer"></button>
+            <div class="xs7 doc-logo float-left" style="overflow: hidden;height: 50px;">
+                <a href="./">
+                    <img src="imgs/logo.png" alt="拼图" id="nav_logo"/>
+                </a>
+                <p id="nav_logo_size">|<a href="{{logo_href}}" class="text-gray"><span style="margin-left: 8px" data-ng-bind="logo_size"></span></a></p>
+            </div>
+            <div class="xl12 xs5 doc-nav float-right">
+                <ul class="nav nav-inline nav-navicon nav-menu nav_tit" id="doc-header-pintuer">
+                    <li><a href="./">首页</a></li>
+                    <li><a>产品服务<span class="arrow"></span></a>
+                        <ul class="drop-menu" style="background-color: black">
+                            <li><a href="./introd?sel=basic">基础服务<span class="arrow"></span></a>
+                                <ul>
+                                    <li><a href="./cartage">物流服务</a></li>
+                                    <li><a href="./usercenter#/basic_apply">在线下单</a></li>
+                                    <li><a href="./usercenter#/basic_list">订单跟踪</a></li>
+                                </ul>
+
+                            </li>
+                            <li><a href="./introd?sel=agent">过海飘扬<span class="arrow"></span></a>
+                                <ul>
+                                    <li><a href="./usercenter#/agent_apply">申请服务</a></li>
+                                    <li><a href="./usercenter#/agent_list">状况查询</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="./introd?sel=finance">金融服务<span class="arrow"></span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a>跨境天地<span class="arrow"></span></a>
+                        <ul class="drop-menu">
+                            <li><a href="./consultList">资讯列表</a></li>
+                            <li><a href="./usercenter#/college_faq">常见问题</a></li>
+                            <li><a href="./dis">公共服务</a></li>
+                        </ul>
+                    </li>
+                   <!--  <li><a href="http://sevnton.com:8080/mall" target="_blank">B2B商城</a></li>-->
+                </ul>
+            </div>
+            <div class="clearfloat"></div>
+        </div>
+    </div>
+</#macro>
+<#macro footer>
+    <div class="doc-backtop win-backtop fixed_top">
+        <img src="./imgs/top.png" alt="">
+    </div>
+    <div class="layout bottom">
+        <div class="container" style="text-align: center;">
+            <div class="padding">
+                <ul class="foot_licont">
+                    <li class="xl6 xs2"><a>关于我们</a>
+                        <ul class="text-default">
+                            <#if about?? && about?size gt 0>
+                                <#list about as row>
+                                    <li><a href="${row.url!''}">${row.name!''}</a></li>
+                                </#list>
+                            </#if>
+                        </ul>
+                    </li>
+                    <li class="xl6 xs2"><a>工具查询</a>
+                        <ul class="text-default">
+                            <#if tool?? && tool?size gt 0>
+                                <#list tool as row>
+                                    <li><a href="${row.url!''}" >${row.name!''}</a></li>
+                                </#list>
+                            </#if>
+                        </ul>
+                    </li>
+                    <li class="xl6 xs2 foot_lasli"><a>帮助中心</a>
+                        <ul class="text-default">
+                            <#if help?? && help?size gt 0>
+                                <#list help as row>
+                                    <li><a href="${row.url!''}">${row.name!''}</a></li>
+                                </#list>
+                            </#if>
+                        </ul>
+                    </li>
+                    <li class="xl6 foot_Saoma">
+                        <div class="foot_Saoma_left xl12 xs6">
+                            <a href="http://mp.weixin.qq.com/s/U-eei-8E2ftdoP6BIsNsFw">
+                                <img src="${android_qr!}" width="100"></a>
+                            <p class="padding-top text-center">APP下载</p>
+                        </div>
+                        <div class="foot_Saoma_right xl12 xs6">
+                            <a href="http://weibo.com/p/1006066011129483/home?from=page_100606&mod=TAB&is_all=1#place"
+                               target="_blank"><img src="./imgs/weibo.png"/></a>
+                            <a href="http://blog.sina.com.cn/u/6011129483" target="_blank"><img src="./imgs/boke.png"/></a>
+                            <a href="http://m.toutiao.com/profile/52427762208/" target="_blank"><img src="./imgs/toutiao.png"/></a>
+                            <a class="weixin_block" href="javascript:void(0)"><img src="./imgs/weixin.png"/>
+                                <div class="weixin_none">
+                                    <img src="${weixin_qr!}">
+                                    <p class="padding-top text-center">微信公众号</p>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="layout boot_hr"></div>
+        <div class="container text-center padding-big-top padding-bottom version">
+            <div class="div_foot_bott line">
+                <a class="apartner" href="https://gs.amazon.cn/?ld=ASCNAGSFooter" target="_blank" rel="nofollow">亚马逊全球开店</a>&nbsp;&nbsp;&nbsp;<a
+                    class="apartner" href="https://www.wish.com/" target="_blank" rel="nofollow">Wish</a><a class="apartner"
+                                                                                             href="http://www.lazada.com.my/"
+                                                                                             target="_blank" rel="nofollow">Lazada</a>
+                <a class="apartner" href="http://www.ebay.com/" target="_blank" rel="nofollow">Ebay</a><a class="apartner"
+                                                                                           href="http://www.customs.gov.cn/tabid/49564/Default.aspx"
+                                                                                           target="_blank" rel="nofollow">中华人民共和国海关总署</a><a
+                    class="apartner" href="http://www.china-hzgec.gov.cn/" target="_blank" rel="nofollow">中国（杭州）跨境电商综合试验区</a>
+                <a class="apartner" href="http://www.800best.com/" target="_blank" rel="nofollow">百世汇通</a><a class="apartner"
+                                                                                              href="http://gsj.zj.gov.cn/"
+                                                                                              target="_blank" rel="nofollow">浙江省工商行政管理局</a>
+																							  <a href="www.bklvye.com " target="_blank">颇尔滤芯</a>
+                <p>地址：${serviceAddr!''}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;全国服务热线：${hotlineTel!''}</p>
+                <p>浙江圣云通网络科技有限公司&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;版权所有&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;浙ICP备16031352号</p>
+            </div>
+        </div>
+    </div>
+    </body>
+    <script>
+            var _hmt = _hmt || [];
+            (function () {
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?8fa4d505f74b6165c654f9c37a0621fd";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+        <script>
+            var _hmt = _hmt || [];
+            (function () {
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?483bcfd9cd65b6f76d71d4812428f028";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+        <script type="text/javascript">
+        var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+        document.write(unescape("%3Cspan id='cnzz_stat_icon_1264310490'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1264310490' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+    </html>
+</#macro>

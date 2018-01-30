@@ -1,0 +1,104 @@
+/*-----------------------内容---------------------------------*/
+.WM_content_con,.WM_content_right{
+    float: left;
+}
+.WM_wrap{
+    padding: 0;
+}
+.WM_con_cont p{
+    text-overflow:ellipsis;
+    overflow:hidden;
+    white-space:nowrap;
+}
+.WM_left_con{
+    background-color: #e6f0fd;
+    font-size: 1.3em;
+    background-image: url("../imgs/WMbg.png");
+    background-repeat: no-repeat;
+    background-position: right;
+}
+.WM_gongGao{
+    background: rgb(250,250,250);
+}
+.WM_set{
+    border: 1px solid gainsboro;
+}
+.clearfloat{
+    clear:both
+}
+.WM_left_head {
+    font-size: 18px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+.WM_left_phead a{
+    color: grey;
+    padding: 10px 0;
+    display: inline-block;
+}
+.WM_left_phead:nth-last-child(2){
+    border-right: none;
+}
+.WM_bg img{
+    max-width: 100%;
+}
+.WM_left_p p a:hover,.WM_con_cont a:hover,.WM_left_con li:first-child a:hover,.WM_content_cont li a:hover{
+    color: red;
+}
+.WM_con_nav,.WM_gongGao{
+    font-size: 16px;
+    background-color: #ebebeb;
+    padding: 0;
+}
+.WM_con_nav p {
+    float: left;
+}
+.WM_con_cont{
+    overflow: hidden;
+    padding: 15px 0;
+    border-bottom: 1px solid gainsboro;
+    margin: 0 20px;
+}
+.WM_con_cont:nth-last-child(2){
+    border: none;
+}
+.lis{
+    font-size: 13px;
+}
+.WM_seta,.WM_gongGao li{
+    text-decoration:none;
+    display: inline-block;
+    padding: 12px 20px;
+    cursor: pointer;
+}
+/*.WM_seta:hover{*/
+    /*background-color: white;*/
+    /*color: #4cadff;*/
+/*}*/
+.WM_seta_act{
+    background-color: white;
+    color: #4cadff;
+}
+.WM_content_nav{
+    overflow: hidden;
+    border-bottom: 1px solid darkgray;
+}
+.WM_content_nav li:first-child{
+    float: left;
+    font-size: 16px;
+}
+.WM_content_nav li:last-child{
+    float: right;
+}
+.WM_content_cont li{
+    text-overflow:ellipsis;
+    overflow:hidden;
+    white-space:nowrap;
+}
+.WM_content_cont li{
+    padding: 10px;
+}
+/*.WM_content_cont li a{*/
+    /*color: black;*/
+    /*font-size: 1.3em;*/
+/*}*/

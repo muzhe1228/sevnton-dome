@@ -1,0 +1,68 @@
+<!--<#include "/include/cmn.html" encoding="UTF-8"><@header pageId="b2c9610" crlId="b2c9610Ctl"-->
+<!--pageNm="用户中心"></@header>-->
+<!--<meta>-->
+<!--<script src="vender/angular/angular-ui-router.min.js"></script>-->
+<!--<link rel="stylesheet" href="vender/layui/css/layui.css">-->
+<!--<link href="//nos.netease.com/vod163/nep.min.css" rel="stylesheet">-->
+<!--<script src="vender/layui/layui.js"></script>-->
+<!--<script src="vender/layui/lay/all.js"></script>-->
+<!--<script src="//nos.netease.com/vod163/nep.min.js"></script>-->
+<!--<script type="text/javascript" src="https://blueimp.github.io/JavaScript-MD5/js/md5.js"></script>-->
+<!--<script src="vender/completer/completer.min.js"></script>-->
+<!--<link rel="stylesheet" href="vender/completer/completer.min.css">-->
+<!--<script src="vender/chosen/chosen.jquery.js"></script>-->
+<!--<link rel="stylesheet" href="vender/chosen/chosen.css">-->
+<!--<link rel="stylesheet" href="css/9610/Iconfont/demo.css">-->
+ <!--<link rel="stylesheet" href="css/9610/Iconfont/iconfont.css">-->
+ <!--<link rel="stylesheet" href="vender/layui/css/layui.css">-->
+ <!--<link rel="stylesheet" href="css/9610/css/comme.css">-->
+ <!--<link rel="stylesheet" href="css/9610/css/index.css">-->
+ <!--<link rel="stylesheet" href="css/9610/css/address.css">-->
+ <!--<link rel="stylesheet" href="css/9610/css/my_order.css">-->
+ <!--<link rel="stylesheet" href="css/9610/css/pwd_alert.css">-->
+ <!--<link rel="stylesheet" href="css/9610/css/my_chargeback.css">-->
+ <!--<link rel="stylesheet" href="css/9610/css/user_msg.css">-->
+ <!--<link rel="stylesheet" href="css/9610/css/my_balance.css">-->
+ <!--<script src="js/9610/orderlist.js"></script>-->
+ <!--<script src="js/9610/balance.js"></script>-->
+ <!--<script src="js/9610/chargeback.js"></script>-->
+ <!--<script src="js/9610/itemlist.js"></script>-->
+ <!--<script src="js/9610/itemDetail.js"></script>-->
+ <!--<script src="js/9610/batchexport.js"></script>-->
+ <!--<script src="js/9610/reciveaddress.js"></script>-->
+ <!--<script src="js/9610/recAddressDetail.js"></script>-->
+ <!--<script src="js/9610/sendaddress.js"></script>-->
+  <!--<script src="js/9610/sendAddressDetail.js"></script>-->
+ <!--<script src="js/9610/jquery_form.js"></script>-->
+ <!---->
+<div class="Wrap_9610">
+    <p class="Wrap_9610_title">
+        <span id="sub_menu1">9610&nbsp;/</span>
+        <span>集报中心</span>
+    </p>
+    <div id="left_menu">
+    	<ul>
+		    <li>
+		        <p>全球配订单管理</p>
+		        <p class="sub_menu" data-ng-click="ckNav('9610_orderlist')" data-ng-class="selMenu('9610_orderlist')" data-ui-sref=".9610_orderlist">
+			        <i class="icon iconfont icon-dingdan"></i>我的订单
+		        </p>
+		        <!-- <p class="sub_menu" data-ng-click="ckNav('9610_chargeback')" data-ng-class="selMenu('9610_chargeback')" data-ui-sref="9610_chargeback"><i class="icon iconfont icon-dingdan"></i>退单管理</p> -->
+		        <p class="sub_menu" data-ng-click="ckNav('9610_batchexport')" data-ng-class="selMenu('9610_batchexport')" data-ui-sref="9610_batchexport"><i class="icon iconfont icon-daoru-copy"></i>批量导入订单</p>
+		    </li>
+		   <!--  <li>
+		        <p>账户管理</p>
+		        <p class="sub_menu" data-ng-click="ckNav('9610_balance')" data-ng-class="selMenu('9610_balance')" data-ui-sref="9610_balance"><i class="icon iconfont icon-msnui-rmb"></i>我的余额</p>
+		    </li> -->
+		    <li>
+		        <p>基础信息管理</p>
+		        <p class="sub_menu" data-ng-click="ckNav('9610_itemlist')" data-ng-class="selMenu('9610_itemlist')" data-ui-sref=".9610_itemlist"><i class="icon iconfont icon-crm4"></i>商品信息管理</p>
+		        <p class="sub_menu" data-ng-click="ckNav('9610_sendaddress')" data-ng-class="selMenu('9610_sendaddress')" data-ui-sref=".9610_sendaddress"><i class="icon iconfont icon-crm4"></i>寄件地址设置</p>
+		        <p class="sub_menu" data-ng-click="ckNav('9610_reciveaddress')" data-ng-class="selMenu('9610_reciveaddress')" data-ui-sref=".9610_reciveaddress"><i class="icon iconfont icon-crm4"></i>收件地址设置</p>
+		    </li>
+		</ul>
+    </div>
+    <div id="right_cont" data-ui-view="" class="content"></div>
+    <div class="clearfloat"></div>
+</div>
+<!--<@footer></@footer>-->

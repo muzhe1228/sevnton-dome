@@ -1,0 +1,106 @@
+<#include "/include/cmn.html" encoding="UTF-8"><@header pageId="consult" crlId="ConsultCtl" pageNm="资讯详情"></@header>
+
+<meta charset="UTF-8">
+<title> 圣云通-${consult.name!''}</title>
+<meta name="keywords" content="外贸服务，外贸代理，进出口代理，浙江出口，浙江外贸，代理出口，跨境贸易综合服务，通关报关，外贸B2B"/>
+<meta name="description" content="圣云通是跨境贸易供应链综合服务平台，主要从事外贸代理、进出口代理等外贸服务.为中小外贸企业提供通关、商检、物流、金融、代运营等一站式服务.">
+<style>
+    body{
+        background-color: #f5f5f5;
+    }
+    .ZX_left{
+        background-color: #fff;
+        margin-top: 20px;
+    }
+    .ZX_right {
+        background-color: #f5f5f5;
+        margin-top: 20px;
+        padding-left: 20px;
+    }
+    .ZX_right ul{
+        background-color: #fff;
+        padding: 10px !important;
+    }
+    .ZX_left{
+        padding: 15px;
+    }
+</style>
+<div class="container">
+    <div class="ZX_left xs9">
+        <div style="width:98%;font-size: 18px;color:#014d89;padding: 10px 20px;">
+            <a href="consultList"><b>资讯列表</b></a><a>&gt;&gt;<b>资讯详情</b></a>
+        </div>
+        <div style="font-size: 18px;text-align: center;width: 90%;font-weight: bold;padding-top: 10px;padding-bottom: 10px;">
+             ${consult.name!''}
+          
+        </div>
+        <div class="zixun_cont margin-big-bottom" style="overflow: hidden">
+        ${consult.content!''}
+        </div>
+        <div class="">
+            <div class="text-center">
+                <!--  <button class="button XGZX_zan"><i class="icon iconfont icon-zan"></i>&nbsp;赞</button>-->
+            </div>
+            <div class="ZXXQ_remark margin-big-top">
+	        <#if identity??>
+		        	<p class="">圣云通欢迎你,&nbsp;&nbsp;<a style="color: #725dec" >${name}&nbsp;&nbsp;</a></p>
+	        	<#else>
+	            	<p class="ZXXQ_login"><a style="color: #725dec" href="./login">登录</a>后参与评论</p>
+	        </#if>    
+                <p class="ZXXQ_link float-right">
+                    <a href="http://weibo.com/p/1006066011129483/home?from=page_100606&mod=TAB&is_all=1#place"
+                       target="_blank"><img src="./imgs/weibo.png"/></a>
+                    <a href="http://blog.sina.com.cn/u/6011129483" target="_blank"><img src="./imgs/boke.png"/></a>
+                    <a href="http://m.toutiao.com/profile/52427762208/" target="_blank"><img src="./imgs/toutiao.png"/></a>
+                    <a class="weixin_block" href="javascript:void(0)"><img src="./imgs/weixin.png"/></a>
+                </p>
+                       <p class="float-right zan_cai" data-ng-if="count.likeType =='Y' && count.praiseType =='1'  ">
+                      	 <i class="icon iconfont icon-zan" style="color:#1196EE">{{count.likeCount}}</i>
+                     	  <i class="icon iconfont icon-zan-copy" >{{count.treadCount}}</i> |
+                        </p>
+                        
+                        <p class="float-right zan_cai" data-ng-if="count.likeType =='Y' && count.praiseType =='0'  ">
+                      	  <i class="icon iconfont icon-zan">{{count.likeCount}}</i>
+                     	  <i class="icon iconfont icon-zan-copy" style="color:#1196EE" >{{count.treadCount}}</i>|
+                        </p>
+                        
+          			   <p class="float-right zan_cai" data-ng-if="count.likeType =='L' "><i class="icon iconfont icon-zan" data-ng-click="like()">{{count.likeCount}}</i><i class="icon iconfont icon-zan-copy" data-ng-click="tread()">{{count.treadCount}}</i> | </p>
+          			   <p class="float-right zan_cai" data-ng-if="count.likeType =='N' "><i class="icon iconfont icon-zan">{{count.likeCount}}</i><i class="icon iconfont icon-zan-copy">{{count.treadCount}}</i> | </p>
+  					 <div class="clearfloat"></div>
+            </div>
+            <div class="margin-big-top">
+                <p class="line">
+                <input type="hidden" data-ng-model="comments.introdPcID"/>
+                <textarea class="input" style="min-height: 80px" id="" data-ng-model="comments.commentsText"
+                          placeholder="发表你的精彩评论，最多140个字"></textarea>
+                </p>
+                <p class="text-right margin-big-top">
+                    <button class="button XGZX_zan" data-ng-click="checkLogin()">发表</button>
+                </p>
+            </div>
+            <div class="">
+                <p class="text-big margin-big-bottom"><b>已有评论</b></p>
+                <ul class="list-group">
+                    <li class="text-default"  data-ng-repeat="row in pageComments.list">
+                    	{{row.attrs.comments_text}}
+                        <p class="text-right text-big margin-top text-gray">评论者: {{row.attrs.user_id}}<span class="margin-big-left float-left">评论时间:{{row.attrs.comments_date |date:'yyyy-MM-dd HH:mm:ss'}}</span></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="text-center  padding">
+            <button class="button ZX_gengduobtn" data-ng-click="next(comments.introdPcID)">加载更多</button>
+        </div>
+    </div>
+    <div class="ZX_right xs3 hidden-l">
+        <ul>
+            <li class="XGZX_title"><p>相关资讯</p></li>
+            <li class="XGZX_details" data-ng-repeat="row in pageDefault.list">
+                <p class="xl1 padding-right" style="color:#6884fd;font-size: 1.5em">●</p>
+                <p class="xl11"><a href="consult?id={{row.attrs.id}}">{{row.attrs.name}}</a></p>
+                <div class="clearfloat"></div>
+            </li>
+        </ul>
+    </div>
+</div>
+<@footer></@footer>

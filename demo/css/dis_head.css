@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: 微软雅黑 !important;
+}
+button,input,select{
+    outline: none;
+}
+.WM_header{
+    padding-bottom: 20px;
+    border-bottom: 1px solid gainsboro;
+    background-color: #e6f0fd;
+}
+.WM_seach,.WM_redian{
+    margin: auto;
+}
+.WM_seach{
+    padding-top: 20px;
+}
+.WM_seach_inp,.WM_seach_btn{
+    height: 45px;
+    font-size: 18px;
+}
+.WM_seach_btn{
+    background-color: #4cadff;
+    color: white;
+}
+.WM_seach_btn:hover{
+    background-color: #1f7ccb;
+    color: white;
+}
+.WM_seach p{
+    height: 30px;
+}
+.head_btn a:hover{
+    text-decoration: none;
+}
+.head_btn button{
+    overflow: hidden;
+    background-color: white;
+    border: 1px solid #4cadff;
+    color: #4cadff;
+    height: 43px;
+    padding: 6px 22px;
+}
+.head_btn button:hover{
+    background-color: #4cadff;
+    border: 1px solid #4cadff;
+    color: white;
+}

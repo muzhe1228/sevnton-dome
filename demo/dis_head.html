@@ -1,0 +1,32 @@
+<link rel="stylesheet" type="text/css" href="css/IconFont/demo.css"/>
+<link rel="stylesheet" type="text/css" href="css/IconFont/iconfont.css"/>
+<link rel="stylesheet" type="text/css" href="css/dis_head.css">
+<script src="vender/jquery/dist/jquery.js"></script>
+<div class="layout WM_header">
+    <div class="container WM_seach text-center">
+        <div class="x12">
+            <div class="form-group x12 xs5" style="padding: 0">
+                <div class="field">
+                    <div class="input-group">
+                        <input type="text" class="input box-shadow-none hover-none radius-none WM_seach_inp" data-ng-model="disTitle"
+                               placeholder="输入关键词"/><span class="addbtn">
+            <button type="button" class="button radius-none icon-search WM_seach_btn">
+                搜索答案</button></span>
+                    </div>
+                </div>
+            </div>
+            <!--<p class="x12 xs4"><input type="text" class="input WM_seach_inp" data-ng-model="disTitle" placeholder="输入关键词"></p>-->
+            <p class="x12 xs6 text-left padding-big-left head_btn">
+                <!--<a href="disCategory?disTitle={{disTitle}}&categoryID={{categoryID}}">-->
+                    <!--<button>搜索答案</button>-->
+                <!--</a>-->
+                <a href="disAdd" class="margin-big-right margin-big-left">
+                    <button type="button" class="button radius-none">我要提问</button>
+                </a>
+                <a href="disCategory?disType=false">
+                    <button type="button" class="button radius-none">我要回答</button>
+                </a>
+            </p>
+        </div>
+    </div>
+</div>

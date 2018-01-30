@@ -1,0 +1,412 @@
+<#include "/include/cmn.html" encoding="UTF-8"><@header pageId="index"
+    crlId="IndexCtl" pageNm="外贸服务_外贸代理_进出口代理_跨境贸易综合服务平台">
+</@header>
+<meta charset="UTF-8">
+ <meta name="keywords" content="外贸服务，外贸代理，进出口代理，跨境贸易服务平台，浙江出口，浙江外贸，代理出口，外贸服务，跨境贸易综合服务，通关报关，外贸B2B"/>
+ <meta name="description" content="圣云通是跨境贸易供应链综合服务平台，主要从事外贸代理、进出口代理等外贸服务.为中小外贸企业提供通关、商检、物流、金融、代运营等一站式服务.">
+ <title>圣云通-外贸服务_外贸代理_进出口代理_跨境贸易综合服务平台</title>
+<style>
+    .festival_img {
+        overflow: hidden;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 99999999;
+        -webkit-transform: scale(0, 0);
+        -moz-transform: scale(0, 0);
+        -ms-transform: scale(0, 0);
+        -o-transform: scale(0, 0);
+        transform: scale(0, 0);
+    }
+
+    .small_img {
+        display: none;
+    }
+
+    .small_img img {
+        width: 100%;
+    }
+
+    .jieri_main_img {
+        position: absolute;
+        max-width: 100%;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    .fu_img1 {
+        position: absolute;
+        top: -100px;
+        left: -200px;
+        -webkit-animation: "LX1" 2.2s linear infinite;
+        -o-animation: "LX1" 2.2s linear infinite;
+        animation: "LX1" 2.2s linear infinite;
+        -webkit-animation-direction: initial;
+        -o-animation-direction: initial;
+        animation-direction: initial;
+    }
+
+    .fu_img2 {
+        position: absolute;
+        top: -100px;
+        left: -200px;
+        -webkit-animation: "LX2" 1.3s linear infinite;
+        -o-animation: "LX2" 1.3s linear infinite;
+        animation: "LX2" 1.3s linear infinite;
+        -webkit-animation-direction: initial;
+        -o-animation-direction: initial;
+        animation-direction: initial;
+    }
+
+    .fu_img3 {
+        position: absolute;
+        top: -100px;
+        left: -200px;
+        -webkit-animation: "LX3" 1.8s linear infinite;
+        -o-animation: "LX3" 1.8s linear infinite;
+        animation: "LX3" 1.8s linear infinite;
+        -webkit-animation-direction: initial;
+        -o-animation-direction: initial;
+        animation-direction: initial;
+    }
+
+    .fu_img4 {
+        position: absolute;
+        top: -100px;
+        left: -200px;
+        -webkit-animation: "LX4" 1s linear infinite;
+        -o-animation: "LX4" 1s linear infinite;
+        animation: "LX4" 1s linear infinite;
+        -webkit-animation-direction: initial;
+        -o-animation-direction: initial;
+        animation-direction: initial;
+    }
+
+    .fu_img5 {
+        position: absolute;
+        top: -100px;
+        left: -200px;
+        -webkit-animation: "LX5" 1.9s linear infinite;
+        -o-animation: "LX5" 1.9s linear infinite;
+        animation: "LX5" 1.9s linear infinite;
+        -webkit-animation-direction: initial;
+        -o-animation-direction: initial;
+        animation-direction: initial;
+    }
+
+    @keyframes LX1 {
+        0% {
+            -webkit-transform: translate(1200px, 0);
+            -moz-transform: translate(1200px, 0);
+            -ms-transform: translate(1200px, 0);
+            -o-transform: translate(1200px, 0);
+            transform: translate(1200px, 0);
+        }
+        100% {
+            -webkit-transform: translate(1000px, 100vh);
+            -moz-transform: translate(1000px, 100vh);
+            -ms-transform: translate(1000px, 100vh);
+            -o-transform: translate(1000px, 100vh);
+            transform: translate(1000px, 100vh);
+        }
+    }
+
+    @keyframes LX2 {
+        0% {
+            -webkit-transform: translate(900px, 0);
+            -moz-transform: translate(900px, 0);
+            -ms-transform: translate(900px, 0);
+            -o-transform: translate(900px, 0);
+            transform: translate(900px, 0);
+        }
+        100% {
+            -webkit-transform: translate(700px, 100vh);
+            -moz-transform: translate(700px, 100vh);
+            -ms-transform: translate(700px, 100vh);
+            -o-transform: translate(700px, 100vh);
+            transform: translate(700px, 100vh);
+        }
+    }
+
+    @keyframes LX3 {
+        0% {
+            -webkit-transform: translate(600px, 0);
+            -moz-transform: translate(600px, 0);
+            -ms-transform: translate(600px, 0);
+            -o-transform: translate(600px, 0);
+            transform: translate(600px, 0);
+        }
+        100% {
+            -webkit-transform: translate(400px, 100vh);
+            -moz-transform: translate(400px, 100vh);
+            -ms-transform: translate(400px, 100vh);
+            -o-transform: translate(400px, 100vh);
+            transform: translate(400px, 100vh);
+        }
+    }
+
+    @keyframes LX4 {
+        0% {
+            -webkit-transform: translate(300px, 0);
+            -moz-transform: translate(300px, 0);
+            -ms-transform: translate(300px, 0);
+            -o-transform: translate(300px, 0);
+            transform: translate(300px, 0);
+        }
+        100% {
+            -webkit-transform: translate(100px, 100vh);
+            -moz-transform: translate(100px, 100vh);
+            -ms-transform: translate(100px, 100vh);
+            -o-transform: translate(100px, 100vh);
+            transform: translate(100px, 100vh);
+        }
+    }
+
+    @keyframes LX5 {
+        0% {
+            -webkit-transform: translate(0, 0);
+            -moz-transform: translate(0, 0);
+            -ms-transform: translate(0, 0);
+            -o-transform: translate(0, 0);
+            transform: translate(0, 0);
+        }
+        100% {
+            -webkit-transform: translate(-200px, 100vh);
+            -moz-transform: translate(-200px, 100vh);
+            -ms-transform: translate(-200px, 100vh);
+            -o-transform: translate(-200px, 100vh);
+            transform: translate(-200px, 100vh);
+        }
+    }
+</style>
+<div class="floatcss">
+    <p class="closeWin">X</p>
+    <div class="showWin">
+        <div
+                style="width: 98%; margin: 10px 0; overflow: hidden; margin-right: 20px;">
+            <img style="float: left; margin-bottom: 20px;margin-left: 20px;"
+                 src="img/index/logo-speed.jpg">
+            <div
+                    style="float: left; width: 98%; text-align: left; font-size: 14px; font-family: 微软雅黑; margin-left: 20px;">
+
+                圣云通是跨境贸易供应链综合服务平台，为中小外贸企业提供通关、商检、物流、结汇、退税、金融、法务、代运营、在线课堂等所有跨境贸易
+
+                所需的各环节服务
+            </div>
+        </div>
+        <form class="speedForm" style="margin-left: 20px">
+            <div class="form-group">
+                <div class="field">
+                    <div class="input-group">
+                        <p style="font-size: 16px; color: #014d89; font-weight: bold;">圣云通跨境贸易综合服务平台
+
+                            （快速申请）</p>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="field">
+                    <div class="input-group">
+                        <span class="addon">您的称呼：</span> <input type="text" class="text"
+                                                                placeholder="请填写联系人姓名" data-validate="required:必填"
+                                                                data-ng-model="regauth.name"/>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="field">
+                    <div class="input-group">
+                        <span class="addon">联系方式：</span> <input type="text" maxlength="13"
+                                                                class="text" placeholder="输入手机号，便于联系"
+                                                                data-validate="required:必填,tel:请输入正确
+
+的电话或手机号码"
+                                                                data-ng-model="regauth.userId"/>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="field">
+                    <div class="input-group text-dot" style="width: 100%;">{{speederror}}</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="field">
+                    <button class="button" type="button" data-ng-click="register()">申请服务</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="slider-wrapper theme-default main_zhubanner">
+    <div id="slider" class="nivoSlider">
+        <a data-ng-repeat="row in bannerList" target="_bank" data-ng-href="{{row.attrs.url}}"><img
+                data-ng-src="{{row.attrs.pic}}" alt=""/></a>
+    </div>
+</div>
+<div style="background-color: #f4f4f4;">
+    <div class="container sanda_MK">
+        <div class="line text-center" style="font-size: 20px;padding: 45px;color: #333">
+            <p><b>PRODUCT AND SERVICES</b></p>
+            <p>我们的服务</p>
+        </div>
+        <div class="xl3 main_module" data-ng-click="introd('basic')">
+            <p>
+                <img class="main-img" data-ng-src="imgs/index/tongguan.png" alt="圣云通外贸综合服务平台，为用户提供通关、商检、外汇结算、退税等综合服务">
+                <img class="xiaojiantou" data-ng-src="imgs/index/xiaojiant.png" alt="">
+            </p>
+        </div>
+        <div class="xl3 main_module" data-ng-click="introd('finance')">
+            <p>
+                <img class="main-img" data-ng-src="imgs/index/jinrong.png" alt="圣云通提供丰富的外贸融资、信保、赊销等一站式外贸金融服务">
+                <img class="xiaojiantou" data-ng-src="imgs/index/xiaojiant.png" alt="">
+            </p>
+        </div>
+        <div class="xl3 main_module" data-ng-click="introd('agent')">
+            <p>
+                <img class="main-img" data-ng-src="imgs/index/training.jpg" alt="圣云通跨境贸易综合服务平台，提供外贸代运营、代运营托管服务">
+                <img class="xiaojiantou" data-ng-src="imgs/index/xiaojiant.png" alt="">
+            </p>
+        </div>
+        <div class="xl3 main_module" data-ng-click="introd('consult')">
+            <p>
+                <img class="main-img" data-ng-src="imgs/index/KuaJing.png" alt="">
+                <img class="xiaojiantou" data-ng-src="imgs/index/xiaojiant.png" alt="">
+            </p>
+        </div>
+    </div>
+    <div class="ZX-axtivity" style="position: relative">
+        <div class="container">
+            <div class="line text-center" style="font-size: 20px;padding: 40px;color: #333">
+                <p><b>LATEST ACTIVITIES</b></p>
+                <p>最新活动</p>
+            </div>
+            <div class="zuixin_active clear-fix">
+                <a data-ng-repeat="indexAdvert in indexAdvert" class="main-banners" href="{{indexAdvert.attrs.toUrl}}"><img data-ng-src="http://sevnton.com/sevnton_bo/{{indexAdvert.attrs.picUrl}}" alt=""></a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="line main_cont">
+        <div class="line text-center" style="font-size: 20px;padding: 40px;color: #333">
+            <a href="./consultList">
+                <p><b>LATEST INFORMATION</b></p>
+                <p>最新资讯</p>
+            </a>
+        </div>
+        <div class="float-left xl12 xs6 media_left">
+	        <#list consultListVelocity as row>
+	         <div class="media_sect">
+	                                   <a class="float-left xl12 xs4 media_img" href="consult?id=${row.id!''}" style="padding-right: 20px">
+	                    <img class="media-object" data-ng-src="https://www.sevnton.com/sevnton_bo/${row.picUrl!''}"
+	                         alt="媒体对象">
+	                </a>
+	                <div class="xl12 xs8">
+	                    <p class="media-heading meidia_H4" title="${row.name!''}"><a
+	                            href="consult?id=${row.id!''}">${row.name!''}</a></p>
+	                    <p class="font_Omit meidia_size">
+	                        ${row.content!''}
+	                    </p>
+	                    <p class="media_boot float-left btn_zx"><a href="">${row.categoryName!''}</a></p>
+	                    <p class="media_boot1 float-right">${row.updateTime!''}</p>
+	                </div>
+	                <div class="clearfloat"></div>
+	                </div>
+	           </#list>
+        </div>
+        <div class="xl12 xs6">
+	            <div class="media_right text-center">
+	                <p class="text-center"><a href="consult?id=${indexConsultVelocity.id!''}">
+	                <img class="media_img1"  data-ng-src="https://www.sevnton.com/sevnton_bo/${indexConsultVelocity.picUrl!''}" alt=""></a></p>
+	                <div class="clearfloat"></div>
+	                <p class="meidia_H4"><a href="consult?id=${indexConsultVelocity.id!''}">${indexConsultVelocity.name!''}</a>
+	                </p>
+	                <p class="font_Omit media_rightp1">${indexConsultVelocity.content!''}</p>
+	                <p class="media_rightp2">${indexConsultVelocity.updateTime!''}</p>
+	            </div>
+        </div>
+    </div>
+</div>
+ <!--<div class="college">
+            <img src="img/index/college.png">
+            <div class="x6 padding-big" data-ng-repeat="row in videoList">
+                <div style="position: relative;">
+                    <img class="box-shadow" data-ng-src="{{row.attrs.poster}}" width="100%"> <a
+                        data-ng-href="usercenter#/college_play?id={{row.attrs.id}}" class="p-thumb"></a>
+                </div>
+                <p class="margin-top">
+                    <strong class="text-big text-yellow">{{row.attrs.title}}</strong><span class="float-right">
+
+    {{row.attrs.count}}人次已观看，{{row.attrs.time}}</span>
+                </p>
+            </div>
+        </div>
+    </div>
+ <div class="festival_img big_img">
+<div class="festival_img big_img">
+<img class="jieri_main_img" src="imgs/jieri/6.jpg" alt="">
+</div>
+    <img class="jieri_main_img" src="imgs/jieri/duanwu.png" alt="">
+    <img class="fu_img1" src="imgs/jieri/fu_jieri.png" alt="">
+    <img class="fu_img2" src="imgs/jieri/fu_jieri.png" alt="">
+    <img class="fu_img3" src="imgs/jieri/fu_jieri.png" alt="">
+    <img class="fu_img4" src="imgs/jieri/fu_jieri.png" alt="">
+    <img class="fu_img5" src="imgs/jieri/fu_jieri.png" alt="">
+</div> -->
+<div class="festival_img">
+    <img class="jieri_main_img" src="imgs/jieri/duanwu1.png" alt="">
+</div>
+
+<script type="text/javascript">
+
+    $('.festival_img').css({
+        transform: 'scale(1,1)',
+        transition: 'all .5s ease-out'
+    })
+    $(document).click(function () {
+        $('.festival_img').css({
+            height: 0
+        }, 500)
+        $('.festival_img>img').slideDown(1000)
+    })
+    window.onload = function () {
+        $('#slider').nivoSlider({
+            pauseTime: 5000,
+        });
+        var index =0;
+        var num = $(".main-banners").length
+        var timer = setInterval(function () {
+                index++
+            if (index>=num){
+                    index = 0
+            }
+            $(".main-banners").fadeOut(1100);
+            $(".main-banners:eq("+index+")").fadeIn(1000);
+        },5000)
+        $('.zuixin_active').mouseover(function () {
+            clearInterval(timer)
+        })
+        $('.zuixin_active').mouseout(function () {
+            timer = setInterval(function () {
+                index++
+                if (index>=num){
+                    index = 0
+                }
+                console.log(index)
+                $(".main-banners").fadeOut(1100);
+                $(".main-banners:eq("+index+")").fadeIn(1000);
+            },5000)
+        })
+    }
+</script>
+<@footer>
+</@footer>

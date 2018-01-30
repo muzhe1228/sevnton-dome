@@ -1,0 +1,37 @@
+.wrap_9610_right_title{
+    background-color: #999;
+    height: 50px;
+    color: white;
+    font-weight: bold;
+}
+.wrap_9610_right_title>p,.wrap_9610_right_cont>p{
+	overflow: hidden;
+    text-overflow: ellipsis;
+    float: left;
+    width: 14%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+}
+.wrap_9610_right_title p:nth-child(5),.wrap_9610_right_cont p:nth-child(5){
+    width: 12%;
+}
+.wrap_9610_right_cont{
+    border: 1px solid gainsboro;
+    border-top: none;
+}
+.wrap_9610_right_cont>p:nth-child(7)>span{
+    color: #046eba;
+}
+.wrap_9610_right_footer{
+    background-color: #ebebeb;
+    height: 80px;
+    line-height: 80px;
+    font-size: 1.5em;
+}
+.wrap_9610_right_footer>p{
+    float: right;
+    margin-right: 20px;
+    color: darkgrey;
+    cursor: pointer;
+}

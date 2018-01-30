@@ -1,0 +1,75 @@
+<#include "/include/cmn.html" encoding="UTF-8">
+    <@header pageId="disCategory" crlId="DisCategoryCtl" pageNm="分类问题">
+</@header>
+<meta charset="UTF-8" data-ng-init="init()">
+<body>
+<#include "dis_head.html" encoding="UTF-8">
+    <div class="container margin-top WM_wrap">
+        <div class="x12 WM_left_con padding margin-big-bottom">
+            <p></p>
+            <p class="WM_left_phead x6 xs3 xm2 text-center" data-ng-repeat="category in allCategory">
+                <a href="disCategory?categoryID={{category.attrs.categoryID}}&disType={{disType}}">&nbsp;
+                    <span style="color: red" data-ng-if="categoryID==category.attrs.categoryID">
+	                {{category.attrs.categoryName}}
+	                </span>
+                    <span data-ng-if="categoryID!=category.attrs.categoryID">
+	                {{category.attrs.categoryName}}
+	                </span>
+                </a>
+            </p>
+            <div class="clearfloat"></div>
+        </div>
+        <div class="clearfloat"></div>
+        <div class="HD_conwrap" style="border: 1px solid gainsboro">
+            <ul class="WM_con_nav">
+                <a href="disCategory?isSolve=null&categoryID={{categoryID}}&disType={{disType}}">
+                    <li class="WM_seta" ng-class="{null: 'WM_seta_act'}[isSolve]">所有({{DisQuesPageList.totalRow}})
+                    </li>
+                </a>
+                <a href="disCategory?isSolve=false&categoryID={{categoryID}}&disType={{disType}}">
+                    <li class="WM_seta" ng-class="{false: 'WM_seta_act'}[isSolve]">待解决问题({{DisQuesList.totalRow}})
+                    </li>
+                </a>
+                <a href="disCategory?isSolve=true&categoryID={{categoryID}}&disType={{disType}}">
+                    <li class="WM_seta" ng-class="{true: 'WM_seta_act'}[isSolve]">已解决问题({{DisQuesAnList.totalRow}})</li>
+                </a>
+                <div class="clearfloat"></div>
+            </ul>
+            <ul class="WM_set WM_setdaAn" style="border: none">
+                <li class="WM_con_cont WM_daAnconadd" data-ng-repeat="disQuesAll in DisQuesAllList">
+                    <p class="x12 xs6 text-left text-default text-more" data-ng-if="disQuesAll.attrs.isSolve=='0'"><a
+                            href="disDetail?disID={{disQuesAll.attrs.disID}}&isSlove=false" class="WM_seta1"
+                            target="_blank">{{disQuesAll.attrs.disTitle}}</a></p>
+                    <p class="x12 xs6 text-left text-default text-more" data-ng-if="disQuesAll.attrs.isSolve=='1'"><a
+                            href="disDetail?disID={{disQuesAll.attrs.disID}}&isSlove=true" class="WM_seta1"
+                            target="_blank">{{disQuesAll.attrs.disTitle}}</a>
+                    </p>
+                    <p class="x6 xs2 text-small text-left">{{disQuesAll.attrs.scanCount}}&nbsp;&nbsp;浏览</p>
+                    <p class="x6 xs4 text-small text-right">{{disQuesAll.attrs.createTime}}</p>
+                </li>
+                <li class="padding-big">
+                    <div class="text-center">
+                        <ul class="pagination layer_btn">
+                            <li><a target="_self" href="javascript:void(0)"
+                                   data-ng-click="first()">首页</a></li>
+                        </ul>
+                        <ul class="pagination layer_btn">
+                            <li><a target="_self" href="javascript:void(0)"
+                                   data-ng-click="previous()">上一页</a></li>
+                        </ul>
+                        <ul class="pagination layer_btn">
+                            <li><a target="_self" href="javascript:void(0)"
+                                   data-ng-click="next()">下一页</a></li>
+                        </ul>
+                        <ul class="pagination layer_btn">
+                            <li><a target="_self" href="javascript:void(0)"
+                                   data-ng-click="last()">尾页</a></li>
+                        </ul>
+                        <span class="float-right padding-top">共[{{page.totalRow}}]条记录，当前[{{page.pageNumber}}/{{page.totalPage}}]页</span>
+                        <div class="clearfloat"></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <@footer></@footer>

@@ -1,0 +1,180 @@
+.my_balance_left{
+    width: 63%;
+    font-size: 1.2em;
+    float: left;
+}
+.my_balance_size{
+    float: left;
+}
+.my_balance_size>li{
+    width: 270px;
+    margin: 0 20px 0 50px;
+    color: darkgrey;
+    overflow: hidden;
+    line-height: 2em;
+}
+.my_balance_size>li:nth-child(1){
+    font-size: 1.2em;
+}
+.my_balance_size>li:nth-child(2){
+    font-size: 2em;
+    color: #3e6ffc;
+    margin-bottom: 20px;
+}
+.my_balance_size>li:nth-child(3)>p,
+.my_balance_size>li:nth-child(4)>p{
+    float: left;
+}
+.my_balance_size>li:nth-child(3)>p:last-child,
+.my_balance_size>li:nth-child(4)>p:last-child{
+    float: right;
+    width: 100px;
+}
+.yes_balance,.no_balance{
+    width: 10px;
+    height: 10px;
+    margin-top: 6px;
+    background-color: #f46336;
+    margin-right: 8px;
+}
+.no_balance{
+    background-color: #f1cf2e;
+}
+.my_balance_size>li:nth-child(5)>button{
+    font-weight: bold;
+    width: 80px;
+    height: 35px;
+    color: white;
+    background-color: #3e6ffc;
+    border: 1px solid #3e6ffc;
+    margin-top: 40px;
+    margin-right: 20px;
+}
+.my_balance_size>li:nth-child(5)>button:nth-child(2){
+    color: #3e6ffc;
+    background-color: white;
+}
+/*画布元素*/
+.cake_pic{
+    width: 250px;
+    height: 250px;
+    float: right;
+}
+.my_balance_right{
+    float: right;
+    width: 36%;
+    height: 360px;
+    border-left: 1px solid gainsboro;
+}
+.my_balance_right>ul{
+    width: 80%;
+    margin: 0 5% 0 15%;
+}
+.my_balance_right>ul>li:nth-child(1)>p:nth-child(1){
+    float: left;
+    font-size: 1.4em;
+    color: #3e6ffc;
+}
+.my_balance_right>ul>li:nth-child(1)>p:nth-child(2){
+    float: right;
+    font-size: 1.4em;
+}
+.my_balance_right>ul>li:nth-child(2)>img{
+    width: 94%;
+    height: 100px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.my_balance_right>ul>li:nth-child(2){
+    width: 100%;
+    height: 210px;
+    position: relative;
+    overflow: auto;
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    margin-top: 20px;
+}
+.my_balance_right>ul>li:nth-child(2):hover{
+    overflow-y: scroll;
+}
+.my_balance_right>ul>li:nth-child(3)>p{
+    width: 94%;
+    height: 100px;
+    border-radius: 10px;
+    margin-top: 10px;
+    background-color: #ebebeb;
+    line-height: 100px;
+    text-align: center;
+    font-size: 1.5em;
+    color: darkgrey;
+    cursor: pointer;
+    border: 2px dashed darkgrey;
+}
+.my_balance_right>ul>li:nth-child(3)>p:hover{
+    color: #3e6ffc;
+    border-color: #3e6ffc;
+}
+.my_balance_right>ul>li:nth-child(3)>p>b>i{
+    font-size: 1.5em;
+}
+.my_balance_bottom{
+    width: 100%;
+    border-top: 1px solid gainsboro;
+    margin-top: 15px;
+    margin-bottom: 40px;
+}
+.my_balance_bottom_title>p{
+    float: left;
+    margin-right: 10px;
+    font-size: 1.4em;
+    line-height: 2em;
+}
+.my_balance_title_active{
+    color: #3e6ffc;
+}
+.balance_9610_right_subtitle,
+.balance_9610_right_cont{
+    padding: 0 2%;
+}
+.balance_9610_right_subtitle{
+    background-color: #ebebeb;
+    font-weight: bold;
+}
+.balance_9610_right_subtitle>p,
+.balance_9610_right_cont>p{
+    height: 50px;
+    line-height: 50px;
+    float: left;
+    width: 24%;
+}
+.wrap_subBankcard{
+    display: none;
+}
+.input_radio>p>span>input{
+    margin-left: 10px;
+    width: 15px;
+    height: 15px;
+}
+.phone_yanzheng>p>button{
+    width: 22%;
+    height: 35px;
+    border: 1px solid #3e6ffc;
+    color: #3e6ffc;
+    background-color: white;
+    margin-left: 15px;
+}
+.balance_form>ul>li:nth-child(1)>p>select{
+    width: 50%;
+    height: 37px;
+    border-radius: 5px;
+    border: 1px solid gainsboro;
+}
+#close_subBankcard{
+    cursor: pointer;
+    font-size: 1.2em;
+    color: darkgray
+}
+#close_subBankcard:hover{
+    color: #3e6ffc;
+}

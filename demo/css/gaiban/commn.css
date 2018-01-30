@@ -1,0 +1,646 @@
+/*------------------------------复选框样式-----------------------*/
+/* 用法 ---> <label><input type="checkbox" ng-model="checkpwd" ng-click="checkpwds()"><i>✓</i></label>*/
+label {
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0;
+}
+
+label i {
+    font-style: inherit;
+    font-weight: bolder;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 22px;
+    color: #fff;
+    vertical-align: middle;
+    margin-top: -3px;
+    border-radius: 3px;
+    background: white;
+    border: #d7d7d7 1px solid;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"]:checked + i {
+    background: #44aaf6;
+    padding: 1px;
+}
+textarea{
+    resize: none;
+}
+a:focus{outline:none;}
+a{
+   border: none;
+}
+/*------------------------------字体显示两行-----------------------*/
+.font_Omit {
+    width: 100%;
+    position: relative;
+    line-height: 2em;
+    overflow: hidden;
+}
+
+.font_Omit:after {
+    content: "...";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: #FFF;
+    padding-left: 0.2em;
+}
+
+/*--------------------输入框的左侧------------------*/
+.form-x label {
+    font-size: 14px !important;
+}
+
+.left_inp {
+    text-align: right;
+}
+
+.left_inp > label {
+    padding-right: 10px;
+    line-height: 34px;
+    font-weight: bold !important;
+}
+
+.chzn-container, .chzn-container input, .chzn-drop {
+    width: 100% !important;
+}
+
+.sandaMK img, .content_wrap img, .zixun_cont img {
+    max-width: 100% !important;
+    display: block !important;
+    margin: auto;
+    height: auto !important;
+}
+.main_zhubanner{
+    position: relative;
+}
+.main_zhubanner .nivoSlider img{
+    min-height: 150px;
+}
+.main_zhubanner .nivo-controlNav{
+    position: absolute;
+    width: 100%;
+    padding: 0;
+    bottom: 10px;
+    text-align: center;
+    z-index: 10;
+}
+@media (min-width: 1000px) {
+    .WM_left_phead {
+        border-right: 1px dashed grey;
+    }
+
+    .WM_left_phead:nth-child(6n+1){
+        border-right: none;
+    }
+}
+
+@media (max-width: 1000px) {
+    .navright_con, .operate_title, .operate_goods {
+        font-size: 1em;
+    }
+    .jiejue_zhang{
+        width: 50px;
+    }
+    .zuijia_img{
+        width: 110px;
+    }
+    /*.banner_main img{*/
+    /*height: 300px !important;*/
+    /*}*/
+    .left_inp label {
+        font-size: 12px !important;
+    }
+
+    .nav_size1 {
+        font-size: 1.3em;
+        line-height: 50px;
+    }
+
+    .formbtn_all .button {
+        margin: 0 !important;
+        width: 25% !important;
+        min-width: 90px;
+    }
+
+    .WM_left_phead {
+        border-right: 1px dashed grey;
+    }
+
+    .WM_left_phead:nth-child(4n+1) {
+        border-right: none;
+    }
+}
+
+/*--------------sm 宽度----------------------*/
+@media (max-width: 760px) {
+    .upload_wrap{
+        text-align: center;
+    }
+    .WM_left_phead {
+        border-right: 1px dashed grey;
+    }
+    .WM_seta,.WM_gongGao li{
+        padding: 8px 11px;
+    }
+    .zuijia_img{
+        width: 100px;
+    }
+    .WM_left_phead:nth-child(2n+1) {
+        border-right: none;
+    }
+
+    .consult_category {
+        font-size: 1em;
+    }
+
+    .WM_bg {
+        display: none;
+    }
+
+    .regained_button {
+        text-align: center;
+    }
+
+    #nav_logo {
+        width: 100px;
+        padding: 10px 0;
+    }
+
+    #nav_logo_size {
+        font-size: 12px;
+    }
+
+    .nav-inline.nav-menu ul ul {
+        left: 100%;
+    }
+
+    .consult_list {
+        text-align: center;
+    }
+
+    .ZX_left {
+        padding-right: 0;
+    }
+
+    .weixin_none {
+        top: 30px;
+        left: -80px;
+    }
+
+    .foot_Saoma_right, .foot_Saoma_left {
+        height: auto;
+        border-left: none;
+    }
+
+    .foot_Saoma_right > a > img {
+        width: 30px;
+        padding-top: 10px;
+    }
+
+    .fixed_top img {
+        width: 40px;
+    }
+
+    .WM_daAn1_right {
+        padding: 0;
+        margin-top: 20px;
+    }
+
+    .WM_content_con, .WM_con_header {
+        padding: 0;
+    }
+
+    .WM_con_cont{
+        padding: 10px;
+        font-size: 1em;
+    }
+    .WM_seta{
+        font-size: 14px;
+    }
+   .WM_content_right{
+       padding-left: 0;
+       margin-top: 20px;
+   }
+    .HuiDa_textarea textarea{
+        height: 40px;
+    }
+    .HuiDa_textarea button{
+        height: 40px;
+        font-size: 18px;
+    }
+    .jiejue_zhang{
+        width: 40px;
+    }
+    .sel_beizhu {
+        display: none;
+    }
+
+    .cuowu_msg {
+        text-align: left;
+    }
+
+    .WM_daAnLeft1_con {
+        border: none;
+        -webkit-box-shadow: 0 0 0 0 #f69a3e inset;
+        -moz-box-shadow: 0 0 0 0 #f69a3e inset;
+        box-shadow: 0 0 0 0 #f69a3e inset;
+        padding-bottom: 20px;
+    }
+
+    .cartage_seach li {
+        width: 50%;
+    }
+
+    .cartage_seach > li:nth-child(5) {
+        width: 100%;
+        text-align: center;
+    }
+
+    .head_btn {
+        margin-top: 20px;
+    }
+
+    .sublist_Seize {
+        width: 100% !important;
+        border-bottom: 1px solid #4682B4;
+    }
+
+    .msg_subtitle {
+        display: none;
+    }
+
+    .mes_slide p, .msg_subtitle p {
+        line-height: 25px;
+    }
+
+    .list_right div {
+        text-align: center !important;
+        padding: 0 !important;
+    }
+
+    .list_right > div {
+        padding: 40px 0 !important;
+    }
+
+    .amount td {
+        border-top: 1px solid #d1e9fe !important;
+    }
+
+    .zixun_cont p, .zixun_cont span, .content_wrap p, .content_wrap span, .sandaMK p, .sandaMK span {
+        font-size: 14px !important;
+    }
+
+    .content_wrap {
+        padding: 20px;
+    }
+
+    .msg_wrap, .cartage_wrap {
+        padding: 0;
+        padding-top: 20px;
+    }
+
+    .media_sect a {
+        padding-right: 0 !important;
+    }
+
+    #tab-good > #layui-layer1 {
+        width: 100% !important;
+    }
+
+    .amount td:nth-child(1) {
+        border-top: none !important;
+    }
+
+    .layer_btn a {
+        padding: 6px 9px !important;
+        line-height: 15px !important;
+    }
+
+    .layer_select, .layer_rigsize {
+        width: 40% !important;
+        margin-bottom: 10px;
+        font-size: 1em !important;
+    }
+    .WM_pages{
+        width: 100%;
+    }
+    .layer_rigsize {
+        line-height: 34px !important;
+        font-size: 1em !important;
+        width: 60% !important;
+    }
+
+    .title_br {
+        display: inline-block;
+    }
+
+    .left_inp {
+        text-align: left;
+    }
+
+    .my_Center_margin {
+        -webkit-box-shadow: gainsboro 0px 0px 0px;
+        -moz-box-shadow: gainsboro 0px 0px 0px;
+        box-shadow: gainsboro 0px 0px 0px;
+        margin-left: 0 !important;
+        padding: 0 !important;
+    }
+
+    .list_time {
+        padding: 20px 0;
+        font-size: 1em;
+        line-height: 28px;
+    }
+
+    .list_cont, .list_status {
+        padding: 0;
+    }
+
+    .list_cont > p, .list_status {
+        line-height: 25px;
+    }
+
+    /*.banner_main img{*/
+    /*height: 200px !important;*/
+    /*}*/
+    .foot_Saoma > ul > li {
+        width: 100%;
+    }
+
+    .foot_lasli, .foot_Saoma, .foot_Saoma > ul > li:last-child {
+        margin-top: 20px;
+    }
+
+    .foot_Saoma > ul > li:nth-child(2) {
+        margin-top: 10px;
+    }
+
+    .foot_licont > li, .foot_licont > li > ul > li {
+        text-align: center !important;;
+    }
+
+    .nav_tit {
+        text-align: left !important;
+    }
+
+    .hid_btn {
+        position: absolute;
+        right: 15px;
+    }
+
+    .foot_list {
+        text-align: center;
+    }
+
+    .foot_list > p {
+        padding: 15px;
+        font-size: 2em;
+        margin-bottom: 0;
+        line-height: 0;
+    }
+
+    .foot_sublist > li {
+        font-size: 1.5em;
+    }
+
+    .foot_title {
+        margin-top: 0;
+        font-size: 2em;
+    }
+
+    .my_Center_left_menu {
+        padding: 5px;
+        padding: 0;
+    }
+
+    .my_Center_left_menu > ul > li {
+        font-size: 1em;
+        height: 3em;
+        border-radius: 3px;
+        padding: 5px;
+        line-height: 2em;
+        color: white;
+    }
+
+    .my_Center_menuCont > .active, .my_Center_menuCont > li:hover {
+        background-color: #91abbe !important;
+        color: #f48b36 !important;
+        border-left: 0px solid #f48b36 !important;
+    }
+
+    .my_Center_menuCont > li > a:hover {
+        color: #f48b36 !important;
+    }
+
+    .all_serviceMes {
+        margin-top: 10px;
+        padding: 10px 0 !important;
+        background-color: #FFF;
+        -webkit-box-shadow: gainsboro 0px 0px 15px;
+        -moz-box-shadow: gainsboro 0px 0px 15px;
+        box-shadow: gainsboro 0px 0px 15px;
+    }
+
+    .all_serviceMes > .tab-pane {
+        padding: 0 !important;
+        background-color: transparent;
+        -webkit-box-shadow: gainsboro 0px 0px 0px;
+        -moz-box-shadow: gainsboro 0px 0px 0px;
+        box-shadow: gainsboro 0px 0px 0px;
+    }
+
+    .subtool_tab > li, .com_req_tab > li, .suborder_tab > li {
+        margin-right: 0;
+        font-size: 1.1em;
+    }
+
+    .child_subtab > li, .com_req_contUl > li, .com_req_contUl > li a {
+        font-size: 1em;
+    }
+
+    .com_req_contUl > li:first-child {
+        font-size: 1.1em;
+    }
+
+    .ZDBG_top {
+        margin-top: 15px;
+    }
+
+    .my_Centertitle {
+        height: 80px;
+        line-height: 24px;
+    }
+
+    .my_Centertitle > a > div {
+        font-size: 1em;
+        margin-top: 16px;
+    }
+
+    .my_Centertitle > a > div > i {
+        font-size: 2em;
+    }
+
+    .main_module_img {
+        width: 60px;
+        height: 53px;
+        background-size: 100% 53px;
+    }
+
+    .main_module_title {
+        font-size: 1.2em;
+        padding: 8px 0;
+    }
+
+    .main_module_size {
+        font-size: 1em;
+    }
+
+    .main_module_btn {
+        margin-top: 10px;
+    }
+
+    .login_Btn {
+        text-align: center;
+    }
+}
+
+/*-----------------------------------xs 宽度--------------------------*/
+@media (max-width: 435px) {
+    .ZX_subtopimg img {
+        height: 100px;
+    }
+
+    .big_img {
+        display: none;
+    }
+
+    .small_img {
+        display: block !important;
+    }
+
+    .ZXXQ_remark {
+        font-size: 1.1em;
+        line-height: 25px;
+    }
+
+    .zan_cai {
+        margin-right: 5px;
+        padding-right: 5px;
+    }
+
+    .ZXXQ_link img {
+        width: 20px;
+    }
+
+    .zan_cai i {
+        font-size: 1.2em;
+        padding: 5px;
+    }
+
+    .media_boot1 {
+        width: 100%;
+        text-align: left;
+    }
+
+    .faq_type_li {
+        margin-right: 8px;
+        font-size: 1.2em;
+    }
+
+    .navbar-toggle {
+        padding: 6px;
+        margin-top: 11px;
+    }
+
+    .nav_size1 {
+        font-size: 1em;
+    }
+
+    .nav_size1 {
+        line-height: 50px;
+    }
+
+    .operate_goods_btn {
+        font-size: 1em;
+    }
+}
+
+/*轮播按钮*/
+.YOU, .ZUO {
+    font-size: 40px !important;
+}
+
+/*代运营，，，基础服务，，，，金融服务，，公用部分*/
+.main_Content {
+    height: 500px;
+    background-color: pink;
+}
+
+.main_Content > h1 {
+    font-size: 4em;
+    font-family: 华文行楷;
+    line-height: 500px;
+    text-align: center;
+    color: gold;
+}
+
+.clearfloat {
+    clear: both
+}
+
+.button:hover {
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #adadad;
+}
+
+/*------------------------分页显示-------------------*/
+.layer_rigsize {
+    line-height: 38px;
+    font-size: 1.2em;
+}
+
+/*----------------------------------------显示一行---------------------------------------*/
+.meidia_H4, .main_module_size, .JRRD_size {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/*-------------------轮播---------------------*/
+/*轮播按钮*/
+.YOU, .ZUO {
+    font-size: 40px !important;
+}
+
+.carousel-control {
+    top: 50% !important;
+    margin-top: -30px;
+    height: 60px;
+    line-height: 60px;
+    width: 10% !important;
+    background: transparent !important;
+    cursor: pointer;
+}
+
+.main_zhubanner{
+    position: relative;
+}
+.main_zhubanner .nivo-controlNav{
+    position: absolute;
+    width: 100%;
+    padding: 0;
+    bottom: 10px;
+    text-align: center;
+    z-index: 10;
+}

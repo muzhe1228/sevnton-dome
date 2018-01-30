@@ -1,0 +1,79 @@
+<meta charset="UTF-8" data-ng-init="initPage()">
+<div class="my_Center_margin">
+    <ul>
+        <li data-ng-click="ckNav('9610_all')" data-ng-class="selMenu('9610_all')" data-ui-sref="9610_orderlist">我的订单</li>
+        <li data-ng-click="ckNav('9610_all')" data-ng-class="selMenu('9610_all')" data-ui-sref="9610_batchexport">批量导入订单</li>
+        <li data-ng-click="ckNav('9610_all')" data-ng-class="selMenu('9610_all')" data-ui-sref="9610_itemlist">商品信息管理</li>
+        <li data-ng-click="ckNav('9610_all')" data-ng-class="selMenu('9610_all')" data-ui-sref="9610_sendaddress">寄件地址设置</li>
+        <li data-ng-click="ckNav('9610_all')" data-ng-class="selMenu('9610_all')" data-ui-sref="9610_reciveaddress">收件地址设置</li>
+    </ul>
+<div class="address_9610_right_title">
+    <p class="order_9610_right_nav address_9610_right_navfloat"><b>|</b>&nbsp;我的余额</p>
+    <div class="clearfloat"></div>
+</div>
+<p style="border-top: 1px solid gainsboro;margin-bottom: 15px"></p>
+<div class="wrap_balance">
+    <div class="my_balance_left">
+        <ul class="my_balance_size">
+            <li>总余额(元)</li>
+            <li>{{loginUser.attrs.total_price}}</li>
+            <li>
+                <p class="yes_balance"></p>
+                <p>可用余额</p>
+                <p><span id="yes_balance">{{loginUser.attrs.total_price}}</span></p>
+            </li>
+            <li>
+                <p class="no_balance"></p>
+                <p>不可用余额</p>
+                <p><span id="no_balance">0.00</span>&nbsp;&nbsp;<a style="color: #4e8ccf;cursor: pointer;">详情&nbsp;<i
+                        class="icon iconfont icon-gantanhao11-copy" style="font-size: 1em"></i></a></p>
+            </li>
+            <li>
+                <button data-ng-click = "topay()">充值</button>
+                <button>提现</button>
+            </li>
+        </ul>
+    </div>
+    <div class="clearfloat"></div>
+    <div class="my_balance_bottom">
+        <div class="my_balance_bottom_title">
+            <p class="my_balance_title_active">充值明细</p>
+            <div class="clearfloat"></div>
+        </div>
+        <ul>
+            <li class="balance_9610_right_subtitle">
+                <p>流水号</p>
+                <p>时间</p>
+                <p>变动类型</p>
+                <p>充值金额(元)</p>
+                <div class="clearfloat"></div>
+            </li>
+            <li class="balance_9610_right_cont"  data-ng-repeat = "trade in payList">
+                <p>{{trade.attrs.ali_trade_no}}</p>
+                <p>{{trade.attrs.create_time | date :'yyyy-MM-dd HH:mm:ss'}}</p>
+                <p>支付宝充值</p>
+                <p>{{trade.attrs.pay_price}}</p>
+                <div class="clearfloat"></div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div style="display: none;" id="payDlg">
+	<div style="padding: 15px;" class="video_pay">
+		<form method="post" class="form-x">
+			<div class="form-group">
+				<div class="label">
+					<label>充值</label>
+				</div>
+				<div class="field">
+					<input type="text" class="input" id="payPrice">
+				</div>
+			</div>
+		</form>
+		<div style="text-align: center; margin-top: 10px;">
+			<button id="btnPay" class="button  bg-yellow btnPay" type="button"
+				style="width: 100px;">确认充值</button>
+		</div>
+	</div>
+</div>
+</div>

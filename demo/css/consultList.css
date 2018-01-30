@@ -1,0 +1,640 @@
+.consultList {
+    width: 1040px;
+    padding: 0 !important;
+}
+
+.consultList .fixed-top {
+    margin-top: 50px;
+}
+
+.consultList_nav {
+    width: 1040px;
+    height: 40px;
+    background-color: #07518c;
+    border-radius: 5px;
+    margin: 30px 0;
+    z-index: 6;
+}
+
+.fixed_nav2 {
+    position: fixed;
+    top: 100px;
+}
+
+.consultList_nav p {
+    display: inline-block;
+    font-size: 16px;
+    padding: 0 30px;
+    line-height: 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 20px;
+    color: white;
+}
+
+.p_navactive {
+    background-color: #dae2ed;
+    color: #07518c!important;
+}
+.banner_big {
+    width: 750px;
+    height: 230px;
+}
+
+.banner_small {
+    width: 244px;
+    height: 164px;
+    margin: 10px 0;
+    float: left;
+    position: relative;
+}
+
+.banner_small:nth-child(3) {
+    margin: 10px 9px;
+}
+
+.banner_big img, .banner_small img {
+    width: 100%;
+    height: 100%;
+}
+
+.banner_small p {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 30px;
+    background-color: rgba(0, 0, 0, .4);
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    line-height: 30px;
+    color: white;
+    font-size: 12px;
+    display: none;
+}
+
+.banner_small:hover p {
+    display: inline-block;
+}
+
+.ZX_right {
+    width: 240px;
+    margin-left: 50px;
+}
+
+.ZXmedia_img {
+    display: inline-block;
+    width: 244px;
+    height: 164px;
+    margin-bottom: 20px;
+}
+
+.ZXmedia_img img {
+    width: 100%;
+    height: 100%;
+}
+
+.ZXmedia_size {
+    margin-left: 35px;
+    width: 470px;
+    float: left;
+}
+
+.meidia_Title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+/*以前的*/
+.ZX_left {
+    position: relative;
+    width: 750px;
+    color: grey;
+}
+
+.consult_list {
+    margin: 20px 0;
+    border-bottom: 1px solid gainsboro;
+}
+
+.media_img img {
+    width: 100%;
+    height: 150px;
+}
+
+.consult_category {
+    height: 76px;
+    font-size: 16px;
+    color: #808080;
+    line-height: 74px;
+    border-bottom: 1px solid gainsboro;
+    text-align: center;
+    width: 100%;
+    cursor: pointer;
+}
+
+.consult_category span:hover {
+    color: #0e7cfa;
+    border-bottom: 2px solid #0e7cfa;
+    font-weight: bold;
+}
+
+.consulis_active {
+    color: #0e7cfa;
+    border-bottom: 2px solid #0e7cfa;
+    font-weight: bold;
+}
+
+.consult {
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.consult_li {
+    list-style: none;
+    border: 1px dashed #dae2ed;
+    border-left: none;
+    border-right: none;
+    line-height: 42px;
+    border-left: none;
+    border-right: none;
+    margin-top: -1px;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: left;
+}
+
+.consult_li:hover {
+    color: #ee7d19;
+}
+
+.ZX_topimg img {
+    width: 100%;
+}
+
+.ZX_topimg li:nth-child(4) {
+    padding-right: 0 !important;
+}
+
+.ZX_subtopimg img {
+    height: 180px;
+}
+
+.ZX_subtopimg a {
+    display: block;
+    position: relative;
+}
+
+.ZX_subtopimg p {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 30px;
+    background-color: rgba(0, 0, 0, .4);
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    line-height: 30px;
+    color: white;
+    font-size: 12px;
+}
+
+.ZX_rightimg img {
+    width: 240px;
+    height: 160px;
+    margin-bottom: 10px;
+}
+
+.JRRD {
+    background-color: #f2f2f2;
+    border: 1px solid gainsboro;
+    width: 750px;
+    height: 100px;
+}
+
+.JRRD img {
+    width: 100%;
+    height: 100%;
+}
+
+.ZX_contsize {
+    font-size: 12px !important;
+}
+
+.ZX_btn {
+    font-size: 1em;
+    padding: 2px 10px !important;
+    color: #6884fd !important;
+    border-color: #6884fd;
+}
+
+.ZX_gengduobtn {
+    width: 100px;
+    color: #6884fd;
+    border-color: #6884fd;
+}
+
+.ZX_gengduobtn:hover, .ZX_btn:hover {
+    background-color: #6884fd !important;
+    color: white !important;
+}
+
+.XGZX_title {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.XGZX_details {
+    padding: 12px 0;
+    border-bottom: 1px solid #f2f2f2;
+    font-size: 12px;
+}
+
+/*聊天*/
+.chat_module {
+    width: 750px;
+    /*max-height: 255px;*/
+    border: 1px solid darkgray;
+    background-color: gainsboro;
+    font-size: 16px;
+    padding: 16px 20px !important;
+    margin-bottom: 10px;
+}
+.chat_module_cont{
+    position: relative;
+    min-height: 50px;
+}
+.chat_module_cont img{
+    max-width: 80%!important;
+}
+.chat_module_cont span{
+    display: block;
+}
+/*.chat_module_cont img {*/
+    /*width: 200px;*/
+    /*height: 107px;*/
+    /*float: left;*/
+    /*margin-right: 20px;*/
+    /*display: none;*/
+/*}*/
+
+.chat_module_set p {
+    display: inline-block;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+.chat_module_kuang {
+    border: 1px solid darkgray;
+    margin: 20px 0;
+    font-size: 12px;
+}
+
+.chat_module_kuang_title {
+    line-height: 40px;
+    padding: 0 20px;
+    overflow: hidden;
+    border-bottom: 1px solid gainsboro;
+}
+
+.chat_module_kuangcont {
+    margin: 10px 20px;
+    border-top: 1px solid gainsboro;
+}
+
+.chat_module_kuangcont:nth-child(2) {
+    border-top: none;
+}
+
+.chat_module_kuangName {
+    line-height: 35px;
+    overflow: hidden;
+}
+
+.chat_module_kuangset span {
+    margin-right: 20px;
+}
+
+.chat_module_kuangPage {
+    border-top: 1px solid darkgray;
+    border-bottom: 1px solid darkgray;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+}
+
+.chat_module_kuangPL {
+    margin: 0 20px;
+    padding: 9px 0;
+}
+.copy_chat_module_kuangPL textarea {
+    width: 500px !important;
+}
+
+.chat_module_kuangPL button {
+    height: 42px;
+    border-radius: 5px;
+    border: 1px solid darkgray;
+    width: 80px;
+    background-color: darkgray;
+    font-size: 16px;
+    color: white;
+}
+
+.comment {
+    margin: 20px;
+    position: relative;
+    border-radius: 5px;
+}
+
+.comment h3 {
+    height: 28px;
+    line-height: 28px
+}
+
+.com_form {
+    width: 100%;
+    position: relative
+}
+
+.input {
+    width: 550px;
+    height: 40px !important;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+.xiaoInput{
+    width: 500px;
+}
+
+span.emotion {
+    float: left;
+    width: 100%;
+    height: 20px;
+    cursor: pointer
+}
+
+span.emotion:hover {
+    background-position: 2px -28px
+}
+
+.qqFace {
+    margin-top: 4px;
+    background: #fff;
+    padding: 2px;
+    border: 1px #dfe6f6 solid;
+}
+
+.qqFace table td {
+    padding: 0px;
+}
+
+.qqFace table td img {
+    cursor: pointer;
+    border: 1px #fff solid;
+}
+
+.qqFace table td img:hover {
+    border: 1px #0066cc solid;
+}
+
+
+.sub_btn {
+    height: 42px;
+    border-radius: 5px;
+    border: 1px solid gainsboro;
+    width: 80px;
+    background-color: darkgray;
+    font-size: 16px;
+    color: white;
+}
+
+/*.sub_btn:hover {*/
+    /*background: #538018;*/
+    /*background: -webkit-gradient(linear, left top, left bottom, from(#6b9d28), to(#436b0c));*/
+    /*background: -moz-linear-gradient(top, #6b9d28, #436b0c);*/
+    /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6b9d28', endColorstr='#436b0c');*/
+/*}*/
+.share{
+    width: 31px;
+    height: 31px;
+    border-radius: 50%;
+    background-image: url("../vender/fenxiang/images/share_core_square.jpg");
+    background-size: cover;
+    position: relative;
+    cursor: pointer;
+    top: 8px;
+}
+.share span{
+    display: inline-block;
+    position: absolute;
+    left: 100%;
+    display: none;
+    width: 200px;
+}
+.share span a{
+    display: inline-block;
+    border-radius: 50%;
+    width: 31px;
+    height: 31px;
+    margin: 2px;
+}
+.weixin{
+    background: url("../vender/fenxiang/images/social.png") no-repeat -73px -87px;
+}
+.qZone{
+    background: url("../vender/fenxiang/images/social.png") no-repeat -73px -20px;
+}
+.sinaWeibo{
+    background: url("../vender/fenxiang/images/social.png") no-repeat -130px -87px;
+}
+.doubanShare{
+    background: url("../vender/fenxiang/images/social.png") no-repeat -130px -151px;
+}
+.share:hover span{
+    display: inline-block;
+}
+
+.MY_ZXmsg_btn{
+    margin-bottom: 20px;
+}
+.MY_ZXmsg_btn button{
+    font-size: 16px;
+    padding: 3px 15px;
+}
+.MY_ZXuserMsg{
+    border: 1px solid gainsboro;
+    background-color: #fafafa;
+    padding: 0 20px;
+    color: #808080;
+    margin-bottom: 20px;
+}
+.MY_ZXuserMsg>p{
+    padding: 20px 0 ;
+    font-size: 16px;
+    border-bottom: 1px solid gainsboro;
+}
+.MY_ZXuserMsg ul{
+    padding: 10px 0 !important;
+}
+.MY_ZXuserMsg li{
+    float: left;
+    width: 33.3%;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+}
+.MY_ZX_moods {
+    border: 1px solid gainsboro;
+    border-bottom: none;
+    background-color: #fafafa;
+    color: #808080;
+    margin-bottom: 20px;
+}
+.MY_ZX_moods p{
+    padding: 5px 20px;
+    border-bottom: 1px solid gainsboro;
+    font-size: 14px;
+}
+
+
+
+.WM_daAnLeft1_con{
+    padding-bottom: 20px;
+}
+.textarea_con textarea{
+    min-height: 120px;
+}
+.TW_title{
+    color: #8da8c0;
+    line-height: 40px;
+    margin: 20px 0;
+}
+.inp_are:focus {
+    outline:none;
+    border: 1px solid #4cadff;
+}
+.inp_are{
+    padding: 10px;
+    overflow:hidden;
+    resize:none;
+    width: 100%;
+}
+.textarea_xianzhi{
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+}
+.TW_submit{
+    width: 100px;
+    height: 40px;
+    border: 1px solid #4cadff;
+    background-color: #4cadff;
+    color: white;
+    font-weight: bold;
+}
+#talkMsg{
+    width: 1180px;
+    height: 600px;
+    padding: 20px;
+}
+
+h1{
+    font-family: "微软雅黑";
+    font-weight: normal;
+}
+.btn {
+    display: inline-block;
+    *display: inline;
+    padding: 4px 12px;
+    margin-bottom: 0;
+    *margin-left: .3em;
+    font-size: 14px;
+    line-height: 20px;
+    color: #333333;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+    vertical-align: middle;
+    cursor: pointer;
+    background-color: #f5f5f5;
+    *background-color: #e6e6e6;
+    background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+    background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+    background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+    background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+    background-repeat: repeat-x;
+    border: 1px solid #cccccc;
+    *border: 0;
+    border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    border-bottom-color: #b3b3b3;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+    *zoom: 1;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.btn:hover,
+.btn:focus,
+.btn:active,
+.btn.active,
+.btn.disabled,
+.btn[disabled] {
+    color: #333333;
+    background-color: #e6e6e6;
+    *background-color: #d9d9d9;
+}
+
+.btn:active,
+.btn.active {
+    background-color: #cccccc \9;
+}
+
+.btn:first-child {
+    *margin-left: 0;
+}
+
+.btn:hover,
+.btn:focus {
+    color: #333333;
+    text-decoration: none;
+    background-position: 0 -15px;
+    -webkit-transition: background-position 0.1s linear;
+    -moz-transition: background-position 0.1s linear;
+    -o-transition: background-position 0.1s linear;
+    transition: background-position 0.1s linear;
+}
+
+.btn:focus {
+    outline: thin dotted #333;
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+}
+
+.btn.active,
+.btn:active {
+    background-image: none;
+    outline: 0;
+    -webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.btn.disabled,
+.btn[disabled] {
+    cursor: default;
+    background-image: none;
+    opacity: 0.65;
+    filter: alpha(opacity=65);
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}

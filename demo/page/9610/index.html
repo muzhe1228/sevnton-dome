@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<div class="Wrap_9610">
+    <p class="Wrap_9610_title">
+        <span id="sub_menu1">用户中心&nbsp;/</span>
+        <span>&nbsp;基础信息管理&nbsp;/</span>
+        <span>&nbsp;商品信息管理</span>
+    </p>
+    <div id="left_menu"></div>
+    <div id="right_cont"></div>
+    <div class="clearfloat"></div>
+</div>
+</body>
+<script type="text/javascript" src="js/jquery-2.1.0.js" charset="utf-8"></script>
+<script type="text/javascript" src="js/jquery_form.js" charset="utf-8"></script>
+<script type="text/javascript" src="layui/lay/dest/layui.all.js" charset="utf-8"></script>
+<script type="text/javascript" src="laydate/laydate.js" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function () {
+        $("#right_cont").load("my_balance.html");
+        $("#left_menu").load("left_menu.html", function () {
+            $(".sub_menu").click(function () {
+                $(".sub_menu").removeClass("active_color")
+                $(this).addClass("active_color");
+                var htmlurl = $(this).attr("data");
+                $("#right_cont").load(htmlurl);
+            })
+        });
+    })
+</script>
+</html>

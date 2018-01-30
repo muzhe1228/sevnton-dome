@@ -1,0 +1,394 @@
+<#include "/include/cmn.html" encoding="UTF-8"><@header pageId="consultList" crlId="ConsultListCtl" pageNm="跨境天地">
+</@header>
+<meta charset="UTF-8">
+<meta name="keywords" content="外贸服务，外贸代理，进出口代理，浙江出口，浙江外贸，代理出口，跨境贸易综合服务，通关报关，外贸B2B"/>
+<meta name="description" content="圣云通是跨境贸易供应链综合服务平台，主要从事外贸代理、进出口代理等外贸服务.为中小外贸企业提供通关、商检、物流、金融、代运营等一站式服务.">
+<title>圣云通-资讯列表</title>
+<link rel="stylesheet" type="text/css" href="css/IconFont/demo.css"/>
+<link rel="stylesheet" type="text/css" href="css/IconFont/iconfont.css"/>
+<link rel="stylesheet" type="text/css" href="vender/demo/style/style.css">
+<link href="vender/umeditor-master/themes/default/_css/umeditor.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="vender/umeditor-master/third-party/template.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="vender/umeditor-master/umeditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="vender/umeditor-master/_examples/editor_api.js"></script>
+<script type="text/javascript" src="vender/umeditor-master/lang/zh-cn/zh-cn.js"></script>
+<style>
+    body {
+        font-family: Arial, Verdana;
+    }
+
+    p {
+        margin: 0;
+        padding: 0;
+    }
+
+    .button {
+        -moz-user-select: none;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    CSS for the font-name + font-size plugin
+    .wysiwyg-plugin-list {
+        max-height: 16em;
+        overflow: auto;
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+
+    .wysiwyg-plugin-list a,
+    .wysiwyg-plugin-list a:link,
+    .wysiwyg-plugin-list a:visited {
+        display: block;
+        color: black;
+        padding: 5px 10px;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .wysiwyg-plugin-list a:hover {
+        color: HighlightText;
+        background-color: Highlight;
+    }
+
+    CSS for the smiley plugin
+    .wysiwyg-plugin-smilies {
+        padding: 10px;
+        text-align: center;
+        white-space: normal;
+    }
+
+    .wysiwyg-plugin-smilies img {
+        float: left;
+        margin: 5px;
+    }
+
+    Fake bootstrap + uikit
+    .fake-bootstrap.wysiwyg-container.wysiwyg-active {
+        /* colors shamelessly stolen from bootstrap.form-control:focus */
+        border-color: #66afe9;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6)
+    }
+
+    .fake-uikit.wysiwyg-container.wysiwyg-active {
+        border-color: #99baca !important;
+        background: #f5fbfe !important;
+    }
+
+
+
+
+</style>
+<body data-ng-init="init()">
+<div class="container consultList">
+    <!--data-ng-class="{true:'fixed_nav2'}[filed]"-->
+    <div class="consultList_nav fixed">
+        <a href="./consultList?p_navactive=1">
+            <p data-ng-class="{'1':'p_navactive'}[p_navactive]">全部</p>
+        </a>
+        <a href="./consultList?p_navactive=2">
+            <p data-ng-class="{'2':'p_navactive'}[p_navactive]">聊天</p>
+        </a>
+        <a href="./consultList?p_navactive=3">
+            <p data-ng-class="{'3':'p_navactive'}[p_navactive]">Live</p>
+        </a>
+    </div>
+    <div data-ng-if="p_navactive == 1">
+        <div class="ZX_left float-left">
+            <ul class="ZX_topimg">
+                <li class="banner_big" data-ng-repeat="mainImg in advertMainList" title="{{mainImg.attrs.title}}">
+                    <a href="{{mainImg.attrs.to_url}}">
+                        <img data-ng-src="https://www.sevnton.com/sevnton_bo/{{mainImg.attrs.pic_url}}"
+                             alt="{{mainImg.attrs.title}}">
+                    </a>
+                </li>
+                <li data-ng-repeat="row in advertCenterList" title="{{row.attrs.title}}" class="banner_small"><a
+                        href="{{row.attrs.to_url}}">
+                    <img data-ng-src="https://www.sevnton.com/sevnton_bo/{{row.attrs.pic_url}}" alt="">
+                    <p class="text-more" title="{{row.attrs.title}}" data-ng-bind="row.attrs.title"></p>
+                </a></li>
+                <div class="clearfloat"></div>
+            </ul>
+            <div class="consult_category">
+			<span class="x2" data-ng-repeat="category in categoryList"
+                  data-ng-click="getByParam(category.attrs.categoryID)"
+                  data-ng-class="selMenu(category.attrs.categoryID)">
+				{{category.attrs.categoryName}}
+			</span>
+            </div>
+            <div class="consult_list" data-ng-repeat="row in page.list">
+                <a class="float-left xl12 xs4 ZXmedia_img" href="consult?id={{row.attrs.id}}">
+                    <!--https://www.sevnton.com/sevnton_bo/        https://www.sevnton.com/sevnton_bo/-->
+                    <img class="media-object" data-ng-src="https://www.sevnton.com/sevnton_bo/{{row.attrs.picUrl}}"
+                         alt="媒体对象">
+                </a>
+                <div class="float-left ZXmedia_size">
+                    <p class="media-heading meidia_Title" title="{{row.attrs.name}}"><a
+                            href="consult?id={{row.attrs.id}}">{{row.attrs.name}}</a></p>
+                    <p class="font_Omit meidia_size ZX_contsize" data-ng-bind-html="row.attrs.content">
+                    </p>
+                    <p style="margin: 30px 0;">
+                        <a href="">
+                            <button class="button border-sub ZX_btn">{{row.attrs.categoryName}}</button>
+                        </a>
+                        <span class="float-right">{{row.attrs.updateTime|limitTo:10}}</span>
+                    </p>
+                </div>
+                <div class="clearfloat"></div>
+            </div>
+            <div class="text-center">
+                <button class="button ZX_gengduobtn" data-ng-click="next(1)">加载更多</button>
+            </div>
+        </div>
+        <div class="ZX_right float-left">
+            <ul class="ZX_rightimg">
+                <li data-ng-repeat="leftImg in advertLeftList" title="{{leftImg.attrs.title}}" class="">
+                    <a data-ng-href="{{leftImg.attrs.to_url}}">
+                        <img data-ng-src="https://www.sevnton.com/sevnton_bo/{{leftImg.attrs.pic_url}}"
+                             alt="{{leftImg.attrs.title}}"></a></li>
+            </ul>
+            <ul>
+                <li class="XGZX_title"><p style="line-height: 74px">相关资讯</p></li>
+                <li class="XGZX_details" data-ng-repeat="row in pageDefault.list">
+                    <p class="xl1 padding-right" style="color:#6884fd;font-size: 1.2em">●</p>
+                    <p class="xl11"><a href="consult?id={{row.attrs.id}}">{{row.attrs.name}}</a></p>
+                    <div class="clearfloat"></div>
+                </li>
+            </ul>
+            <div class="text-center margin-big-top">
+                <button class="button ZX_gengduobtn" data-ng-click="next(2)">加载更多</button>
+            </div>
+        </div>
+    </div>
+    <div data-ng-if="p_navactive == 2">
+        <div class="clear"></div>
+        <div class="ZX_left float-left">
+            <ul class="chat_module" data-ng-repeat="disAues in DisQuesList.list" id="a{{disAues.attrs.disID}}">
+                <li style="font-size: 12px;line-height: 32px">{{disAues.attrs.creator}}</li>
+                <li style="line-height: 48px"><b><a href="javascript:void(0)"
+                                                    data-ng-click="funDisID(disAues.attrs.disID)">{{disAues.attrs.disTitle}}</a></b>
+                </li>
+                <li class="chat_module_cont clear-fix">
+                    <div class="content all-content" style="display: none;">
+                        <h2 class="text-center">{{disAues.attrs.disTitle}}</h2>
+                        <p data-ng-click="funDisID(disAues.attrs.disID)" ng-bind-html="disAues.attrs.disContent|to_trusted"></p>
+                    </div>
+                    <div class="content part-content">{{disAues.attrs.disTitle}}<b> ...</b></div>
+                    <div class="sign unfold">阅读全文</div>
+                </li>
+                <li class="chat_module_set">
+                    <p><i class="icon iconfont icon-zan"></i>&nbsp;&nbsp;{{disAues.attrs.upvoteCount}}</p>
+                    <p data-ng-click="funDisID(disAues.attrs.disID)"><i class="icon iconfont icon-41"></i>（{{disAues.attrs.answerCount}}）条评论
+                    </p>
+                    <p class="share">
+                        <span>
+                            <a class="weixin" cont="{{disAues.attrs.disTitle}}" title="微信"
+                               data="https://sevnton.com/disDetail?disID={{disAues.attrs.disID}}&isSlove=false"></a>
+                            <a class="qZone" cont="{{disAues.attrs.disTitle}}" title="QQ空间"
+                               data="https://sevnton.com/disDetail?disID={{disAues.attrs.disID}}&isSlove=false"></a>
+                            <a class="sinaWeibo" cont="{{disAues.attrs.disTitle}}" title="微博"
+                               data="https://sevnton.com/disDetail?disID={{disAues.attrs.disID}}&isSlove=false"></a>
+                            <a class="doubanShare" cont="{{disAues.attrs.disTitle}}" title="豆瓣网"
+                               data="https://sevnton.com/disDetail?disID={{disAues.attrs.disID}}&isSlove=false"></a>
+                        </span>
+                    </p>
+                    <p><i class="icon iconfont icon-shoucang"></i>&nbsp;&nbsp;收藏</p>
+                </li>
+                <li class="chat_module_kuang" data-ng-if="disId == disAues.attrs.disID">
+                    <p class="chat_module_kuang_title"><span class="float-left">{{disAues.attrs.answerCount}}条评论</span>
+                        <span class="float-right" data-ng-click="orderFn()">切换为时间排序</span>
+                    </p>
+                    <div class="chat_module_kuangcont" data-ng-repeat="anwer in DisReplyList| orderBy:orderIs">
+                        <p class="chat_module_kuangName"><span class="float-left">{{anwer.attrs.reply_user}}</span><span
+                                class="float-right">{{anwer.attrs.reply_time|limitTo:10}}</span></p>
+                        <p style="line-height: 30px"><span style="color: darkred;margin-right: 10px;font-size: 12px"
+                                                           data-ng-if="anwer.attrs.reply_to_name!=null">@{{anwer.attrs.reply_to_name}}</span><span
+                                data-ng-bind-html=" anwer.attrs.reply_content| to_trusted"></span></p>
+                        <p class="chat_module_kuangset">
+                            <span data-ng-click="addReplyUpvote()"><i class="icon iconfont icon-zan"></i>&nbsp;&nbsp;{{anwer.attrs.upvote_count}}</span>
+                            <span data-ng-click="huifu(anwer.attrs.reply_id)" class="tall_rturn"><i
+                                    class="icon iconfont icon-fasong"></i> 回复</span>
+                        </p>
+                        <div data-ng-if="huiFuID==anwer.attrs.reply_id"
+                             class="comment chat_module_kuangPL copy_chat_module_kuangPL clear-fix">
+                            <div class="com_form clear-fix">
+                                <input class="input float-left xiaoInput" id="huifu" data-ng-init="emoji1('huifu')"
+                                       data-ng-model="disReplyAn.reply_content_new" name="huifu"
+                                       placeholder="写下你的评论..."></input>
+                                <input type="button" class="sub_btn float-right" value="提交"
+                                       data-ng-click="plSubmit(disAues.attrs.disID)">
+                                <span class="emotion">表情</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="chat_module_kuangPage" data-ng-click="nextPage(disAues.attrs.disID)">加载更多</p>
+                    <div class="comment" data-ng-init="emoji()">
+                        <div class="com_form clear-fix">
+            <textarea class="input float-left" id="saytext" data-ng-model="disReplyAn.replyContent" name="saytext"
+                      placeholder="写下你的评论..."></textarea>
+                            <input type="button" class="sub_btn float-right" value="提交"
+                                   data-ng-click="saveAn(disAues.attrs.disID)">
+                            <p>
+                                <span class="emotion">表情</span>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="text-center margin-big-top" data-ng-if="loadMore">
+                <button class="button ZX_gengduobtn" data-ng-click="next(3)">加载更多</button>
+            </div>
+        </div>
+        <div class="ZX_right float-left">
+            <div class="MY_ZXmsg">
+                <p class="MY_ZXmsg_btn clear-fix">
+                    <button type="button" class="button float-left" data-ng-click="writeArticle('tijiaowenti','提问','auto','auto')"><i
+                            class="icon iconfont icon-tiwen1"></i> 提问
+                    </button>
+                    <button type="button" class="button float-right" data-ng-click="writeArticle('talkMsg','发布','1180px','600px')"><i
+                            class="icon iconfont icon-article-write"></i>
+                        写文章
+                    </button>
+                </p>
+                <div class="MY_ZXuserMsg clear-fix hidden">
+                    <p class=""><img src="/images/128.png" width="60" height="60" class="radius-circle hidden"/><span
+                            class="margin-big-left">${name}</span></p>
+                    <ul class="clear-fix">
+                        <li>
+                            <p>回答</p>
+                            <p>18</p>
+                        </li>
+                        <li>
+                            <p>文章</p>
+                            <p>888</p>
+                        </li>
+                        <li>
+                            <p>关注</p>
+                            <p>666</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="MY_ZX_moods hidden">
+                <p>被收藏88次</p>
+                <p class="clear-fix">
+                    <span class="float-left">leBron James</span>
+                    <span class="float-right">65人关注</span>
+                </p>
+            </div>
+            <ul>
+                <li class="XGZX_title"><p style="line-height: 74px">相关资讯</p></li>
+                <li class="XGZX_details" data-ng-repeat="row in pageDefault.list">
+                    <p class="xl1 padding-right" style="color:#6884fd;font-size: 1.2em">●</p>
+                    <p class="xl11"><a href="consult?id={{row.attrs.id}}">{{row.attrs.name}}</a></p>
+                    <div class="clearfloat"></div>
+                </li>
+            </ul>
+            <div class="clearfloat"></div>
+        </div>
+        <div id="talkMsg" data-ng-init="initUeditor()" style="display: none;width: 100%">
+            <div class="margin-bottom">
+                <div  style="position: relative;width: 100%;margin-top: 20px">
+                    <p class="text-default textarea_xianzhi text-gray">{{count}}/50</p>
+                    <textarea class="input radius-none box-shadow-none inp_are"
+                              data-ng-model="disQues.disTitle"
+                              maxlength="50"
+                              placeholder="标题：写下你文章名" ng-change="tolCount()"></textarea>
+                </div>
+            </div>
+            <!--style给定宽度可以影响编辑器的最终宽度-->
+            <script type="text/plain" id="myEditor" style="width:1123px;height:350px;">
+    <p>这里我可以写一些输入提示</p>
+</script>
+            <div class="clear"></div>
+            <div class="line margin-big-top">
+                <div class="xs2">
+                    <label style="color: #8da8c0;">问题分类：</label>
+                    <select class="padding-small" data-ng-model="disQues.categoryID">
+                        <option value="">请选择分类</option>
+                        <option data-ng-repeat="category in allCategory" value="{{category.attrs.categoryID}}">
+                            {{category.attrs.categoryName}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <h3 id="focush2"></h3>
+            </div>
+        </div>
+        <div id="tijiaowenti" style="padding: 30px;width: 600px;height: 400px;display: none">
+            <p class="text-large TW_title"><i class="icon iconfont icon-xinshoubangzhu margin-right"
+                                              style="color: #4cadff;font-size: 30px"></i>提问</p>
+            <div class="line">
+                <div style="position: relative;">
+                    <p class="text-default textarea_xianzhi text-gray">{{count}}/50</p>
+                    <textarea class="input radius-none box-shadow-none inp_are"
+                              data-ng-model="disQues.disTitle"
+                              maxlength="50"
+                              placeholder="标题：写下你的问题" ng-change="tolCount()"></textarea>
+                </div>
+            </div>
+            <div class="line margin-big-top">
+                <div class="textarea_con">
+                <textarea class="input radius-none box-shadow-none inp_are" data-ng-model="disQues.disContent"
+                          placeholder="详细说明你的问题，以便获得更好答案"></textarea>
+                </div>
+            </div>
+            <div class="line margin-big-top">
+                <div >
+                    <label style="color: #8da8c0;">问题分类：</label>
+                    <select class="padding-small" data-ng-model="disQues.categoryID">
+                        <option value="">请选择分类</option>
+                        <option data-ng-repeat="category in allCategory" value="{{category.attrs.categoryID}}">
+                            {{category.attrs.categoryName}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="x12 text-red padding-top text-big cuowu_msg">{{error}}</div>
+            <div class="clearfloat"></div>
+        </div>
+    </div>
+    <div data-ng-if="p_navactive == 3">
+   	 <iframe width="1050" height="590" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" oallowfullscreen="true" msallowfullscreen="true" src="https://sevnton.com/1.mp4"></iframe>
+    </div>
+</div>
+</body>
+<script src="vender/demo/js/demo.js"></script>
+<script type="text/javascript">
+    function getContent() {
+        var str = UM.getEditor('myEditor').getContent();
+        return str;
+    }
+    function setContent() {
+        UM.getEditor('myEditor').setContent('');
+    }
+    $(document).on("click", ".weixin", function () {
+        $(this).socialShare("weixinShare", {
+            content: $(this).attr('cont'),
+            url: $(this).attr('data'),
+        });
+    })
+    $(document).on("click", ".qZone", function () {
+        $(this).socialShare("qZone", {
+            content: $(this).attr('cont'),
+            url: $(this).attr('data'),
+        });
+    })
+    $(document).on("click", ".sinaWeibo", function () {
+        $(this).socialShare("sinaWeibo", {
+            content: $(this).attr('cont'),
+            url: $(this).attr('data'),
+        });
+    })
+    $(document).on("click", ".doubanShare", function () {
+        $(this).socialShare("doubanShare", {
+            content: $(this).attr('cont'),
+            url: $(this).attr('data'),
+        });
+    })
+</script>
+<@footer></@footer>

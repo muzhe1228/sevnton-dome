@@ -1,0 +1,62 @@
+<meta charset="UTF-8" data-ng-init="initPage(loginInfo.attrs.id)">
+<div class="my_Center_margin">
+    <div class="my_answer">
+        <p class="msg_title">我发起的话题</p>
+        <ul class="msg_content" data-ng-init="ByUser(loginInfo.attrs.id)">
+            <li class="clear-fix" data-ng-repeat="item in disListByUser">
+                <a href="disDetail?disID={{item.attrs.disID}}&isSlove=false">
+                    <p class="float-left margin-left" ng-bind-html="item.attrs.disTitle|to_trusted"></p></a>
+                <p class="float-right margin-big-right">{{item.attrs.createTime | limitTo:10}}</p>
+            </li>
+            <div class="panel-foot text-center bg-white page_con">
+                <span class="float-right WM_pages" style="line-height: 40px">共[{{page1.totalRow}}]条记录，当前[{{page1.pageNumber}}/{{page1.totalPage}}]页</span>
+                <ul class="pagination layer_btn">
+                    <li><a target="_self" href="javascript:void(0)" data-ng-click="first(loginInfo.attrs.id,'top')">首页</a></li>
+                </ul>
+                <ul class="pagination layer_btn">
+                    <li><a target="_self" href="javascript:void(0)" data-ng-click="previous(loginInfo.attrs.id,'top')">上一页</a></li>
+                </ul>
+                <ul class="pagination layer_btn">
+                    <li><a target="_self" href="javascript:void(0)" data-ng-click="next(loginInfo.attrs.id,'top')">下一页</a></li>
+                </ul>
+                <ul class="pagination layer_btn">
+                    <li><a target="_self" href="javascript:void(0)" data-ng-click="last(loginInfo.attrs.id,'top')">尾页</a></li>
+                </ul>
+                <div class="clearfloat"></div>
+            </div>
+        </ul>
+    </div>
+    <div class="my_start">
+        <p class="msg_title">我回复的话题</p>
+        <ul class="msg_content">
+            <li class="clear-fix" data-ng-repeat="item in replyListByUser">
+
+                <a href="disDetail?disID={{item.attrs.dis_id}}&isSlove=false">
+                <p class="float-left margin-left" ng-bind-html="item.attrs.dis_title|to_trusted"></p></a>
+                <p class="float-right margin-big-right">{{item.attrs.create_time | limitTo:10}}</p>
+                <!-- <div style="width: 100%;">
+                    <p>回复内容</p>
+                    <p ng-bind-html="item.attrs.reply_content|to_trusted"></p>
+                </div> -->
+            </li>
+            <div class="panel-foot text-center bg-white page_con">
+                <span class="float-right WM_pages" style="line-height: 40px">共[{{page.totalRow}}]条记录，当前[{{page.pageNumber}}/{{page.totalPage}}]页</span>
+                <ul class="pagination layer_btn">
+                    <li><a target="_self" href="javascript:void(0)" data-ng-click="first(loginInfo.attrs.id,'bottom')">首页</a></li>
+                </ul>
+                <ul class="pagination layer_btn">
+                    <li><a target="_self" href="javascript:void(0)" data-ng-click="previous(loginInfo.attrs.id,'bottom')">上一页</a></li>
+                </ul>
+                <ul class="pagination layer_btn">
+                    <li><a target="_self" href="javascript:void(0)" data-ng-click="next(loginInfo.attrs.id,'bottom')">下一页</a></li>
+                </ul>
+                <ul class="pagination layer_btn">
+                    <li><a target="_self" href="javascript:void(0)" data-ng-click="last(loginInfo.attrs.id,'bottom')">尾页</a></li>
+                </ul>
+                <div class="clearfloat"></div>
+            </div>
+        </ul>
+
+    </div>
+    
+</div>

@@ -1,0 +1,1166 @@
+<meta charset="UTF-8" data-ng-init="initPage()">
+<div class="my_Center_margin box-shadow">
+    <!--<ul class="bread bg" style="height: 40px;line-height: 40px;margin-top: 10px">-->
+    <!--<li style="padding-left: 20px;">在线下单</li>-->
+    <!--</ul>-->
+    <div class="step1" data-ng-show="step==1">
+        <div class="step box-shadow">
+            <div class="step-bar active" style="width: 25%;">
+                <span class="step-point">1</span><span class="step-text">基础信息</span>
+            </div>
+            <div class="step-bar" style="width: 25%;">
+                <span class="step-point">2</span><span class="step-text">商品信息</span>
+            </div>
+            <div class="step-bar" style="width: 25%;">
+                <span class="step-point">3</span><span class="step-text">物流报关信息</span>
+            </div>
+            <div class="step-bar" style="width: 25%;">
+                <span class="step-point">4</span><span class="step-text">订舱信息</span>
+            </div>
+        </div>
+        <form class="form-x xl12">
+            <div class="form-group">
+                <div class="left_inp xs3">
+                    <label for="deliveryDate"><span class="text-dot">*</span>&nbsp;交货日期</label>
+                </div>
+                <div class="fields xs5 xl11">
+                    <input type="text" class="input" id="deliveryDate"
+                           onclick="layui.laydate({elem: this, festival: true})"
+                           data-ng-model="info.deliveryDate" data-validate="required:必填"/>
+                </div>
+                <div class="xl1" style="width: 29px; padding: 5px; font-size: 20px;">
+            <span class="text-blue icon-question-circle tips" data-toggle="hover" data-place="top"
+                  title="工厂完成生产日期"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="left_inp xs3">
+                    <label for="consigneeName"><span class="text-dot">*</span>&nbsp;收货人（企业）</label>
+                </div>
+                <div class="fields xs5 xl11">
+                    <input type="text" class="input" id="consigneeName" data-ng-model="info.consigneeName"
+                           maxlength="100"
+                           data-validate="required:必填"/>
+                </div>
+                <div class="xl1" style="width: 29px; padding: 5px; font-size: 20px;">
+            <span class="text-blue icon-question-circle tips" data-toggle="hover" data-place="top"
+                  title="亚马逊客户收货人和收货地址都请填写AMAZON"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="left_inp xs3">
+                    <label for="consigneeAddress"><span class="text-dot">*</span>&nbsp;收货地址</label>
+                </div>
+                <div class="fields xs5 xl11">
+                    <input type="text" class="input" id="consigneeAddress" data-ng-model="info.consigneeAddress"
+                           maxlength="100"
+                           data-validate="required:必填"/>
+                </div>
+            </div>
+
+            <div class="form-group xs12 xm6">
+                <div class="left_inp xm6 xs3">
+                    <label for="consigneeContacts">联系人（买方）</label>
+                </div>
+                <div class="xl11 xs5 xm6">
+                    <input type="text" class="input" id="consigneeContacts"
+                           data-ng-model="info.consigneeContacts" maxlength="30"/>
+                </div>
+            </div>
+
+            <div class="form-group xs12 xm6">
+                <div class="left_inp xm5 xs3">
+                    <label for="consigneeTel">联系电话（买方）</label>
+                </div>
+                <div class="xl11 xs5 xm6">
+                    <input type="text" class="input" id="consigneeTel" data-ng-model="info.consigneeTel"
+                           maxlength="30"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="left_inp xs3">
+                    <label for="agentName"><span class="text-dot">*</span>&nbsp;生产厂家</label>
+                </div>
+                <div class="fields xs5 xl11">
+                    <input type="text" class="input" id="agentName" data-ng-model="info.agentName"
+                           data-validate="required:必填"
+                           maxlength="100"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="left_inp xs3">
+                    <label for="agentCode"><span class="text-dot">*</span>&nbsp;工商注册号</label>
+                </div>
+                <div class="fields xs5 xl11">
+                    <input type="text" class="input" id="agentCode" data-ng-model="info.agentCode"
+                           data-validate="required:必填"
+                           maxlength="18"/>
+                </div>
+            </div>
+            <div class="form-group xs12 xm6">
+                <div class="left_inp xs3 xm6">
+                    <label for="payType">结汇方式</label>
+                </div>
+                <div class="xl11 xs5 xm6">
+                    <select class="input" id="payType" data-ng-model="info.payType"
+                            data-ng-options="payType.attrs.id as payType.attrs.name_cn+'('+payType.attrs.name_en+')' for payType in payTypes">
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group xs12 xm6">
+                <div class="left_inp xs3 xm5">
+                    <label for="currency">货币类型</label>
+                </div>
+                <div class="xl11 xs5 xm6">
+                    <select class="input" id="currency" data-ng-model="info.currency"
+                            data-ng-options="currency.attrs.id as currency.attrs.name_cn+'('+currency.attrs.name_en+')' for currency in currencies">
+                    </select>
+                </div>
+            </div>
+            <div data-ng-if="info.payType=='6'" data-ng-init="dataValidate()">
+                <div class="form-group">
+                    <div class="left_inp xs3">
+                        <label for="payNum"><span class="text-dot">*</span>&nbsp;信用证号码</label>
+                    </div>
+                    <div class="fields xs5 xl11">
+                        <input type="text" class="input" id="payNum" data-ng-model="info.payNum"
+                               data-validate="required:必填"
+                               maxlength="30"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="left_inp xs3">
+                        <label for="issuingBank"><span class="text-dot">*</span>&nbsp;开证银行</label>
+                    </div>
+                    <div class="fields xs5 xl11">
+                        <input type="text" class="input" id="issuingBank" data-ng-model="info.issuingBank"
+                               data-validate="required:必填"
+                               maxlength="30"/>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="left_inp xs3">
+                    <label for="contacts"><span class="text-dot">*</span>&nbsp;业务联系人</label>
+                </div>
+                <div class="fields xs5 xl11">
+                    <input type="text" class="input" id="contacts" data-ng-model="info.contacts"
+                           data-validate="required:必填"
+                           maxlength="30"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="left_inp xs3">
+                    <label for="contact_tel"><span class="text-dot">*</span>&nbsp;联系人电话</label>
+                </div>
+                <div class="fields xs5 xl11">
+                    <input type="text" class="input" id="contact_tel" data-ng-model="info.contact_tel"
+                           data-validate="required:必填"
+                           maxlength="30"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="left_inp xs3">
+                    <label for="contact_emal"><span class="text-dot">*</span>&nbsp;联系人邮箱</label>
+                </div>
+                <div class="fields xs5 xl11">
+                    <input type="text" class="input" id="contact_emal" data-ng-model="info.contact_emal"
+                           data-validate="required:必填,email:请输入有效邮箱地址" maxlength="100"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="left_inp xs3">
+                    <label for="order_pi">PI NO.</label>
+                </div>
+                <div class="fields xs5 xl11">
+                    <input type="text" class="input" id="order_pi" data-ng-model="info.order_pi" maxlength="100"/>
+                </div>
+                <div class="xl1" style="width: 29px; padding: 5px; font-size: 20px;">
+           		 <span class="text-blue icon-question-circle tips" data-toggle="hover" data-place="top"
+                       title="工厂和外商签订的合同号码"></span>
+                </div>
+            </div>
+            <div class="form-button padding-big-top formbtn_all">
+                <button class="button box-shadow" type="button" data-ng-click="save()">保存数据</button>
+                <button class="button box-shadow" type="button" data-ng-click="next2()">下一步</button>
+            </div>
+        </form>
+    </div>
+    <div class="step2" data-ng-show="step==2">
+        <div class="step box-shadow">
+            <div class="step-bar complete" style="width: 25%;">
+                <span class="step-point icon-check"></span><span class="step-text">基础信息</span>
+            </div>
+            <div class="step-bar active" style="width: 25%;">
+                <span class="step-point">2</span><span class="step-text">商品信息</span>
+            </div>
+            <div class="step-bar" style="width: 25%;">
+                <span class="step-point">3</span><span class="step-text">物流报关信息</span>
+            </div>
+            <div class="step-bar" style="width: 25%;">
+                <span class="step-point">4</span><span class="step-text">订舱信息</span>
+            </div>
+        </div>
+        <div class="tab padding-top">
+            <div class="tab-head">
+                <ul class="tab-nav">
+                    <li class="active" id="tab-nav{{$index}}" data-ng-repeat="good in goods"
+                        data-ng-click="selTab($index)"><a
+                            href="#tab-good{{$index}}">商品{{$index+1}}</a><span class="float-right close rotate-hover"
+                                                                               style="margin: -38px 2px 0 0;"
+                                                                               data-ng-click="delGood($last,$index)"></span>
+                    </li>
+                    <li class="nonav"><a href="javascript:void(0);" data-ng-click="addGood()"><span
+                            class="icon-plus"></span>&nbsp;添加</a></li>
+                </ul>
+            </div>
+            <div class="tab-body">
+                <div class="tab-panel active" data-ng-repeat="good in goods" data-ng-repeat-finish="tabFinish()"
+                     id="tab-good{{$index}}" data-ng-init="dataValidate($index)">
+                    <form class="form-x xl12">
+                        <div class="form-group">
+                            <div class="left_inp xs3">
+                                <label for="hsCode{{$index}}"><span class="text-dot">*</span>&nbsp;HS编码</label>
+                            </div>
+                            <div class="fields xs5 xl11">
+                                <input type="text" class="input" id="hsCode{{$index}}" name="hsCode"
+                                       data-validate="required:必填,number:请输入数字,length#==10:请输入10位" maxlength="10"
+                                       data-ng-model="goods[$index].hsCode"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="left_inp xs3">
+                                <label for="companyNo{{$index}}">公司货号</label>
+                            </div>
+                            <div class="fields xs5 xl11">
+                                <input type="text" class="input" id="companyNo{{$index}}" maxlength="50"
+                                       data-ng-model="goods[$index].companyNo"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="left_inp xs3">
+                                <label for="nameCn{{$index}}"><span class="text-dot">*</span>&nbsp;商品名称（中文）</label>
+                            </div>
+                            <div class="fields xs5 xl11">
+                                <input type="text" class="input" id="nameCn{{$index}}" data-validate="required:必填"
+                                       maxlength="100"
+                                       data-ng-model="goods[$index].nameCn"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="left_inp xs3">
+                                <label for="nameEn{{$index}}"><span class="text-dot">*</span>&nbsp;商品名称（英文）</label>
+                            </div>
+                            <div class="fields xs5 xl11">
+                                <input type="text" class="input" id="nameEn{{$index}}" data-validate="required:必填"
+                                       maxlength="100"
+                                       data-ng-model="goods[$index].nameEn"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group xs12 xm6">
+                            <div class="left_inp xs3 xm6">
+                                <label for="model{{$index}}"><span class="text-dot">*</span>&nbsp;型号</label>
+                            </div>
+                            <div class="fields xl11 xs5">
+                                <input type="text" class="input" id="model{{$index}}"
+                                       data-validate="required:必填" maxlength="30"
+                                       data-ng-model="goods[$index].model"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group xs12 xm6">
+                            <div class="left_inp xs3 xm5">
+                                <label for="realCount{{$index}}"><span
+                                        class="text-dot">*</span>&nbsp;成交数量</label>
+                            </div>
+                            <div class="fields xl11 xs5">
+                                <input type="text" placeholder='成交单位是"千克"时，请填净重。' class="input"
+                                       id="realCount{{$index}}"
+                                       data-validate="required:必填,decimal:请输入数字，且整数位最大只能八位，小数位只能两位"
+                                       maxlength="9"
+                                       data-ng-model="goods[$index].realCount"/>
+                            </div>
+                            <div class="fields xs5 xl11" style="width: 29px; padding: 5px; font-size: 20px;">
+										<span class="text-blue icon-question-circle tips" data-toggle="hover"
+                                              data-place="top"
+                                              title='成交单位是"千克"时，请填净重。'></span>
+                            </div>
+                        </div>
+                        <div class="form-group  xs12 xm6">
+                            <div class="left_inp xm6 xs3">
+                                <label for="brand{{$index}}"><span class="text-dot">*</span>&nbsp;品牌</label>
+                            </div>
+                            <div class="fields xl11 xs5">
+                                <input type="text" class="input" id="brand{{$index}}"
+                                       data-validate="required:必填" maxlength="30"
+                                       data-ng-model="goods[$index].brand"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group xs12 xm6">
+                            <div class="left_inp xm5 xs3">
+                                <label for="realUnit{{$index}}"><span
+                                        class="text-dot">*</span>&nbsp;成交单位</label>
+                            </div>
+                            <div class="fields xl11 xs5">
+                                <select class="input" id="realUnit{{$index}}"
+                                        data-ng-model="goods[$index].realUnit"
+                                        data-placeholder="请选择数量单位"
+                                        data-ng-options="unit.attrs.id as unit.attrs.name for unit in units"
+                                        data-validate="required:必须选择成交单位">
+                                    <option value=""></option>
+                                </select>
+                            </div>
+                            <div class="fields xs5 xl11" style="width: 29px; padding: 5px; font-size: 20px;">
+										<span class="text-blue icon-question-circle tips" data-toggle="hover"
+                                              data-place="top"
+                                              title="报关时用的申报单位，通常是增值税发票的开票单位。"></span>
+                            </div>
+                        </div>
+                        <div class="form-group xs12 xm6">
+                            <div class="left_inp xm6 xs3">
+                                <label for="unitPrice{{$index}}"><span
+                                        class="text-dot">*</span>&nbsp;成交单价</label>
+                            </div>
+                            <div class="fields xl11 xs5">
+                                <input type="text" class="input" id="unitPrice{{$index}}"
+                                       data-validate="required:必填,decimal4:请输入数字，且整数位最大只能八位，小数位只能四位"
+                                       maxlength="12"
+                                       data-ng-model="goods[$index].unitPrice"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group xs12 xm6">
+                            <div class="left_inp xm5 xs3">
+                                <label for="packingCount{{$index}}"><span
+                                        class="text-dot">*</span>&nbsp;包装件数</label>
+                            </div>
+                            <div class="fields xl11 xs5">
+                                <input type="text" class="input" id="packingCount{{$index}}"
+                                       data-validate="required:必填,plusinteger:请输入正整数"
+                                       maxlength="9" data-ng-model="goods[$index].packingCount"/>
+                            </div>
+                            <div class="xl1" style="width: 29px; padding: 5px; font-size: 20px;">
+										<span class="text-blue icon-question-circle tips" data-toggle="hover"
+                                              data-place="top"
+                                              title="产品的最大包装数总和。例如10个纸箱全部打成2个托盘，此处填2；如2个托盘外加还有3个纸箱，此处填5。"></span>
+                            </div>
+                        </div>
+                        <div class="form-group xs12 xm6">
+                            <div class="left_inp xm6 xs3">
+                                <label for="firstCount{{$index}}"><span
+                                        class="text-dot">*</span>&nbsp;第一法定数量</label>
+                            </div>
+                            <div class="fields xl11 xs5">
+                                <input type="text" placeholder='第一法定单位是"千克"时，请填净重。' class="input"
+                                       id="firstCount{{$index}}"
+                                       data-validate="required:必填,decimal:请输入数字，且整数位最大只能八位，小数位只能两位"
+                                       maxlength="9"
+                                       data-ng-model="goods[$index].firstCount"/>
+                            </div>
+                            <div class="xl1" style="width: 29px; padding: 5px; font-size: 20px;">
+										<span class="text-blue icon-question-circle tips" data-toggle="hover"
+                                              data-place="top"
+                                              title='第一法定单位是"千克"时，请填净重。'></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group xs12 xm6">
+                            <div class="left_inp xm5 xs3">
+                                <label for="firstUnit{{$index}}"><span
+                                        class="text-dot">*</span>&nbsp;第一法定单位</label>
+                            </div>
+                            <div class="fields xl11 xs5">
+                                <select class="input" id="firstUnit{{$index}}"
+                                        data-ng-model="goods[$index].firstUnit"
+                                        data-placeholder="请选择数量单位"
+                                        data-ng-options="unit.attrs.id as unit.attrs.name for unit in units"
+                                        data-validate="required:必须选择第一法定单位">
+                                    <option value=""></option>
+                                </select>
+                            </div>
+                            <div class="xl1" style="width: 29px; padding: 5px; font-size: 20px;">
+										<span class="text-blue icon-question-circle tips" data-toggle="hover"
+                                              data-place="top"
+                                              title="法定单位是向海关申报时所使用的单位，由产品HS编码决定。"></span>
+                            </div>
+                        </div>
+                        <div class="form-group xs12 xm6">
+                            <div class="left_inp xm6 xs3">
+                                <label for="secondCount{{$index}}">第二法定数量</label>
+                            </div>
+                            <div class="fields xs5 xl11">
+                                <input type="text" placeholder='第二法定单位是"千克"时，请填净重。' class="input"
+                                       id="secondCount{{$index}}"
+                                       data-validate="decimal:请输入数字，且整数位最大只能八位，小数位只能两位"
+                                       maxlength="9" data-ng-model="goods[$index].secondCount"/>
+                            </div>
+                            <div class="xl1" style="width: 29px; padding: 5px; font-size: 20px;">
+										<span class="text-blue icon-question-circle tips" data-toggle="hover"
+                                              data-place="top"
+                                              title='第二法定单位是"千克"时，请填净重。'></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group xs12 xm6">
+                            <div class="left_inp xm5 xs3">
+                                <label for="secondUnit{{$index}}">第二法定单位</label>
+                            </div>
+                            <div class="fields xs5 xl11">
+                                <select class="input" id="secondUnit{{$index}}"
+                                        data-ng-model="goods[$index].secondUnit"
+                                        data-placeholder="请选择数量单位"
+                                        data-ng-options="unit.attrs.id as unit.attrs.name for unit in units">
+                                    <option value=""></option>
+                                </select>
+                            </div>
+                            <div class="xl1" style="width: 29px; padding: 5px; font-size: 20px;">
+										<span class="text-blue icon-question-circle tips" data-toggle="hover"
+                                              data-place="top"
+                                              title="法定单位是向海关申报时所使用的单位，由产品HS编码决定。"></span>
+                            </div>
+                        </div>
+                        <div class="form-group xs12 xm6">
+                            <div class="left_inp xm6 xs3">
+                                <label for="packingType{{$index}}">包装种类</label>
+                            </div>
+                            <div class="fields xs5 xl11">
+                                <select class="input" id="packingType{{$index}}"
+                                        data-ng-model="goods[$index].packingType"
+                                        data-ng-options="packingType.attrs.id as packingType.attrs.name for packingType in packingTypes">
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group xs12 xm6">
+                            <div class="left_inp xm5 xs3">
+                                <label for="volume{{$index}}"><span
+                                        class="text-dot">*</span>&nbsp;体积（立方米）</label>
+                            </div>
+                            <div class="fields xs5 xl11">
+                                <input type="text" class="input" id="volume{{$index}}"
+                                       data-validate="required:必填,decimal3:请输入数字，且整数位最大只能八位，小数位只能三位"
+                                       maxlength="11"
+                                       data-ng-model="goods[$index].volume"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group xs12 xm6">
+                            <div class="left_inp xm6 xs3">
+                                <label for="netWeight{{$index}}"><span
+                                        class="text-dot">*</span>&nbsp;净重(KG)</label>
+                            </div>
+                            <div class="fields xs5 xl11">
+                                <input type="text" class="input" id="netWeight{{$index}}"
+                                       name="netWeight{{$index}}"
+                                       data-validate="required:必填,decimal:请输入数字，且整数位最大只能八位，小数位只能两位"
+                                       maxlength="10"
+                                       data-ng-model="goods[$index].netWeight"/>
+                            </div>
+                        </div>
+                        <div class="form-group xs12 xm6">
+                            <div class="left_inp xm5 xs3">
+                                <label for="netWeight{{$index}}"><span
+                                        class="text-dot">*</span>&nbsp;毛重(KG)</label>
+                            </div>
+                            <div class="fields xs5 xl11">
+                                <input type="text" class="input" id="grossWeight{{$index}}"
+                                       data-validate="required:必填,decimal:请输入数字，且整数位最大只能八位，小数位只能两位,cprnext#>=#netWeight{{$index}}:毛重不能小于净重"
+                                       maxlength="10" data-ng-model="goods[$index].grossWeight"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="left_inp xs3">
+                                <label for="mark{{$index}}"><span class="text-dot">*</span>&nbsp;唛头</label>
+                            </div>
+                            <div class="fields xs8 xl11">
+                                <input type="text" class="input" id="mark{{$index}}" data-validate="required:必填"
+                                       maxlength="100"
+                                       data-ng-model="goods[$index].mark"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="left_inp xs3">
+                                <label for="elements{{$index}}"><span class="text-dot">*</span>&nbsp;申报要素</label>
+                            </div>
+                            <div class="fields xs8 xl11">
+                                <input type="text" class="input" id="elements{{$index}}" data-validate="required:必填"
+                                       maxlength="255"
+                                       data-ng-model="goods[$index].elements"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="left_inp xs3"></div>
+                            <div class="fields xs8 xl11">
+                                示例：HS 7308900000 填报： 用途：固定安装设备用|材质：钢| 种类：吊顶服务架|其他:无<br/>具体填写内容，请参考&nbsp;<a
+                                    target="_blank"
+                                    href="http://www.nbedi.com/NBCPCAM/ClassifyQuery.aspx" style="color: #0a8;">宁波海关商品归类申报提示库 </a>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="left_inp xs3">
+                                <label for="description{{$index}}">商品描述</label>
+                            </div>
+                            <div class="fields xs8 xl11">
+                                <input type="text" class="input" id="description{{$index}}" maxlength="100"
+                                       data-ng-model="goods[$index].description"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="left_inp xs3">
+                                <label for="remarks{{$index}}">备注</label>
+                            </div>
+                            <div class="fields xs8 xl11">
+                                <textarea class="input" style="min-height: 80px" id="remarks{{$index}}"
+                                          data-ng-model="goods[$index].remarks"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="left_inp xs3">
+                                <label for="remarks{{$index}}"><span
+                                        class="text-dot">*</span>商品{{$index+1}}图片</label>
+                            </div>
+                            <div class="fields xs2 x5 upload_wrap margin-small">
+                                <img class="upload_img" data-ng-src="{{goods[$index].entiretyImg}}">
+                                <p class="btn_upload">
+                                    <input type="file" name="file" class="layui-upload-file" id="test1{{$index}}"
+                                           data-lay-title="整体照">
+                                </p>
+                                <p class="text-gray upload_size">整体照</p>
+                            </div>
+                            <div class="fields xs2 x5 upload_wrap margin-small">
+                                <img class="upload_img" data-ng-src="{{goods[$index].sideImg}}">
+                                <p class="btn_upload">
+                                    <input type="file" name="file" class="layui-upload-file" id="test2{{$index}}"
+                                           data-lay-title="侧面照">
+                                </p>
+                                <p class="text-gray upload_size">侧面照</p>
+                            </div>
+                            <div class="fields xs2 x5 upload_wrap margin-small">
+                                <img class="upload_img" data-ng-src="{{goods[$index].trademarkImg}}">
+                                <p class="btn_upload">
+                                    <input type="file" name="file" class="layui-upload-file" id="test3{{$index}}"
+                                           data-lay-title="型号照">
+                                </p>
+                                <p class="text-gray upload_size">型号照</p>
+                            </div>
+                            <div class="fields xs2 x5 upload_wrap margin-small">
+                                <img class="upload_img" data-ng-src="{{goods[$index].modelImg}}">
+                                <p class="btn_upload">
+                                    <input type="file" name="file" class="layui-upload-file" id="test4{{$index}}"
+                                           data-lay-title="商标照">
+                                </p>
+                                <p class="text-gray upload_size">商标照</p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <form class="form-x">
+            <div class="form-button padding-big-top formbtn_all">
+                <button class="button box-shadow" type="button" data-ng-click="prev1()">上一步</button>
+                <button class="button box-shadow" type="button" data-ng-click="save()">保存数据</button>
+                <button class="button box-shadow" type="button" data-ng-click="next3()">下一步</button>
+            </div>
+        </form>
+    </div>
+    <div class="step3" data-ng-show="step==3">
+        <div class="step box-shadow">
+            <div class="step-bar complete" style="width: 25%;">
+                <span class="step-point icon-check"></span><span class="step-text">基础信息</span>
+            </div>
+            <div class="step-bar complete" style="width: 25%;">
+                <span class="step-point icon-check"></span><span class="step-text">商品信息</span>
+            </div>
+            <div class="step-bar active" style="width: 25%;">
+                <span class="step-point">3</span><span class="step-text">物流报关信息</span>
+            </div>
+            <div class="step-bar" style="width: 25%;">
+                <span class="step-point">4</span><span class="step-text">订舱信息</span>
+            </div>
+        </div>
+        <form class="form-x xl12">
+            <div class="form-group xs12 xm6">
+                <div class="left_inp xs4">
+                    <label for="logisticsCompany">物流公司</label>
+                </div>
+                <div class="xs6 xl11">
+                    <select class="input" id="logisticsCompany" data-ng-change="dataChange()"
+                            data-ng-model="info.logisticsCompany"
+                            data-ng-options="logisticsCompany.attrs.id as logisticsCompany.attrs.name for logisticsCompany in logisticsCompanies">
+                    </select>
+                    <input type="text" class="input" style="display: none;" data-ng-model="info.logisticsCompanyName"
+                           id="logisticsCompanyName">
+                </div>
+            </div>
+            <div class="form-group xs12 xm6">
+                <div class="left_inp xs4">
+                    <label for="ePort"><span class="text-dot">*</span>&nbsp;出口口岸</label>
+                </div>
+                <div class="xs6 xl11">
+                    <input type="text" class="input" id="ePort" data-ng-model="info.ePort"
+                           data-validate="required:必填"
+                           maxlength="10"/>
+                </div>
+            </div>
+            <div class="form-group xs12 xm6">
+                <div class="left_inp xs4">
+                    <label for="originCountry"><span class="text-dot">*</span>&nbsp;原产国</label>
+                </div>
+                <div class="xs6 xl11">
+                    <select class="input" id="originCountry" data-ng-model="info.originCountry"
+                            data-ng-options="country.attrs.id as country.attrs.name for country in countries"
+                            data-placeholder="请选择原产国"
+                            data-validate="required:必须选择原产国">
+                        <option value=""></option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group xs12 xm6">
+                <div class="left_inp xs4">
+                    <label for="destinationCountry"><span class="text-dot">*</span>&nbsp;目的国</label>
+                </div>
+                <div class="xs6 xl11">
+                    <select class="input" id="destinationCountry"
+                            data-ng-model="info.destinationCountry"
+                            data-ng-options="country.attrs.id as country.attrs.name for country in countries"
+                            data-placeholder="请选择目的国"
+                            data-validate="required:必须选择目的国">
+                        <option value=""></option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group xs12 xm6">
+                <div class="left_inp xs4">
+                    <label for="tPort">转运港</label>
+                </div>
+                <div class="xs6 xl11">
+                    <select class="input" id="tPort" data-ng-model="info.tPort"
+                            data-ng-options="port.attrs.id as port.attrs.name for port in ports"
+                            data-placeholder="请选择转运港">
+                        <option value=""></option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group xs12 xm6">
+                <div class="left_inp xs4">
+                    <label for="dPort"><span class="text-dot">*</span>&nbsp;目的港</label>
+                </div>
+                <div class="xs6 xl11">
+                    <select class="input" id="dPort" data-ng-model="info.dPort"
+                            data-ng-options="port.attrs.id as port.attrs.name for port in ports"
+                            data-placeholder="请选择目的港"
+                            data-validate="required:必须选择目的港">
+                        <option value=""></option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group xs12 xm6">
+                <div class="left_inp xs4">
+                    <label for="postMode">运输方式</label>
+                </div>
+                <div class="xs6 xl11">
+                    <select class="input" id="postMode" data-ng-model="info.postMode"
+                            data-ng-options="postMode.attrs.id as postMode.attrs.name for postMode in postModes">
+                    </select>
+                </div>
+            </div>
+            <div class="form-group xs12 xm6">
+                <div class="left_inp xs4">
+                    <label for="shipmentDate"><span class="text-dot">*</span>&nbsp;装运日期</label>
+                </div>
+                <div class="xs6 xl11">
+                    <input type="text" class="input" id="shipmentDate" data-ng-model="info.shipmentDate"
+                           onclick="layui.laydate({elem: this, festival: true})"
+                           data-validate="required:必填"/>
+                </div>
+                <div class="xs6 xl11" style="width: 29px; padding: 5px; font-size: 20px;">
+                                    <span class="text-blue icon-question-circle tips" data-toggle="hover"
+                                          data-place="top" title="预计船期"></span>
+                </div>
+            </div>
+
+            <div class="form-group xs12 xm6">
+                <div class="left_inp xs4">
+                    <label for="tradeMethod">成交方式</label>
+                </div>
+                <div class="xs6 xl11">
+                    <select class="input" id="tradeMethod" data-ng-model="info.tradeMethod"
+                            data-ng-options="tradeMethod.attrs.id as tradeMethod.attrs.name_short for tradeMethod in tradeMethods">
+                    </select>
+                </div>
+                <div class="xs6 xl11" style="width: 29px; padding: 5px; font-size: 20px;">
+								<span class="text-blue icon-question-circle tips" data-toggle="hover" data-place="top"
+                                      title="FOB(Free on bord)指货物离岸价格； CNF（CFR）指FOB价格+运费；CIF指FOB价格+保险费+运费。"></span>
+                </div>
+            </div>
+
+            <div class="form-group xs12 xm6">
+                <div class="left_inp xs4">
+                    <label for="tradingCountry"><span class="text-dot">*</span>&nbsp;贸易国（地区）</label>
+                </div>
+                <div class="xs6 xl11">
+                    <select class="input" id="tradingCountry" data-ng-model="info.tradingCountry"
+                            data-ng-options="country.attrs.id as country.attrs.name for country in countries"
+                            data-placeholder="请选择贸易国"
+                            data-validate="required:必须选择贸易国">
+                        <option value=""></option>
+                    </select>
+                </div>
+                <div class="xs6 xl11" style="width: 29px; padding: 5px; font-size: 20px;">
+								<span class="text-blue icon-question-circle tips" data-toggle="hover" data-place="top"
+                                      title="与国内企业签订贸易合同的买方所处国别（地区）"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="left_inp xm2 xs4">
+                    <label for="origin"><span class="text-dot">*</span>&nbsp;境内货源地</label>
+                </div>
+                <div class="xm9 xs6 xl11">
+                    <input type="text" class="input" id="origin" data-ng-model="info.origin"
+                           data-validate="required:必填"
+                           maxlength="100"/>
+                </div>
+                <div class="xl1" style="width: 29px; padding: 5px; font-size: 20px;">
+                        <span class="text-blue icon-question-circle tips" data-toggle="hover" data-place="top"
+                              title="国内的生产地/制造地或原始发货地"></span>
+                </div>
+            </div>
+            <div data-ng-if="info.tradeMethod!='3'" data-ng-init="dataValidate()">
+                <div class="form-group xs12 xm6">
+                    <div class="left_inp xs4">
+                        <label for="insurance"><span class="text-dot">*</span>&nbsp;保费</label>
+                    </div>
+                    <div class="xs6 xl11">
+                        <input type="text" class="input" id="insurance" data-ng-model="info.insurance"
+                               data-validate="required:必填,decimal:请输入数字，且整数位最大只能八位，小数位只能两位" maxlength="10"/>
+                    </div>
+                    <div class="xl1" style="width: 29px; padding: 5px; font-size: 20px;">
+                                    <span class="text-blue icon-question-circle tips" data-toggle="hover"
+                                          data-place="top" title="如不确定请填0"></span>
+                    </div>
+                </div>
+
+                <div class="form-group xs12 xm6">
+                    <div class="left_inp xs4">
+                        <label for="feeAmount"><span class="text-dot">*</span>&nbsp;运费</label>
+                    </div>
+                    <div class="xs6 xl11">
+                        <input type="text" class="input" id="feeAmount" data-ng-model="info.feeAmount"
+                               data-validate="required:必填,decimal:请输入数字，且整数位最大只能八位，小数位只能两位" maxlength="10"/>
+                    </div>
+                    <div class="xs6 xl11" style="width: 29px; padding: 5px; font-size: 20px;">
+                                    <span class="text-blue icon-question-circle tips" data-toggle="hover"
+                                          data-place="top" title="如不确定请填0"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group xs12 xm6">
+                <div class="left_inp xs4">
+                    <label for="specialRelationship">特殊关系确认</label>
+                </div>
+                <div class="xs6 xl11">
+                    <div class="button-group radio border-basic">
+                        <label class="button button-small"
+                               data-ng-class="radioClass(0,info.specialRelationship)"><input
+                                name="pintuer" value="0" checked="checked" type="radio"
+                                data-ng-model="info.specialRelationship"><span
+                                class="icon icon-times"></span>&nbsp;否 </label><label
+                            class="button button-small"
+                            data-ng-class="radioClass(1,info.specialRelationship)"><input name="pintuer"
+                                                                                          value="1"
+                                                                                          type="radio"
+                                                                                          data-ng-model="info.specialRelationship"><span
+                            class="icon icon-check"></span>&nbsp;是 </label>
+                    </div>
+                </div>
+                <div class="xl1" style="width: 33px; padding: 5px; font-size: 20px;">
+								<span class="text-blue icon-question-circle tips" data-toggle="hover" data-place="top"
+                                      title="填报确认进出口行为中买卖双方是否存在特殊关系，有下列情形之一的，应当认为买卖双方存在特殊关系，在本栏目应填报“是”，反之则填报“否”：<br/>（一）买卖双方为同一家族成员的；<br/>（二）买卖双方互为商业上的高级职员或者董事的；<br/>（三）一方直接或者间接地受另一方控制的；<br/>（四）买卖双方都直接或者间接地受第三方控制的；<br/>（五）买卖双方共同直接或者间接地控制第三方的；<br/>（六）一方直接或者间接地拥有、控制或者持有对方5%以上（含5%）公开发行的有表决权的股票或者股份的；<br/>（七）一方是另一方的雇员、高级职员或者董事的；<br/>（八）买卖双方是同一合伙的成员的。<br/>买卖双方在经营上相互有联系，一方是另一方的独家代理、独家经销或者独家受让人，如果符合前款的规定，也应当视为存在特殊关系。"></span>
+                </div>
+            </div>
+            <div class="form-group xs12 xm6">
+                <div class="left_inp xs4">
+                    <label for="priceEffect">价格影响确认</label>
+                </div>
+                <div class="xs6 xl11">
+                    <div class="button-group radio border-basic">
+                        <label class="button button-small"
+                               data-ng-class="radioClass(0,info.priceEffect)"><input name="pintuer"
+                                                                                     value="0"
+                                                                                     checked="checked"
+                                                                                     type="radio"
+                                                                                     data-ng-model="info.priceEffect"><span
+                                class="icon icon-times"></span>&nbsp;否 </label><label
+                            class="button button-small"
+                            data-ng-class="radioClass(1,info.priceEffect)"><input name="pintuer"
+                                                                                  value="1" type="radio"
+                                                                                  data-ng-model="info.priceEffect"><span
+                            class="icon icon-check"></span>&nbsp;是 </label>
+                    </div>
+                </div>
+                <div class="xl1" style="width: 33px; padding: 5px; font-size: 20px;">
+								<span class="text-blue icon-question-circle tips" data-toggle="hover" data-place="top"
+                                      title="买卖双方之间存在特殊关系，但是纳税义务人能证明其成交价格与同时或者大约同时发生的下列任何一款价格相近的，应当视为特殊关系未对进口货物的成交价格产生影响：<br/>（一）向境内无特殊关系的买方出售的相同或者类似进口货物的成交价格；<br/>（二）按照本办法第二十三条的规定所确定的相同或者类似进口货物的完税价格；<br/>（三）按照本办法第二十五条的规定所确定的相同或者类似进口货物的完税价格。"></span>
+                </div>
+            </div>
+            <div class="form-group xs12">
+                <div class="left_inp xm2 xs4">
+                    <label for="royaltyFee">支付权费用确认</label>
+                </div>
+                <div class="xm3 xs6 xl11">
+                    <div class="button-group radio border-basic">
+                        <label class="button button-small"
+                               data-ng-class="radioClass(0,info.royaltyFee)"><input name="pintuer"
+                                                                                    value="0"
+                                                                                    checked="checked"
+                                                                                    type="radio"
+                                                                                    data-ng-model="info.royaltyFee"><span
+                                class="icon icon-times"></span>&nbsp;否
+                        </label><label class="button button-small"
+                                       data-ng-class="radioClass(1,info.royaltyFee)"><input
+                            name="pintuer"
+                            value="1" type="radio" data-ng-model="info.royaltyFee"><span
+                            class="icon icon-check"></span>&nbsp;是 </label>
+                    </div>
+                </div>
+                <div class="xm6 xl1" style="width: 33px; padding: 5px; font-size: 20px;">
+								<span class="text-blue icon-question-circle tips" data-toggle="hover" data-place="top"
+                                      title="特许权使用费是指进口货物的买方为取得知识产权权利人及权利人有效授权人关于专利权、商标权、专有技术、著作权、分销权或者销售权的许可或者转让而支付的费用。<br/>如果价格包括特许权使用费选择“是”，反之选“否”"></span>
+                </div>
+            </div>
+            <div class="form-group xs12 xm6">
+                <div class="left_inp xs4">
+                    <label for="tradingCountry"><span class="text-dot">*</span>&nbsp;报关方式</label>
+                </div>
+                <div class="xs6 xl11">
+                    <select class="input" id="declareType" data-placeholder="请选择转运港" data-ng-change="declareChange()"
+                            data-ng-model="info.declareType">
+                        <option value="0" selected="selected">圣云通报关</option>
+                        <option value="1">工厂报关</option>
+                    </select>
+                </div>
+                <div class="xs6 xl11" style="width: 29px; padding: 5px; font-size: 20px;">
+								<span class="text-blue icon-question-circle tips" data-toggle="hover" data-place="top"
+                                      title="以圣云通名义或者工厂自己名义报关"></span>
+                </div>
+            </div>
+            <!--自选报关行 对应的需要填写的字段 开始  -->
+            <div class="form-group xs12 xm6" id="declareCompanyDiv" style="display: none">
+                <div class="left_inp xs3 xm6">
+                    <label for="declareCompany"><span class="text-dot">*</span>&nbsp;报关行名称</label>
+                </div>
+                <div class="fields xl11 xs5">
+                    <input type="text" class="input" id="declareCompany" maxlength="30"
+                           data-ng-model="info.declareCompany"/>
+                </div>
+            </div>
+            <div class="form-group xs12 xm6" id="declareTelDiv" style="display: none">
+                <div class="left_inp xs3 xm5">
+                    <label for="declareTel">&nbsp;报关行联系方式</label>
+                </div>
+                <div class="fields xl11 xs5">
+                    <input type="text" placeholder='报关行联系方式' class="input" id="declareTel" maxlength="13"
+                           data-ng-model="info.declareTel"/>
+                </div>
+            </div>
+            <!-- 自选报关行 对应的需要填写的字段 结束 -->
+
+
+            <!-- 圣云通报关 对应的需要填写的字段 开始 -->
+            <div class="form-group xs12 xm6" id="billOfLadingDiv" style="display: none">
+                <div class="left_inp xs3 xm6">
+                    <label for="declareCompany"><span class="text-dot">*</span>&nbsp;提单号</label>
+                </div>
+                <div class="fields xl11 xs5">
+                    <input type="text" class="input" id="billOfLading" data-ng-model="info.billOfLading"/>
+                </div>
+            </div>
+            <div class="form-group xs12 xm6" id="voyageDiv" style="display: none">
+                <div class="left_inp xs3 xm5">
+                    <label for="declareTel"><span class="text-dot">*</span>&nbsp;&nbsp;船名航次</label>
+                </div>
+                <div class="fields xl11 xs5">
+                    <input type="text" placeholder='船名航次' class="input" id="voyage" data-ng-model="info.voyage"/>
+                </div>
+            </div>
+            <!-- 圣云通报关 对应的需要填写的字段 结束 -->
+            <div class="form-group">
+                <div class="left_inp xm2 xs4">
+                    <label for="storageAddress"><span class="text-dot">*</span>&nbsp;货物存放地址</label>
+                </div>
+                <div class="xm9 xs6 xl11">
+                    <input type="text" class="input" id="storageAddress" data-ng-model="info.storageAddress"
+                           data-validate="required:必填" maxlength="100"/>
+                </div>
+            </div>
+            <div class="form-button padding-big-top formbtn_all">
+                <button class="button box-shadow" type="button" data-ng-click="prev2()">上一步</button>
+                <button class="button box-shadow" type="button" data-ng-click="save()">保存数据</button>
+                <button class="button box-shadow" type="button" data-ng-click="next4()">下一步</button>
+            </div>
+        </form>
+    </div>
+    <div class="step4" data-ng-show="step==4">
+        <div class="step box-shadow">
+            <div class="step-bar complete" style="width: 25%;">
+                <span class="step-point icon-check"></span><span class="step-text">基础信息</span>
+            </div>
+            <div class="step-bar complete" style="width: 25%;">
+                <span class="step-point icon-check"></span><span class="step-text">商品信息</span>
+            </div>
+            <div class="step-bar complete" style="width: 25%;">
+                <span class="step-point icon-check"></span><span class="step-text">物流报关信息</span>
+            </div>
+            <div class="step-bar active" style="width: 25%;">
+                <span class="step-point">4</span><span class="step-text">订舱信息</span>
+            </div>
+        </div>
+        <div>
+            <form class="form-x  xl12">
+                <div class="form-group">
+                    <div class="left_inp xs3">
+                        <label for="advanceDrawback">是否需要提前退税</label>
+                    </div>
+                    <div class="fields xs5 xl11">
+                        <div class="button-group radio border-basic">
+                            <label class="button" data-ng-class="radioClass(0,info.advanceDrawback)"><input
+                                    name="pintuer" value="0"
+                                    type="radio" data-ng-model="info.advanceDrawback"><span
+                                    class="icon icon-times"></span>&nbsp;否 </label><label
+                                class="button" data-ng-class="radioClass(1,info.advanceDrawback)"><input name=" pintuer"
+                                                                                                         value="1"
+                                                                                                         checked="checked"
+                                                                                                         type="radio"
+                                                                                                         data-ng-model="info.advanceDrawback"><span
+                                class="icon icon-check"></span>&nbsp;是
+                        </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="left_inp xs3">
+                        <label for="logisticsCompany">附件上传</label>
+                    </div>
+                    <div class="xl4 xs3">
+                        <input type="file" id="companyNofile" name="file" class="layui-upload-file">
+                    </div>
+                    <div class="left_inp x1-move xs5 xl7" style="line-height: 34px">
+                        <a data-ng-href="{{info.attachment}}">{{info.original}}</a>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="left_inp xs3 text-white hidden-l">,</div>
+                    <div class="xs8 xl11 text-yellow">注：请上传10M以内的文件</div>
+                </div>
+                <div class="form-group">
+                    <div class="left_inp xs3">
+                        <label for="remarks">备注</label>
+                    </div>
+                    <div class="xs8 xl11">
+                        <textarea class="input" style="min-height: 80px" data-validate="required:必填"
+                                  placeholder="请备注订舱号，柜型  提单号，船名航次，箱封号等信息" id="remarks"
+                                  data-ng-model="info.remarks"></textarea>
+                    </div>
+                </div>
+                <div class="form-button padding-big-top formbtn_all">
+                    <button class="button box-shadow" type="button" data-ng-click="DetialsLayer()">预览订单</button>
+                    <button class="button box-shadow" type="button" data-ng-click="prev3()">上一步</button>
+                    <button class="button box-shadow" type="button" data-ng-click="submit()">提交</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="clearfloat"></div>
+</div>
+<div id="order_details" style="display: none">
+    <table border="1" bordercolor="black" width="100%" cellspacing="0" cellpadding="5">
+        <tr>
+            <td colspan="8" width="40%">
+                <p>收货人</p>
+                <p>{{info.consigneeName}}</p>
+            </td>
+            <td colspan="4" width="20%">
+                <p>出口口岸</p>
+                <p>{{info.ePort}}</p>
+            </td>
+            <td colspan="4" width="20%">
+                <p>出口日期</p>
+                <p>{{info.deliveryDate}}</p>
+            </td>
+            <td colspan="4" width="20%">
+                <p>申报日期</p>
+                <p>{{info.shipmentDate}}</p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="8" width="40%">
+                <p>生产销售单位</p>
+                <p>{{info.agentName}}</p>
+            </td>
+            <td colspan="3" width="15%">
+                <p>运输方式</p>
+                <p data-ng-repeat="postMode in postModes" data-ng-if="postMode.attrs.id == info.postMode">
+                    {{postMode.attrs.name}}</p>
+            </td>
+            <td colspan="4" width="20%">
+                <p>运输工具名称</p>
+                <p>无</p>
+            </td>
+            <td colspan="5" width="25%">
+                <p>裸运单号</p>
+                <p>无</p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="8" width="40%">
+                <p>申报单位</p>
+                <p>{{info.consigneeName}}</p>
+            </td>
+            <td colspan="4" width="20%">
+                <p>监管方式</p>
+                <p>一般贸易</p>
+            </td>
+            <td colspan="4" width="20%">
+                <p>征免性质</p>
+                <p>无</p>
+            </td>
+            <td colspan="4" width="20%">
+                <p>备案号</p>
+                <p>无</p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" width="25%">
+                <p>贸易国（地区）</p>
+                <p data-ng-repeat="country in countries" data-ng-if="country.attrs.id == info.originCountry">
+                    {{country.attrs.name}}</p>
+            </td>
+            <td colspan="5" width="25%">
+                <p>运抵国（地区）</p>
+                <p data-ng-repeat="country in countries" data-ng-if="country.attrs.id == info.destinationCountry">
+                    {{country.attrs.name}}</p>
+            </td>
+            <td colspan="5" width="25%">
+                <p>指运港</p>
+                <p data-ng-repeat="port in ports" data-ng-if="port.attrs.id == info.tPort">{{port.attrs.name}}</p>
+            </td>
+            <td colspan="5" width="25%">
+                <p>境内货源地</p>
+                <p>{{info.origin}}</p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" width="25%">
+                <p>许可证号</p>
+                <p>无</p>
+            </td>
+            <td colspan="2" width="10%">
+                <p>成交方式</p>
+                <p data-ng-repeat="tradeSlider in tradeMethods" data-ng-if="tradeSlider.attrs.id == info.tradeMethod">
+                    {{tradeSlider.attrs.name_short}}</p>
+            </td>
+            <td colspan="5" width="25%">
+                <p>运费</p>
+                <p>{{info.feeAmount}}</p>
+            </td>
+            <td colspan="3" width="15%">
+                <p>保费</p>
+                <p>{{info.insurance}}</p>
+            </td>
+            <td colspan="5" width="25%">
+                <p>杂费</p>
+                <p>无</p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" width="25%">
+                <p>合同协议号</p>
+                <p>{{loginInfo.attrs.r_code}}</p>
+            </td>
+            <td colspan="4" width="20%">
+                <p>件数</p>
+                <p>{{nums}}</p>
+            </td>
+            <td colspan="3" width="15%">
+                <p>包装种类</p>
+                <p data-ng-repeat="kind in kinds track by $index">
+                    <span class="font_weight">商品{{$index+1}}</span>
+                    <span data-ng-repeat="packingType in packingTypes" data-ng-if="packingType.attrs.id == kind">
+                        {{packingType.attrs.name}}
+                    </span>
+                </p>
+            </td>
+            <td colspan="4" width="20%">
+                <p>毛重（公斤）</p>
+                <p>{{groossWeightAll}}</p>
+            </td>
+            <td colspan="4" width="20%">
+                <p>净重（公斤）</p>
+                <p>{{netWeightAll}}</p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" width="25%">
+                <p>集装箱号</p>
+                <p>无</p>
+            </td>
+            <td colspan="15" width="75%">
+                <p>随附单号</p>
+                <p>无</p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="20" width="100%">
+                <p>标记唛码及备注</p>
+                <p>唛码：<span data-ng-repeat="mark in marks"><span class="font_weight">商品{{$index+1}}：</span>{{mark}}；&nbsp;</span></p>
+                <p>备注：{{info.remarks}}</p>
+            </td>
+        </tr>
+        <tr class="tab_th">
+            <td width="5%">项号</td>
+            <td colspan="2" width="10%">商品编号</td>
+            <td colspan="4" width="20%">商品名称，规格型号</td>
+            <td colspan="2" width="10%">数量及单位</td>
+            <td colspan="4" width="20%">原产国</td>
+            <td colspan="2" width="10%">目的国</td>
+            <td width="5%">单价</td>
+            <td colspan="2" width="10%">总价</td>
+            <td width="5%">币制</td>
+            <td width="5%">征免</td>
+        </tr>
+        <tr class="goods_tr" data-ng-repeat="detail in info.goods">
+            <td width="5%">1<br>大大萨达大萨达</td>
+            <td colspan="2" width="10%">{{detail.hsCode}}</td>
+            <td colspan="4" width="20%">
+                <p><span class="font_weight">商品名称：</span>{{detail.nameCn}}</p>
+                <p><span class="font_weight">商品型号：</span>{{detail.model}}</p>
+                <p><span class="font_weight">品牌：</span>{{detail.brand}}</p>
+            </td>
+            <td colspan="2" width="10%">
+                <p><span class="font_weight">数量：</span>{{detail.realCount}}</p>
+                <p data-ng-repeat="unit in units" data-ng-if="unit.attrs.id == detail.realUnit"><span class="font_weight">单位：</span>{{unit.attrs.name}}</p>
+            </td>
+            <td colspan="4" width="20%">
+                <p data-ng-repeat="country in countries" data-ng-if="country.attrs.id == info.originCountry">
+                    {{country.attrs.name}}</p>
+            </td>
+            <td colspan="2" width="10%">
+                <p data-ng-repeat="country in countries" data-ng-if="country.attrs.id == info.destinationCountry">
+                    {{country.attrs.name}}</p>
+            </td>
+            <td width="5%">{{detail.unitPrice}}</td>
+            <td colspan="2" width="10%">{{detail.unitPrice*detail.realCount}}</td>
+            <td width="5%">
+                <p data-ng-repeat="currency in currencies" data-ng-if="currency.attrs.id == info.currency">
+                    {{currency.attrs.name_cn}}
+                </p>
+            </td>
+            <td width="5%">无</td>
+        </tr>
+
+    </table>
+</div>

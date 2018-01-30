@@ -1,0 +1,167 @@
+<meta charset="UTF-8" data-ng-init="initPage()">
+<style>
+    .amount {
+        border: 1px solid #d1e9fe;
+    }
+
+    .amount td {
+        vertical-align: middle;
+        padding: 8px 0 8px 30px;
+        line-height: 30px;
+        border-top: none;
+    }
+
+    .amount td:nth-child(5) {
+        border-top: 1px solid #d1e9fe;
+    }
+
+    .amount-yuan {
+        padding: 8px 30px 8px 0 !important;
+    }
+
+    .table-bordered th {
+        border-bottom: 2px solid #fff;
+    }
+
+    .table-bordered th, .table-bordered td {
+        border: solid 2px #fff;
+    }
+</style>
+<div class="my_Center_margin">
+    <!--<ul class="bread bg" style="height: 40px;line-height: 40px;margin-top: 10px">-->
+        <!--<li style="padding-left: 20px;">我的账户</li>-->
+    <!--</ul>-->
+    <table class="table amount">
+        <tr>
+            <td rowspan="2" class="text-big xs2 xl6" width="100px">现金余额</td>
+            <td rowspan="2" class="text-big xs2 xl6"><strong
+                    class="text-large text-yellow">{{account.attrs.balance}}</strong>&nbsp;&nbsp;元
+            </td>
+            <td rowspan="2" class="xs2 xl12" style="border-right: 1px solid #d1e9fe;">
+                <button class="button border-basic" type="button"
+                        data-ng-click="withdraw()">提现
+                </button>
+            </td>
+            <td class="amount-right xs6 xl12">账户总收入 <strong
+                    class="text-blue text-big xl5-move">{{account.attrs.total}}</strong>&nbsp;&nbsp;元
+            </td>
+            <td class="amount-right xl12">总提款额 <strong
+                    class="text-blue text-big xl5-move">{{account.attrs.withdraw}}</strong>&nbsp;&nbsp;元
+            </td>
+        </tr>
+    </table>
+    <div class="tab border-blue margin-large-top">
+        <div class="tab-head">
+            <ul class="tab-nav">
+                <li class="active"><a href="#tab-income">收入明细</a></li>
+                <li><a href="#tab-withdraw">提现明细</a></li>
+            </ul>
+        </div>
+        <div class="tab-body">
+            <div class="tab-panel active" id="tab-income">
+                <table class="table table-bordered table-condensed">
+                    <tr class="blue">
+                        <th>付费时间</th>
+                        <th>视频名称</th>
+                        <th class="hidden-l hidden-s">观看用户</th>
+                        <th class="hidden-l hidden-s" style="text-align: right;">付费金额（元）</th>
+                        <th class="hidden-m hidden-b detail_add" style="text-align: center" data-ng-click="tabIncome(row)">详情</th>
+                    </tr>
+                    <tr class="current" data-ng-repeat="row in incPage.list">
+                        <td>{{row.attrs.time}}</td>
+                        <td>{{row.attrs.video}}</td>
+                        <td class="hidden-l hidden-s">{{row.attrs.user}}</td>
+                        <td class="hidden-l hidden-s" style="text-align: right;">{{row.attrs.amount}}</td>
+                        <td class="hidden-m hidden-b text-center detail_add" data-ng-click="tabIncome(row)"><button class="button detail_addbtn">查看详情</button></td>
+                    </tr>
+                </table>
+                <div id="tabIncome" style="display: none; padding: 20px 10px;">
+                    <ul style="line-height: 35px">
+                        <li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">付费时间</strong>{{income.attrs.time}}</li>
+                        <li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">视频名称</strong>{{income.attrs.video}}</li>
+                        <li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">观看用户</strong>{{income.attrs.user}}</li>
+                        <li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">付费金额（元）</strong>{{income.attrs.amount}}</li>
+                    </ul>
+                    <div class="clearfloat"></div>
+                </div>
+                <div class="panel-foot text-center" style="overflow: hidden">
+                    <select class="input float-left layer_select" style="width: 120px;" data-ng-model="incSrh.pageSize"
+                            data-ng-change="incChangePageSize()">
+                        <option value=10>每页10行</option>
+                        <option value=20>每页20行</option>
+                        <option value=50>每页50行</option>
+                        <option value=100>每页100行</option>
+                    </select>
+                    <span class="float-right layer_rigsize">共[{{incPage.totalRow}}]条记录，当前[{{incPage.pageNumber}}/{{incPage.totalPage}}]页</span>
+                    <ul class="pagination layer_btn">
+                        <li><a target="_self" href="javascript:void(0)" data-ng-click="incFirst()">首页</a></li>
+                    </ul>
+                    <ul class="pagination layer_btn">
+                        <li><a target="_self" href="javascript:void(0)" data-ng-click="incPrevious()">上一页</a></li>
+                    </ul>
+                    <ul class="pagination layer_btn">
+                        <li><a target="_self" href="javascript:void(0)" data-ng-click="incNext()">下一页</a></li>
+                    </ul>
+                    <ul class="pagination layer_btn">
+                        <li><a target="_self" href="javascript:void(0)" data-ng-click="incLast()">尾页</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="tab-panel" id="tab-withdraw">
+                <table class="table table-bordered table-condensed">
+                    <tr class="blue">
+                        <th>申请时间</th>
+                        <th>所属银行</th>
+                        <th class="hidden-l hidden-s">银行账户</th>
+                        <th class="hidden-l hidden-s">持卡人姓名</th>
+                        <th class="hidden-l hidden-s" style="text-align: right;">提现金额（元）</th>
+                        <th class="hidden-l hidden-s">提现状态</th>
+                        <th class="hidden-m hidden-b detail_add" style="text-align: center" data-ng-click="tabWithdraw(row)">详情</th>
+                    </tr>
+                    <tr class="current" data-ng-repeat="row in witPage.list">
+                        <td>{{row.attrs.time}}</td>
+                        <td>{{row.attrs.bank}}</td>
+                        <td class="hidden-l hidden-s">{{row.attrs.account}}</td>
+                        <td class="hidden-l hidden-s">{{row.attrs.holder}}</td>
+                        <td class="hidden-l hidden-s" style="text-align: right;">{{row.attrs.amount}}</td>
+                        <td class="hidden-l hidden-s">{{row.attrs.state_str}}</td>
+                        <td class="hidden-m hidden-b text-center detail_add" data-ng-click="tabWithdraw(row)"><button class="button detail_addbtn">查看详情</button></td>
+                    </tr>
+                </table>
+                <div id="tabWithdraw" style="display: none; padding: 20px 10px;">
+                    <ul style="line-height: 35px">
+                        <li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">申请时间</strong>{{withdra.attrs.time}}</li>
+                        <li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">所属银行</strong>{{withdra.attrs.bank}}</li>
+                        <li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">银行账户</strong>{{withdra.attrs.account}}</li>
+                        <li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">持卡人姓名</strong>{{withdra.attrs.holder}}</li>
+                        <li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">提现金额(元)</strong>{{withdra.attrs.amount}}</li>
+                        <li class="xl12 xs6"><strong class="text-basic xl5 text-right padding-right">提现状态</strong>{{withdra.attrs.state_str}}</li>
+                    </ul>
+                    <div class="clearfloat"></div>
+                </div>
+                <div class="panel-foot text-center" style="overflow: hidden">
+                    <select class="input float-left layer_select" style="width: 120px;" data-ng-model="witSrh.pageSize"
+                            data-ng-change="witChangePageSize()">
+                        <option value=10>每页10行</option>
+                        <option value=20>每页20行</option>
+                        <option value=50>每页50行</option>
+                        <option value=100>每页100行</option>
+                    </select>
+                    <span class="float-right layer_rigsize" style="line-height: 40px">共[{{witPage.totalRow}}]条记录，当前[{{witPage.pageNumber}}/{{witPage.totalPage}}]页</span>
+                    <ul class="pagination layer_btn">
+                        <li><a target="_self" href="javascript:void(0)" data-ng-click="witFirst()">首页</a></li>
+                    </ul>
+                    <ul class="pagination layer_btn">
+                        <li><a target="_self" href="javascript:void(0)" data-ng-click="witPrevious()">上一页</a></li>
+                    </ul>
+                    <ul class="pagination layer_btn">
+                        <li><a target="_self" href="javascript:void(0)" data-ng-click="witNext()">下一页</a></li>
+                    </ul>
+                    <ul class="pagination layer_btn">
+                        <li><a target="_self" href="javascript:void(0)" data-ng-click="witLast()">尾页</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

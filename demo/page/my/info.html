@@ -1,0 +1,105 @@
+<meta charset="UTF-8" data-ng-init="initPage()">
+<div class="my_Center_margin">
+    <ul class="bread bg" style="height: 40px;line-height: 40px;margin-top: 10px">
+        <li style="padding-left: 20px;">我的信息</li>
+    </ul>
+    <form class="form-horizontal xl12 my_Center_form0" role="form">
+        <div class="form-group line">
+            <div class="left_inp xs2">
+                <label><b>用户ID</b></label>
+            </div>
+            <div class="xs5">
+                <input type="text" class="input" id="email"
+                       data-ng-model="loginInfo.attrs.id" disabled placeholder="请输入邮箱">
+            </div>
+        </div>
+        <div class="form-group line">
+            <div class="left_inp xs2">
+                <label><b>用户类型</b></label>
+            </div>
+            <div class="xs5">
+                <input data-ng-if="loginInfo.attrs.identity==2" type="text" class="input" disabled id="lastname"
+                       value="企业" placeholder="个人账户/企业账户">
+                <input data-ng-if="loginInfo.attrs.identity!=1" type="text" class="input" disabled id="lastname"
+                       value="个人" placeholder="个人账户/企业账户">
+            </div>
+        </div>
+        <div class="form-group line">
+            <div class="left_inp xs2">
+                <label><b>名字</b></label>
+            </div>
+            <div class="xs3">
+                <input type="text" class="input" disabled id="name"
+                       data-ng-model="loginInfo.attrs.legal_person" placeholder="请输入真是姓名">
+            </div>
+            <div class="left_inp xs2">
+                <label><b>联系电话</b></label>
+            </div>
+            <div class="xs3">
+                <input type="text" class="input" disabled id="phone"
+                       data-ng-model="loginInfo.attrs.tel" placeholder="请输入联系方式">
+            </div>
+        </div>
+        <div class="form-group line">
+            <div class="left_inp xs2">
+                <label><b>身份证号</b></label>
+            </div>
+            <div class="xs5">
+                <input type="text" class="input" disabled id="id_card"
+                       data-ng-model="loginInfo.attrs.identif" placeholder="请输入18位身份证号">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="my_Center_form0" style="border-bottom: 1px solid gainsboro; margin: 20px 0;"></div>
+        </div>
+        <div class="form-group line">
+            <div class="left_inp xs2">
+                <label><b>企业名称</b></label>
+            </div>
+            <div class="xs5">
+                <input type="text" class="input" disabled id="company_name"
+                       data-ng-model="loginInfo.attrs.name" placeholder="请输入企业名称">
+            </div>
+        </div>
+        <div class="form-group line">
+            <div class="left_inp xs2">
+                <label><b>注册识别号</b></label>
+            </div>
+            <div class="xs5">
+                <input type="text" class="input" disabled id="register_id"
+                       data-ng-model="loginInfo.attrs.r_code" placeholder="请输入注册码">
+            </div>
+        </div>
+        <div class="form-group line">
+            <div class="left_inp xs2">
+                <label><b>营业执照</b></label>
+            </div>
+            <div class="xs5">
+                <a href="{{loginInfo.attrs.license}}">
+                    <img class="xl2-move xl8 img-responsive" data-ng-src="{{loginInfo.attrs.license}}" alt="">
+                </a>
+            </div>
+        </div>
+        <div class="form-group line">
+            <div class="left_inp xs2">
+                <label><b>企业地址</b></label>
+            </div>
+            <div class="xs5">
+                <input type="text" class="input" disabled id="company_address"
+                       data-ng-model="loginInfo.attrs.address" placeholder="请输入企业地址">
+            </div>
+        </div>
+        <div class="form-group line">
+            <p class="line">
+                <button type="submit" class="button com_req_btn xm4-move xm4 xl1-move xl10" data-ng-click="edit()">
+                    编辑信息
+                </button>
+                <button type="submit" class="button com_req_btn xm4-move xm4 xl1-move xl10" data-ng-click="modify()">
+                    修改密码
+                </button>
+            </p>
+
+        </div>
+    </form>
+    <div class="clearfloat"></div>
+</div>
